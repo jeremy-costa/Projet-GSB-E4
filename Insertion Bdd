@@ -1,0 +1,143 @@
+--  ---Insertion categorie OK--- --
+
+insert into categorie values ('F','Femme');
+insert into categorie values ('H','Homme');
+insert into categorie values ('E','Enfant');
+
+
+--  ---Insertion Marques--- --
+insert into marque values ('LOU','Louboutin',1163101);
+insert into marque values ('LH','LaHalle', 4305952);
+insert into marque values ('IC','Irregular Choice', 3215249);
+
+--  ---Insertion Type--- --
+insert into type values ('TO','Tongue');
+insert into type values ('BO','Bottes');
+insert into type values ('BA','Baskets');
+insert into type values ('VI','Ville');
+insert into type values ('TA','Tallons');
+insert into type values ('SO','Soirée');
+insert into type values ('SP','Sport');
+
+--  ---Insertion Taille OK--- --
+insert into taille values (34);
+insert into taille values (35);
+insert into taille values (36);
+insert into taille values (37);
+insert into taille values (38);
+insert into taille values (39);
+insert into taille values (40);
+insert into taille values (41);
+insert into taille values (42);
+insert into taille values (43);
+insert into taille values (44);
+insert into taille values (45);
+insert into taille values (46);
+insert into taille values (47);
+
+
+--  ---Insertion Saison OK--- --
+insert into saison values ('PE','Printemps/Ete');
+insert into saison values ('AH','Automne/Hiver');
+
+
+--  ---Insertion modele Femme --- --
+			
+insert into modele values ('FBO01', 'BO', 'LH', 'F', 'AH', 'Bottines avec liens façons écailles', 39.99, 5, 'Cuir','Marron', '');
+
+insert into modele values ('FES01', 'TA', 'LH', 'F', 'PE', 'Escarpins à talons aiguille et bride', 39.99, 7, 'Textile','Noir', '');
+
+insert into modele values ('FES02', 'TA', 'LH', 'F', 'PE', 'Escarpins unis bouts pointus', 20.99, 7, 'Textile','Bordeaux', '');
+
+insert into modele values ('FBL01', 'VI', 'LH', 'F', 'PE', 'Ballerines bicolores', 19.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('FBA01', 'BA', 'LH', 'F', 'PE', 'Baskets de running imprimé', 36.99, 3, 'Textile','Multicolore', '');
+
+insert into modele values ('FBO02', 'BO', 'LH', 'F', 'AH', 'Bottines avec talons fins', 44.99, 7, 'Textile','Bleu', '');
+
+insert into modele values ('FBO03', 'BO', 'LH', 'F', 'AH', 'Bottines imprimé fleuri à talons', 65.00, 7, 'Textile','Noir', '');
+
+insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noire', '');
+
+insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes montantes à talons aiguilles', 65.00, 10, 'Textile','Noir', '');
+
+insert into modele values ('FBA02', 'BA', 'LH', 'F', 'PE', 'Baskets montantes unies', 37.99, 8, 'Textile','Bleu', '');
+
+insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.99, 4, 'Textile/Cuir','Grise', '');
+
+insert into modele values ('FBA04', 'BA', 'LH', 'F', 'PE', 'Baskets bicolores fluos', 39.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('FEP01', 'SO', 'LH', 'F', 'PE', 'Espadrilles talons compensés', 29.99, 4, 'Textile','Noir', '');
+
+insert into modele values ('FBO06', 'BO', 'LH', 'F', 'AH', 'Boots bottines', 49.99, 4, 'Textile','Marron', '');
+
+
+--  ---Insertion modele Homme--- --
+	
+insert into modele values ('HCH01', 'VI', 'LH', 'H', 'AH', 'Chaussures renforcées en cuir', 49.99, 4, 'Cuir','Jaune', '');
+
+insert into modele values ('HSP01', 'SP', 'LH', 'H', 'AH', 'Chaussures de marche bicolore', 89.95, 8, 'Textile','Noir', '');
+
+insert into modele values ('HBO01', 'BO', 'LH', 'H', 'AH', 'Bottines unies en cuir avec ouverture lacets', 59.99, 4, 'Cuir','Gris', '');
+
+insert into modele values ('HBA01', 'BA', 'LH', 'H', 'PE', 'Tennis basses bicolores', 59.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('HBA02', 'BA', 'LH', 'H', 'PE', 'Derbies en toile unie', 29.99, 3, 'Textile','Gris', '');
+
+insert into modele values ('HBA03', 'BA', 'LH', 'H', 'PE', 'Tennis mode bimatières', 39.99, 6, 'Textile/Cuir','Marron', '');
+
+insert into modele values ('HBA04', 'BA', 'LH', 'H', 'AH', 'Baskets bimatières en cuir', 65, 4, 'Cuir','Marron/bleu', '');
+
+insert into modele values ('HBA05', 'BA', 'LH', 'H', 'PE', 'Tennis basses milne', 50, 6, 'Textile','Noir', '');
+
+insert into modele values ('HSP02', 'SP', 'LH', 'H', 'AH', 'Baskets running basses Flex Experience', 70, 4, 'Textile','Rouge', '');
+
+insert into modele values ('HBA06', 'BA', 'LH', 'H', 'PE', 'Baskets basses star wars', 29.99, 7, 'Textile','Noir', '');
+
+insert into modele values ('HCH02', 'VI', 'LH', 'H', 'AH', 'Sneaker de ville à scratch', 54.99, 4, 'Cuir','Marron', '');
+
+insert into modele values ('HTO01', 'TO', 'LH', 'H', 'PE', 'Tongs solarsoft', 25, 4, 'Caoutchouc','Bleu', '');
+
+insert into modele values ('HBO02', 'BO', 'LH', 'H', 'AH', 'Bottes santiags unies en cuir', 79.99, 4, 'Cuir','Noir', '');
+
+insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets jean cuir', 89, 8, 'Textile/Cuir','Marron/bleu', '');
+
+
+--  ---Insertion modele Enfant--- --
+ 			 IDCHAUS  IDTYPE IDMARQUE IDCAT IDSAISON	LIBELLLE PRIX STOCK  MATI   COULEUR  IMAGE
+
+insert into modele values ('EBA01', 'BA', 'LH', 'E', 'PE', 'Baskets montantes', 19.99, 6, 'Textile','Marron', '');
+
+insert into modele values ('EBA02', 'BA', 'LH', 'E', 'PE', 'Baskets charlie and friends', 37.99, 5, 'Textile','Noir', '');
+
+insert into modele values ('EBA03', 'BA', 'LH', 'E', 'PE', 'Baskets charlie', 19.99, 6, 'Textile','Bleu', '');
+
+insert into modele values ('EBA04', 'BA', 'LH', 'E', 'PE', 'Baskets basses', 19.99, 4, 'Textile','Gris/Bleu', '');
+
+insert into modele values ('EBA05', 'BA', 'LH', 'E', 'PE', 'Baskets marins', 19.99, 6, 'Textile','Bleu/Blanc', '');
+
+insert into modele values ('EBA06', 'BA', 'LH', 'E', 'PE', 'Baskets tams bleu', 24.99, 9, 'Textile','Bleu', '');
+
+insert into modele values ('ECH01', 'VI', 'LH', 'E', 'AH', 'chaussures de costume', 24.99, 4, 'Textile','Noir', '');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
