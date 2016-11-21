@@ -104,7 +104,6 @@ insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets je
 
 
 --  ---Insertion modele Enfant--- --
- 			 IDCHAUS  IDTYPE IDMARQUE IDCAT IDSAISON	LIBELLLE PRIX STOCK  MATI   COULEUR  IMAGE
 
 insert into modele values ('EBA01', 'BA', 'LH', 'E', 'PE', 'Baskets montantes', 19.99, 6, 'Textile','Marron', '');
 
