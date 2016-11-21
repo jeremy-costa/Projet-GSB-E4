@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\metier\Visiteur;
+use App\metier\Client;
 use Request;
 
 class VisiteurController extends Controller {
@@ -15,10 +15,10 @@ class VisiteurController extends Controller {
     public function signIn() {
         $login = Request::input('login');
         $pwd = Request::input('pwd');
-        $unVisiteur = new Visiteur();
-        $connected = $unVisiteur->login($login, $pwd);
+        $unClient = new Client();
+        $connected = $unClient->login($login, $pwd);
         if ($connected) {
-            return view('home');
+            return view('accueil');
         } else {
             $erreur = "Login ou mot de passe inconnu !";
             return view('formLogin', compact('erreur'));
@@ -26,9 +26,9 @@ class VisiteurController extends Controller {
     }
 
     public function signOut() {
-        $unVisiteur = new Visiteur();
-        $unVisiteur->logout();
-        return view('home');
+        $unClient = new Client();
+        $unClient->logout();
+        return view('accueil');
     }
 
     public function getSubscribe() {

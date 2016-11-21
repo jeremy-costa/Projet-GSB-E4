@@ -3,7 +3,7 @@
 
 <div class="col-md-12 well well-md">
     
-    <center><h1>Authentification</h1></center>
+    <center><h1>Inscription</h1></center>
     {!! Form::open(['url' => 'login']) !!}
     <div class="form-horizontal">    
         <div class="form-group">
@@ -19,9 +19,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Mot de passe : </label>
+            <label class="col-md-3 control-label">Adresse e-mail : </label>
             <div class="col-md-6 col-md-3">
-                <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
+                <input type="mail" name="mail" class="form-control" placeholder="Votre adresse e-mail" required>
             </div>
         </div>
         <div class="form-group">

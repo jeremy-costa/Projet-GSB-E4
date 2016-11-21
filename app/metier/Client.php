@@ -2,6 +2,7 @@
 
 namespace App\metier;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 use DB;
 
 class Client extends Model {
@@ -30,5 +31,23 @@ class Client extends Model {
         return $this->getKey();
     }
     
+    public function login($login, $pwd) {
+        $connected = false;
+        $client = DB::table('client')
+                ->select()
+                ->where('pseudo', '=', $login)
+                ->first();
+        if($client) {
+            if ($client->MDP == $pwd) {
+                Session::put('id', $client->IDCLI);
+                $connected = true;
+            }
+        }
+        return $connected;
+    }
+    
+    public function logout() {
+        Session::put('id', 0);
+    }
   
 }
