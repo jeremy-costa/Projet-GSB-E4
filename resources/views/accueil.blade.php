@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
-      
-    </head>
-    <body>
-        <H1> Accueil dans template </h1>
-        <p> 
-        <P>
-        <p><a href="{{url('/Bonjour')}}">Bonjour à tous !</a></p>
-        
-    </body>
-</html>
+@extends('layouts.master')
+@section('content')
+
+<div>
+    <h1 class="bvn">Bienvenue sur COPEC!</h1>
+</div>
+@stop
