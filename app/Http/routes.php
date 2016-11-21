@@ -16,7 +16,7 @@
 Route::get('/', function () { return view('accueil'); });
 
 //Login
-Route::get('/getLogin', 'VisiteurController@getlogin');
-Route::get('/getSubscribe', 'VisiteurController@getsubscribe');
-Route::post('/login', 'VisiteurController@signIn');
-Route::get('/getLogout', 'VisiteurController@signOut');
+Route::get('/getLogin', 'ClientController@getlogin');
+Route::get('/getSubscribe', 'ClientController@getsubscribe');
+Route::post('/login', 'ClientController@signIn');
+Route::get('/getLogout', 'ClientController@signOut');
