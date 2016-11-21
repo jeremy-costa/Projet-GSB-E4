@@ -9,6 +9,7 @@ insert into categorie values ('E','Enfant');
 insert into marque values ('LOU','Louboutin',1163101);
 insert into marque values ('LH','LaHalle', 4305952);
 insert into marque values ('IC','Irregular Choice', 3215249);
+insert into marque values ('CH','Chaussea',2568423);
 
 --  ---Insertion Type--- --
 insert into type values ('TO','Tongue');
@@ -20,6 +21,16 @@ insert into type values ('SO','Soirée');
 insert into type values ('SP','Sport');
 
 --  ---Insertion Taille OK--- --
+insert into taille values (24);
+insert into taille values (25);
+insert into taille values (26);
+insert into taille values (27);
+insert into taille values (28);
+insert into taille values (29);
+insert into taille values (30);
+insert into taille values (31);
+insert into taille values (32);
+insert into taille values (33);
 insert into taille values (34);
 insert into taille values (35);
 insert into taille values (36);
@@ -104,7 +115,7 @@ insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets je
 
 
 --  ---Insertion modele Enfant--- --
-
+ 			 
 insert into modele values ('EBA01', 'BA', 'LH', 'E', 'PE', 'Baskets montantes', 19.99, 6, 'Textile','Marron', '');
 
 insert into modele values ('EBA02', 'BA', 'LH', 'E', 'PE', 'Baskets charlie and friends', 37.99, 5, 'Textile','Noir', '');
@@ -119,24 +130,63 @@ insert into modele values ('EBA06', 'BA', 'LH', 'E', 'PE', 'Baskets tams bleu', 
 
 insert into modele values ('ECH01', 'VI', 'LH', 'E', 'AH', 'chaussures de costume', 24.99, 4, 'Textile','Noir', '');
 
+-- --Suite chaussures enfants --- --
 
+insert into modele values ('EBA07', 'BA', 'CH', 'E', 'PE', 'Baskets bleues', 19.99, 4, 'Textile','Bleu', '');
 
+insert into modele values ('ESP01', 'SP', 'CH', 'E', 'AH', 'Denim sport', 12.99, 9, 'Textile','Noir', '');
 
+insert into modele values ('EBA08', 'BA', 'CH', 'E', 'PE', 'Baskets Star Wars', 29.99, 9, 'Textile','Gris', '');
 
+insert into modele values ('EBA09', 'BA', 'CH', 'E', 'PE', 'Baskets Pokemon', 24.99, 3, 'Textile','Noir', '');
 
+insert into modele values ('EBA10', 'BA', 'CH', 'E', 'PE', 'Baskets Cars', 24.99, 7, 'Textile','Noir', '');
 
+insert into modele values ('EBA11', 'BA', 'CH', 'E', 'PE', 'Baskets Cars', 24.99, 4, 'Textile','Noir', '');
 
+insert into modele values ('EBA12', 'BA', 'CH', 'E', 'PE', 'Baskets Planes', 24.99, 4, 'Textile','Noir', '');
 
+insert into modele values ('EBO01', 'BO', 'CH', 'E', 'AH', 'Bottillons junior', 24.99, 4, 'Textile','Noir', '');
 
+insert into modele values ('EBO02', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie and friends', 24.99, 4, 'Textile','Marron', '');
 
+insert into modele values ('EBO03', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie', 19.99, 8, 'Textile','Noir', '');
 
+insert into modele values ('EBO04', 'BO', 'CH', 'E', 'AH', 'Bottillons marron', 29.99, 8, 'Textile','Marron', '');
 
+insert into modele values ('EBO05', 'BO', 'CH', 'E', 'AH', 'Bottillons minions', 29.99, 4, 'Textile','Marron', '');
 
+insert into modele values ('EBO06', 'BO', 'CH', 'E', 'AH', 'Bottillons', 24.99, 3, 'Textile','Marron', '');
 
+insert into modele values ('EBO07', 'BO', 'CH', 'E', 'AH', 'Bottillons montants', 24.99, 6, 'Textile','Marron', '');
 
+insert into modele values ('EBO08', 'BO', 'CH', 'E', 'AH', 'Bottillons avec fermeture éclair', 19.99, 6, 'Textile','Marron', '');
 
+insert into modele values ('EBO09', 'BO', 'CH', 'E', 'AH', 'Bottillons doux', 24.99, 6, 'Textile','Marron', '');
 
+insert into modele values ('EBO10', 'B0', 'CH', 'E', 'AH', 'Bottillons gris', 19.99, 6, 'Textile','Gris/Bleu', '');
 
+insert into modele values ('EBO11', 'BO', 'CH', 'E', 'AH', 'Bottillons gris et rouge', 24.99, 5, 'Textile','Gris', '');
 
+insert into modele values ('EBO12', 'BO', 'CH', 'E', 'AH', 'Bottillons Spiderman', 29.99, 4, 'Textile','Noir', '');
 
+insert into modele values ('EBO13', 'BO', 'CH', 'E', 'AH', 'Bottillons montants blancs', 29.99, 4, 'Textile','Blanc', '');
+
+insert into modele values ('EBO14', 'BO', 'CH', 'E', 'AH', 'Bottillons montants bleus', 19.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('EBA13', 'BA', 'CH', 'E', 'PE', 'Chaussures basses', 14.99, 9, 'Textile','Rouge', '');
+
+insert into modele values ('EBA14', 'BA', 'CH', 'E', 'PE', 'Baskets imprimé militaire', 14.99, 9, 'Textile','Orange', '');
+
+insert into modele values ('EBA15', 'BA', 'CH', 'E', 'PE', 'Baskets Airness', 39.99, 9, 'Textile','Gris', '');
+
+insert into modele values ('EBA16', 'BA', 'CH', 'E', 'PE', 'Baskets Reine des Neiges', 49.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('ESP02', 'SP', 'CH', 'E', 'AH', 'Chaussures basses', 19.99, 4, 'Textile','Beige', '');
+
+insert into modele values ('ECH02', 'VI', 'CH', 'E', 'AH', 'baskets Fleurs', 24.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('EBA17', 'BA', 'CH', 'E', 'AH', 'Baskets ciel', 14.99, 4, 'Textile','Bleu', '');
+
+insert into modele values ('ECH03', 'VI', 'CH', 'E', 'AH', 'Chaussures multicolors', 14.99, 4, 'Textile','Rose', '');
 
