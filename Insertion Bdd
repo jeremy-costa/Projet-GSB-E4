@@ -1,3 +1,8 @@
+/*==============================================================*/
+/* INSERT: 22/11/2016		                                        */
+/*==============================================================*/
+
+
 --  ---Insertion categorie OK--- --
 
 insert into categorie values ('F','Femme');
@@ -190,3 +195,66 @@ insert into modele values ('EBA17', 'BA', 'CH', 'E', 'AH', 'Baskets ciel', 14.99
 
 insert into modele values ('ECH03', 'VI', 'CH', 'E', 'AH', 'Chaussures multicolors', 14.99, 4, 'Textile','Rose', '');
 
+
+-- ---Insertion Client--- --
+insert into client values (1,'Societe','COPEC','141 rue D',655998877,'admin@copec.com','admin','admin',1);
+
+--  ---Insertion pointure Femme--- --
+
+insert into pointure values ('FBO01', '36', '5');
+
+insert into pointure values ('FBO01', '38', '5'); 
+
+insert into pointure values ('FBO01', '38', '5'); 
+
+insert into pointure values ('FES01', '38', '7');
+
+insert into pointure values ('FES01', '39', '7');
+
+insert into pointure values ('FES02', '40', '7');
+
+insert into pointure values ('FES02', '36', '7');
+
+insert into pointure values ('FBL01', '37', '4');
+
+insert into pointure values ('FBL01', '36', '4');
+
+insert into pointure values ('FBA01', '36', '3');
+
+insert into pointure values ('FBA01', '38', '3');
+
+insert into pointure values ('FBO02', '38', '7');
+
+insert into pointure values ('FBO02', '40', '7');
+
+insert into pointure values ('FBO03', '40', '7');
+
+insert into pointure values ('FBO03', '37', '7');
+
+insert into pointure values ('FBO04', '37', '7');
+
+insert into pointure values ('FBO04', '39', '7');
+
+insert into pointure values ('FBO05', '39', '10');
+
+insert into pointure values ('FBO05', '37', '10');
+
+insert into pointure values ('FBA02', '37', '8');
+
+insert into pointure values ('FBA02', '36', '8');
+
+insert into pointure values ('FBA03', '35', '4');
+
+insert into pointure values ('FBA03', '39', '4');
+
+insert into pointure values ('FBA04', '38', '4');
+
+insert into pointure values ('FBA04', '40', '4');
+
+insert into pointure values ('FEP01', '36', '4');
+
+insert into pointure values ('FEP01', '38', '4');
+
+insert into pointure values ('FBO06', '36', '4');
+
+insert into pointure values ('FBO06', '39', '4');
