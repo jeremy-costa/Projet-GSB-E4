@@ -25,11 +25,7 @@ class Modele extends Model{
         $this->idCh= 0;
     }
     
-    public function getListeModeles(){
-        $query = DB::table('Modele')
-                ->get();
-        return $query;       
-    }
+   
     
     public function getidModele(){
         return $this->getKey();
@@ -41,5 +37,17 @@ class Modele extends Model{
                 ->where('idCh', '=', $id)
                 -> first();
         return $query;
+    }
+    
+      public function getListeModeles(){
+
+        $lesChaussures= DB::table('Modele')
+                ->Select('LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->get();
+        return $lesChaussures;       
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\metier\Client;
 use Request;
 
-class VisiteurController extends Controller {
+class ClientController extends Controller {
 
     public function getLogin() {
         $erreur = "";
