@@ -1,8 +1,6 @@
 /*==============================================================*/
-/* Nom de SGBD :  ORACLE Version 11g                            */
-/* Date de création :  16/11/2016 16:13:52                      */
+/* BDD : 22/11/2016		                                        */
 /*==============================================================*/
-
 
 /*==============================================================*/
 /* Table : CATEGORIE                                            */
@@ -22,8 +20,9 @@ create table CLIENT
    IDCLI                INT(3)            not null,
    NOMCLI               VARCHAR(20),
    PRENOMCLI            VARCHAR(20),
-   ADRESSECLI           VARCHAR(30),
+   ADRESSECLI           VARCHAR(100),
    NUMTELCLI            INT(10),
+   MAIL			VARCHAR(30),
    PSEUDO		VARCHAR(10),
    MDP			VARCHAR(20),
    LVLSECURITE		BOOLEAN,
@@ -76,7 +75,7 @@ create table MODELE
    IDMARQUE             VARCHAR(5)            not null,
    IDCAT                VARCHAR(5)            not null,
    IDSAISON             VARCHAR(5)           not null,
-   LIBELLECH            VARCHAR(20),
+   LIBELLECH            VARCHAR(50),
    PRIXCH               DECIMAL(6,2),
    STOCKCH              INT(2),
    MATIERECH            VARCHAR(20),
