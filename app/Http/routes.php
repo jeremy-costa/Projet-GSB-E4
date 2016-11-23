@@ -18,6 +18,7 @@ Route::get('/', function () { return view('accueil'); });
 //Partie connexion et inscription
 Route::get('/getLogin', 'ClientController@getlogin');
 Route::get('/getSubscribe', 'ClientController@getsubscribe');
+Route::post('/subscribe', 'ClientController@SubscribeIn');
 Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 

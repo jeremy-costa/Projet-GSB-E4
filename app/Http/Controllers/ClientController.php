@@ -35,5 +35,18 @@ class ClientController extends Controller {
         $erreur = "";
         return view('formSubscribe', compact('erreur'));
     }
-}
 
+    public function SubscribeIn() {
+        $login = Request::input('login');
+        $pwd = Request::input('pwd');
+        $nom = Request::input('nom');
+        $prenom = Request::input('prenom');
+        $mail = Request::input('mail');
+        $adr = Request::input('adr');
+        $tel = Request::input('tel');
+        $unClient = new Client();
+        $unClient->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel);
+        return view('formSubscribe', compact('erreur'));
+    }
+
+}
