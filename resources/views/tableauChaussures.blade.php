@@ -18,6 +18,10 @@
                         <th>Pour quand ?</th>
                         <th>Image</th>
                         <th>Stock </th>
+                        @if ( $Client->LVLSECURITE == 1)
+                            <th>Modifier</th>
+                        @endif
+                        
                          
                     </tr>
                 </thead>
@@ -35,7 +39,11 @@
                     <td> {{$uneChaussure->LIBELLESAISON }} </td>
                     <td> <img href src="resources/images/{{$uneChaussure->IMAGE }}"</img></td>
          
-                    <td>  {{$uneChaussure->STOCKCH}}  </td>    
+                    <td>  {{$uneChaussure->STOCKCH}}  </td>
+                    @if ( $Client->LVLSECURITE == 1)
+                    <td style="text-align:center;"><a href="{{ url('/modifierManga') }}">
+                              <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"></span></a></td>
+                              @endif
                 </tr>
                 @endforeach
                 <BR> <BR>

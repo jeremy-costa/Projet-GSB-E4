@@ -16,9 +16,10 @@ class ClientController extends Controller {
         $login = Request::input('login');
         $pwd = Request::input('pwd');
         $unClient = new Client();
+        $Client = $unClient->getClient($login, $pwd);
         $connected = $unClient->login($login, $pwd);
         if ($connected) {
-            return view('accueil');
+            return view('layouts/master',compact('Client'));
         } else {
             $erreur = "Login ou mot de passe inconnu !";
             return view('formLogin', compact('erreur'));

@@ -4,17 +4,22 @@
 
 namespace App\Http\Controllers;
 use App\metier\Modele;
+use App\metier\Client;
 
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
 
+
 class ChaussuresController extends Controller {
     
-    public function getListeChaussures($levelsecurite){
+    public function getListeChaussures(){
         $uneChaussure = new Modele();
         $lesChaussures = $uneChaussure->getListeModeles();
-        return view('tableauChaussures', compact('lesChaussures','levelsecurite'));
+        $unClient = new Client();
+        $id = Session::get('id');
+        $Client = $unClient->getClient($id);
+        return view('tableauChaussures', compact('lesChaussures','Client'));
     }
     
 //    public function ajoutManga(){

@@ -58,5 +58,12 @@ class Client extends Model {
         }
         return $connected;
     }
-
+    
+    public function getClient($id){
+        $client = DB::table('client')
+                ->Select('NOMCLI','PRENOMCLI','PSEUDO','LVLSECURITE')
+                ->Where ('IDCLI','=',$id)
+                ->first();
+        return $client;
+    }
 }

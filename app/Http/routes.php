@@ -22,4 +22,4 @@ Route::post('/subscribe', 'ClientController@SubscribeIn');
 Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 
-route::get('/listerChaussure/{id}', ['uses' => 'ChaussuresController@getListeChaussures']);
+route::get('/listerChaussure', ['uses' => 'ChaussuresController@getListeChaussures']);
