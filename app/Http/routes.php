@@ -22,4 +22,8 @@ Route::post('/subscribe', 'ClientController@SubscribeIn');
 Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 
-route::get('/listerChaussure', ['uses' => 'ChaussuresController@getListeChaussures']);
+route::get('/listerChaussureHomme', ['uses' => 'ChaussuresController@getListeChaussuresHomme']);
+route::get('/listerChaussureFemme', ['uses' => 'ChaussuresController@getListeChaussuresFemme']);
+route::get('/listerChaussureEnfant', ['uses' => 'ChaussuresController@getListeChaussuresEnfant']);
+Route::get('/supprimer/{id}/{type}', ['as' => 'SupprimerChaussure',
+    'uses' => 'ChaussuresController@SupprimerChaussure']);

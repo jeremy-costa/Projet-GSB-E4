@@ -39,15 +39,20 @@ class Modele extends Model{
         return $query;
     }
     
-      public function getListeModeles(){
+      public function getListeModeles($type){
 
         $lesChaussures= DB::table('Modele')
-                ->Select('LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH')
                 ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
                 ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
                 ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
                 ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('MODELE.IDCAT','=',$type)
                 ->get();
         return $lesChaussures;       
+    }
+    
+      public function SupprimerChaussure($id){
+    DB::table('modele')->where('IDCH','=',$id)->delete();
     }
 }
