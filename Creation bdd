@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* BDD : 22/11/2016		                                        */
+/* BDD : 29/11/2016		 15:44                                       */
 /*==============================================================*/
 
 /*==============================================================*/
@@ -17,7 +17,7 @@ create table CATEGORIE
 /*==============================================================*/
 create table CLIENT 
 (
-   IDCLI                INT(3)            not null,
+   IDCLI                INT(3)NOT NULL AUTO_INCREMENT,
    NOMCLI               VARCHAR(20),
    PRENOMCLI            VARCHAR(20),
    ADRESSECLI           VARCHAR(100),
@@ -34,7 +34,7 @@ create table CLIENT
 /*==============================================================*/
 create table COMMANDE 
 (
-   IDCMDE               INT(10)           not null,
+   IDCMDE               INT(10)NOT NULL AUTO_INCREMENT,
    IDCLI                INT(3)            not null,
    DATECMDE             DATE,
    constraint PK_COMMANDE primary key (IDCMDE)
@@ -80,7 +80,7 @@ create table MODELE
    STOCKCH              INT(2),
    MATIERECH            VARCHAR(20),
    COULEURCH            VARCHAR(20),
-   IMAGE		VARCHAR(5),
+   IMAGE				VARCHAR(50),
    constraint PK_MODELE primary key (IDCH)
 );
 
@@ -88,12 +88,12 @@ create table MODELE
 /*==============================================================*/
 /* Table : POINTURES                                            */
 /*==============================================================*/
-create table POINTURES 
+create table POINTURE 
 (
    IDCH                 VARCHAR(10)         not null,
    IDTAILLE             INT(5)            not null,
    QTESTOCK             INT(3),
-   constraint PK_POINTURES primary key (IDCH, IDTAILLE)
+   constraint PK_POINTURE primary key (IDCH, IDTAILLE)
 );
 
 
@@ -158,11 +158,11 @@ alter table MODELE
    add constraint FK_MODELE_CREER_MARQUE foreign key (IDMARQUE)
       references MARQUE (IDMARQUE);
 
-alter table POINTURES
-   add constraint FK_POINTURE_POINTURES_MODELE foreign key (IDCH)
+alter table POINTURE
+   add constraint FK_POINTURE_POINTURE_MODELE foreign key (IDCH)
       references MODELE (IDCH);
 
-alter table POINTURES
-   add constraint FK_POINTURE_POINTURES_TAILLE foreign key (IDTAILLE)
+alter table POINTURE
+   add constraint FK_POINTURE_POINTURE_TAILLE foreign key (IDTAILLE)
       references TAILLE (IDTAILLE);
 
