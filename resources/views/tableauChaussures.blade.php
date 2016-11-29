@@ -70,6 +70,7 @@
                 @endforeach
                 <BR> <BR>
             </table>
+            <?php echo $lesChaussures->render(); ?>
         </div>
     </div>
 @stop

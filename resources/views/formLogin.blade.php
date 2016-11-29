@@ -2,32 +2,37 @@
 @section('content')
 
 <div class="col-md-12 well well-md">
-    
+
     <center><h1>Authentification</h1></center>
     {!! Form::open(['url' => 'login']) !!}
-    <div class="form-horizontal">    
-        <div class="form-group">
-            <label class="col-md-3 control-label">Identifiant : </label>
-            <div class="col-md-6  col-md-3">
-                <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-3 control-label">Mot de passe : </label>
-            <div class="col-md-6 col-md-3">
-                <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-3">
-                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
-            </div>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
+    <div class="modal-body">
+            @if ( $erreur != null)
+            <p>{{ $erreur }}</p>
+            @endif
+        <div id="div-login-msg">
             
+            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+            <span id="text-login-msg">Taper votre utilisateur et mot de passe</span>
+        </div>
+        <input name="login" class="form-control" type="text" placeholder="Utilisateur" required>
+        <input name="pwd" class="form-control" type="password" placeholder="Mot de passe" required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Se souvenir de moi
+            </label>
         </div>
     </div>
-    {!! Form::close() !!}
+    <div class="modal-footer">
+        <div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Valider</button>
+        </div>
+        <div>
+            <button id="login_lost_btn" type="button" class="btn btn-link">Mot de passe perdu</button>
+            <button id="login_register_btn" type="button" class="btn btn-link">S'enregistrer</button>
+        </div>
+    </div>
+</div>
+{!! Form::close() !!}
 </div>
 @stop
 

@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* INSERT: 22/11/2016		                                        */
+/* INSERT: 29/11/2016	15:44	                                        */
 /*==============================================================*/
 
 
@@ -57,153 +57,149 @@ insert into saison values ('PE','Printemps/Ete');
 insert into saison values ('AH','Automne/Hiver');
 
 
---  ---Insertion modele Femme --- --
+-- --- Insertion modele Femme --- --
+-- --- Ajouter les images commme "image.jpg" dans la base et inclure le dossier--- --
+-- --- Images dans l'arborescence du programme PHP --- --
 			
-insert into modele values ('FBO01', 'BO', 'LH', 'F', 'AH', 'Bottines avec liens façons écailles', 39.99, 5, 'Cuir','Marron', '');
+insert into modele values ('FBO01', 'BO', 'LH', 'F', 'AH', 'Bottines avec liens façons écailles', 39.99, 5, 'Cuir','Marron', 'Bottines_avec_liens.jpg');
 
-insert into modele values ('FES01', 'TA', 'LH', 'F', 'PE', 'Escarpins à talons aiguille et bride', 39.99, 7, 'Textile','Noir', '');
+insert into modele values ('FES01', 'TA', 'LH', 'F', 'PE', 'Escarpins à talons aiguille et bride', 39.99, 7, 'Textile','Noir', 'Escarpins_à_talon_aiguille_et_bride.jpg');
 
-insert into modele values ('FES02', 'TA', 'LH', 'F', 'PE', 'Escarpins unis bouts pointus', 20.99, 7, 'Textile','Bordeaux', '');
+insert into modele values ('FES02', 'TA', 'LH', 'F', 'PE', 'Escarpins unis bouts pointus', 20.99, 7, 'Textile','Bordeaux', 'Escarpins_unis_bout_pointu.jpg');
 
-insert into modele values ('FBL01', 'VI', 'LH', 'F', 'PE', 'Ballerines bicolores', 19.99, 4, 'Textile','Bleu', '');
+insert into modele values ('FBL01', 'VI', 'LH', 'F', 'PE', 'Ballerines bicolores', 19.99, 4, 'Textile','Bleu', 'Ballerines_bicolores.jpg');
 
-insert into modele values ('FBA01', 'BA', 'LH', 'F', 'PE', 'Baskets de running imprimé', 36.99, 3, 'Textile','Multicolore', '');
+insert into modele values ('FBA01', 'BA', 'LH', 'F', 'PE', 'Baskets de running imprimé', 36.99, 3, 'Textile','Rouge/Noir', 'Baskets_de_running_imprimé_abstrait.jpg');
 
-insert into modele values ('FBO02', 'BO', 'LH', 'F', 'AH', 'Bottines avec talons fins', 44.99, 7, 'Textile','Bleu', '');
+insert into modele values ('FBO02', 'BO', 'LH', 'F', 'AH', 'Bottines avec talons fins', 44.99, 7, 'Textile','Bleu', 'Bottines_avec_talons_fins.jpg');
 
-insert into modele values ('FBO03', 'BO', 'LH', 'F', 'AH', 'Bottines imprimé fleuri à talons', 65.00, 7, 'Textile','Noir', '');
+insert into modele values ('FBO03', 'BO', 'LH', 'F', 'AH', 'Bottines imprimé fleuri à talons', 65.00, 7, 'Textile','Noir', 'Bottines_imprimé_fleuri_à_talon.jpg');
 
-insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noire', '');
+insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noire', 'Boots_à_talons.jpg');
 
-insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes montantes à talons aiguilles', 65.00, 10, 'Textile','Noir', '');
+insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes montantes à talons aiguilles', 65.00, 10, 'Textile','Noir', 'Bottes_montantes_à_talons_aiguilles.jpg');
 
-insert into modele values ('FBA02', 'BA', 'LH', 'F', 'PE', 'Baskets montantes unies', 37.99, 8, 'Textile','Bleu', '');
+insert into modele values ('FBA02', 'BA', 'LH', 'F', 'PE', 'Baskets montantes unies', 37.99, 8, 'Textile','Bleu', 'Baskets_montantes_unies.jpg');
 
-insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.99, 4, 'Textile/Cuir','Grise', '');
+insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.99, 4, 'Textile/Cuir','Grise', 'Tennis_basses.jpg');
 
-insert into modele values ('FBA04', 'BA', 'LH', 'F', 'PE', 'Baskets bicolores fluos', 39.99, 4, 'Textile','Bleu', '');
+insert into modele values ('FBA04', 'BA', 'LH', 'F', 'PE', 'Baskets bicolores fluos', 39.99, 4, 'Textile','Bleu', 'Baskets_bicolores_fluos.jpg');
 
-insert into modele values ('FEP01', 'SO', 'LH', 'F', 'PE', 'Espadrilles talons compensés', 29.99, 4, 'Textile','Noir', '');
+insert into modele values ('FEP01', 'SO', 'LH', 'F', 'PE', 'Espadrilles talons compensés', 29.99, 4, 'Textile','Noir', 'Espadrilles_talons_compensés.jpg');
 
-insert into modele values ('FBO06', 'BO', 'LH', 'F', 'AH', 'Boots bottines', 49.99, 4, 'Textile','Marron', '');
+insert into modele values ('FBO06', 'BO', 'LH', 'F', 'AH', 'Boots bottines', 49.99, 4, 'Textile','Marron', 'boots_bottines.jpg');
 
 
 --  ---Insertion modele Homme--- --
 	
-insert into modele values ('HCH01', 'VI', 'LH', 'H', 'AH', 'Chaussures renforcées en cuir', 49.99, 4, 'Cuir','Jaune', '');
+insert into modele values ('HCH01', 'VI', 'LH', 'H', 'AH', 'Chaussures renforcées en cuir', 49.99, 4, 'Cuir','Jaune', 'chaussures_renforcées_en_cuir.jpg');
 
-insert into modele values ('HSP01', 'SP', 'LH', 'H', 'AH', 'Chaussures de marche bicolore', 89.95, 8, 'Textile','Noir', '');
+insert into modele values ('HSP01', 'SP', 'LH', 'H', 'AH', 'Chaussures de marche bicolore', 89.95, 8, 'Textile','Noir', 'chaussures_de_marche_bicolore.jpg');
 
-insert into modele values ('HBO01', 'BO', 'LH', 'H', 'AH', 'Bottines unies en cuir avec ouverture lacets', 59.99, 4, 'Cuir','Gris', '');
+insert into modele values ('HBO01', 'BO', 'LH', 'H', 'AH', 'Bottines unies en cuir avec ouverture lacets', 59.99, 4, 'Cuir','Gris', 'bottines_unies_en_cuir_avec_ouverture_lacets.jpg');
 
-insert into modele values ('HBA01', 'BA', 'LH', 'H', 'PE', 'Tennis basses bicolores', 59.99, 4, 'Textile','Bleu', '');
+insert into modele values ('HBA01', 'BA', 'LH', 'H', 'PE', 'Tennis basses bicolores', 59.99, 4, 'Textile','Bleu', 'Tennis_basses_bicolores.jpg');
 
-insert into modele values ('HBA02', 'BA', 'LH', 'H', 'PE', 'Derbies en toile unie', 29.99, 3, 'Textile','Gris', '');
+insert into modele values ('HBA02', 'BA', 'LH', 'H', 'PE', 'Derbies en toile unie', 29.99, 3, 'Textile','Gris', 'Derbies_en_toile_unie.jpg');
 
-insert into modele values ('HBA03', 'BA', 'LH', 'H', 'PE', 'Tennis mode bimatières', 39.99, 6, 'Textile/Cuir','Marron', '');
+insert into modele values ('HBA03', 'BA', 'LH', 'H', 'PE', 'Tennis mode bimatières', 39.99, 6, 'Textile/Cuir','Marron', 'Tennis_mode_bimatières.jpg');
 
-insert into modele values ('HBA04', 'BA', 'LH', 'H', 'AH', 'Baskets bimatières en cuir', 65, 4, 'Cuir','Marron/bleu', '');
+insert into modele values ('HBA04', 'BA', 'LH', 'H', 'AH', 'Baskets bimatières en cuir', 65, 4, 'Cuir','Marron/bleu', 'Baskets_bimatières_en_cuir.jpg');
 
-insert into modele values ('HBA05', 'BA', 'LH', 'H', 'PE', 'Tennis basses milne', 50, 6, 'Textile','Noir', '');
+insert into modele values ('HBA05', 'BA', 'LH', 'H', 'PE', 'Tennis basses milne', 50, 6, 'Textile','Noir', 'Tennis_basses_milne.jpg');
 
-insert into modele values ('HSP02', 'SP', 'LH', 'H', 'AH', 'Baskets running basses Flex Experience', 70, 4, 'Textile','Rouge', '');
+insert into modele values ('HSP02', 'SP', 'LH', 'H', 'AH', 'Baskets running basses flex experience', 70, 4, 'Textile','Rouge', 'Baskets_running_basses_flex_experience.jpg');
 
-insert into modele values ('HBA06', 'BA', 'LH', 'H', 'PE', 'Baskets basses star wars', 29.99, 7, 'Textile','Noir', '');
+insert into modele values ('HBA06', 'BA', 'LH', 'H', 'PE', 'Baskets basses star wars', 29.99, 7, 'Textile','Noir', 'Baskets_basses_star_wars.jpg');
 
-insert into modele values ('HCH02', 'VI', 'LH', 'H', 'AH', 'Sneaker de ville à scratch', 54.99, 4, 'Cuir','Marron', '');
+insert into modele values ('HCH02', 'VI', 'LH', 'H', 'AH', 'Sneaker de ville à scratch', 54.99, 4, 'Cuir','Marron', 'Sneaker_de_ville_à_scratch.jpg');
 
-insert into modele values ('HTO01', 'TO', 'LH', 'H', 'PE', 'Tongs solarsoft', 25, 4, 'Caoutchouc','Bleu', '');
+insert into modele values ('HTO01', 'TO', 'LH', 'H', 'PE', 'Tongs Solarsoft', 25, 4, 'Caoutchouc','Bleu', 'Tongs_Solarsoft.jpg');
 
-insert into modele values ('HBO02', 'BO', 'LH', 'H', 'AH', 'Bottes santiags unies en cuir', 79.99, 4, 'Cuir','Noir', '');
+insert into modele values ('HBO02', 'BO', 'LH', 'H', 'AH', 'Bottes santiags unies en cuir', 79.99, 4, 'Cuir','Noir', 'Bottes_santiags_unies_en_cuir.jpg');
 
-insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets jean cuir', 89, 8, 'Textile/Cuir','Marron/bleu', '');
+insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets jean cuir', 89, 8, 'Textile/Cuir','Marron/bleu', 'Baskets_à_lacets_jean_cuir.jpg');
 
 
 --  ---Insertion modele Enfant--- --
  			 
-insert into modele values ('EBA01', 'BA', 'LH', 'E', 'PE', 'Baskets montantes', 19.99, 6, 'Textile','Marron', '');
+insert into modele values ('EBA01', 'BA', 'LH', 'E', 'PE', 'Baskets montantes', 19.99, 6, 'Textile','Bleu/Gris', 'baskets_montantes_bleues.jpg');
 
-insert into modele values ('EBA02', 'BA', 'LH', 'E', 'PE', 'Baskets charlie and friends', 37.99, 5, 'Textile','Noir', '');
+insert into modele values ('EBA02', 'BA', 'LH', 'E', 'PE', 'Baskets charlie and friends', 37.99, 5, 'Textile','Noir', 'Baskets_charlie_and_friends.jpg');
 
-insert into modele values ('EBA03', 'BA', 'LH', 'E', 'PE', 'Baskets charlie', 19.99, 6, 'Textile','Bleu', '');
+insert into modele values ('EBA03', 'BA', 'LH', 'E', 'PE', 'Baskets charlie', 19.99, 6, 'Textile','Bleu', 'baskets_charlie.jpg');
 
-insert into modele values ('EBA04', 'BA', 'LH', 'E', 'PE', 'Baskets basses', 19.99, 4, 'Textile','Gris/Bleu', '');
+insert into modele values ('EBA04', 'BA', 'LH', 'E', 'PE', 'Baskets basses', 19.99, 4, 'Textile','Bleu', 'Baskets_bleues_jeans.jpg');
 
-insert into modele values ('EBA05', 'BA', 'LH', 'E', 'PE', 'Baskets marins', 19.99, 6, 'Textile','Bleu/Blanc', '');
+insert into modele values ('EBA05', 'BA', 'LH', 'E', 'PE', 'Baskets marins', 19.99, 6, 'Textile','Bleu/Blanc', 'baskets_marins.jpg');
 
-insert into modele values ('EBA06', 'BA', 'LH', 'E', 'PE', 'Baskets tams bleu', 24.99, 9, 'Textile','Bleu', '');
+insert into modele values ('EBA06', 'BA', 'LH', 'E', 'PE', 'Baskets tams bleu', 24.99, 9, 'Textile','Bleu', 'baskets_tams_bleu.jpg');
 
-insert into modele values ('ECH01', 'VI', 'LH', 'E', 'AH', 'chaussures de costume', 24.99, 4, 'Textile','Noir', '');
+insert into modele values ('ECH01', 'VI', 'LH', 'E', 'AH', 'chaussures de costume', 24.99, 4, 'Textile','Noir', 'chaussures_de_costume.jpg');
 
 -- --Suite chaussures enfants --- --
 
-insert into modele values ('EBA07', 'BA', 'CH', 'E', 'PE', 'Baskets bleues', 19.99, 4, 'Textile','Bleu', '');
+insert into modele values ('EBA07', 'BA', 'CH', 'E', 'PE', 'Baskets bleues', 19.99, 4, 'Textile','Bleu', 'baskets_bleues.jpg');
 
-insert into modele values ('ESP01', 'SP', 'CH', 'E', 'AH', 'Denim sport', 12.99, 9, 'Textile','Noir', '');
+insert into modele values ('ESP01', 'SP', 'CH', 'E', 'AH', 'Denim sport', 12.99, 9, 'Textile','Noir', 'Denim_sport.jpg');
 
-insert into modele values ('EBA08', 'BA', 'CH', 'E', 'PE', 'Baskets Star Wars', 29.99, 9, 'Textile','Gris', '');
+insert into modele values ('EBA08', 'BA', 'CH', 'E', 'PE', 'Baskets Star Wars', 29.99, 9, 'Textile','Gris', 'Baskets_Star_Wars.jpg');
 
-insert into modele values ('EBA09', 'BA', 'CH', 'E', 'PE', 'Baskets Pokemon', 24.99, 3, 'Textile','Noir', '');
+insert into modele values ('EBA09', 'BA', 'CH', 'E', 'PE', 'Baskets Pokemon', 24.99, 3, 'Textile','Noir', 'Baskets_Pokemon.jpg');
 
-insert into modele values ('EBA10', 'BA', 'CH', 'E', 'PE', 'Baskets Cars', 24.99, 7, 'Textile','Noir', '');
+insert into modele values ('EBA10', 'BA', 'CH', 'E', 'PE', 'Baskets Cars', 24.99, 7, 'Textile','Noir', 'Baskets_Cars.jpg');
 
-insert into modele values ('EBA11', 'BA', 'CH', 'E', 'PE', 'Baskets Cars', 24.99, 4, 'Textile','Noir', '');
+insert into modele values ('EBA12', 'BA', 'CH', 'E', 'PE', 'Baskets Planes', 24.99, 4, 'Textile','Noir', 'Baskets_Planes.jpg');
 
-insert into modele values ('EBA12', 'BA', 'CH', 'E', 'PE', 'Baskets Planes', 24.99, 4, 'Textile','Noir', '');
+insert into modele values ('EBO01', 'BO', 'CH', 'E', 'AH', 'Bottillons junior', 24.99, 4, 'Textile','Noir', 'Bottillons_junior.jpg');
 
-insert into modele values ('EBO01', 'BO', 'CH', 'E', 'AH', 'Bottillons junior', 24.99, 4, 'Textile','Noir', '');
+insert into modele values ('EBO02', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie and friends', 24.99, 4, 'Textile','Marron', 'Bottillons_charlie_and_friends.jpg');
 
-insert into modele values ('EBO02', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie and friends', 24.99, 4, 'Textile','Marron', '');
+insert into modele values ('EBO03', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie', 19.99, 8, 'Textile','Noir', 'Bottillons_charlie.jpg');
 
-insert into modele values ('EBO03', 'BO', 'CH', 'E', 'AH', 'Bottillons charlie', 19.99, 8, 'Textile','Noir', '');
+insert into modele values ('EBO04', 'BO', 'CH', 'E', 'AH', 'Bottillons marron', 29.99, 8, 'Textile','Marron', 'Bottillons_marron.jpg');
 
-insert into modele values ('EBO04', 'BO', 'CH', 'E', 'AH', 'Bottillons marron', 29.99, 8, 'Textile','Marron', '');
+insert into modele values ('EBO05', 'BO', 'CH', 'E', 'AH', 'Bottillons minions', 29.99, 4, 'Textile','Marron', 'Bottillons_minions.jpg');
 
-insert into modele values ('EBO05', 'BO', 'CH', 'E', 'AH', 'Bottillons minions', 29.99, 4, 'Textile','Marron', '');
+insert into modele values ('EBO06', 'BO', 'CH', 'E', 'AH', 'Bottillons', 24.99, 3, 'Textile','Marron', 'Bottillons.jpg');
 
-insert into modele values ('EBO06', 'BO', 'CH', 'E', 'AH', 'Bottillons', 24.99, 3, 'Textile','Marron', '');
+insert into modele values ('EBO07', 'BO', 'CH', 'E', 'AH', 'Bottillons montants', 24.99, 6, 'Textile','Marron', 'Bottillons_montants.jpg');
 
-insert into modele values ('EBO07', 'BO', 'CH', 'E', 'AH', 'Bottillons montants', 24.99, 6, 'Textile','Marron', '');
+insert into modele values ('EBO08', 'BO', 'CH', 'E', 'AH', 'Bottillons avec fermeture éclair', 19.99, 6, 'Textile','Marron', 'Bottillons_avec_fermeture_éclair.jpg');
 
-insert into modele values ('EBO08', 'BO', 'CH', 'E', 'AH', 'Bottillons avec fermeture éclair', 19.99, 6, 'Textile','Marron', '');
+insert into modele values ('EBO09', 'BO', 'CH', 'E', 'AH', 'Bottillons doux', 24.99, 6, 'Textile','Marron', 'Bottillons_doux.jpg');
 
-insert into modele values ('EBO09', 'BO', 'CH', 'E', 'AH', 'Bottillons doux', 24.99, 6, 'Textile','Marron', '');
+insert into modele values ('EBO10', 'BO', 'CH', 'E', 'AH', 'Bottillons gris', 19.99, 6, 'Textile','Gris/Bleu', 'Bottillons_montants_bleus.jpg');
 
-insert into modele values ('EBO10', 'B0', 'CH', 'E', 'AH', 'Bottillons gris', 19.99, 6, 'Textile','Gris/Bleu', '');
+insert into modele values ('EBO11', 'BO', 'CH', 'E', 'AH', 'Bottillons gris et rouge', 24.99, 5, 'Textile','Gris', 'Bottillons_gris_et_rouge.jpg');
 
-insert into modele values ('EBO11', 'BO', 'CH', 'E', 'AH', 'Bottillons gris et rouge', 24.99, 5, 'Textile','Gris', '');
+insert into modele values ('EBO12', 'BO', 'CH', 'E', 'AH', 'Bottillons Spiderman', 29.99, 4, 'Textile','Noir', 'Bottillons_Spiderman.jpg');
 
-insert into modele values ('EBO12', 'BO', 'CH', 'E', 'AH', 'Bottillons Spiderman', 29.99, 4, 'Textile','Noir', '');
+insert into modele values ('EBO13', 'BO', 'CH', 'E', 'AH', 'Bottillons montants blancs', 29.99, 4, 'Textile','Blanc', 'Bottillons_montants_blancs.jpg');
 
-insert into modele values ('EBO13', 'BO', 'CH', 'E', 'AH', 'Bottillons montants blancs', 29.99, 4, 'Textile','Blanc', '');
+insert into modele values ('EBA13', 'BA', 'CH', 'E', 'PE', 'Chaussures basses', 14.99, 9, 'Textile','Rouge', 'Chaussures_basses.jpg');
 
-insert into modele values ('EBO14', 'BO', 'CH', 'E', 'AH', 'Bottillons montants bleus', 19.99, 4, 'Textile','Bleu', '');
+insert into modele values ('EBA14', 'BA', 'CH', 'E', 'PE', 'Baskets imprimé militaire', 14.99, 9, 'Textile','Orange', 'Baskets_imprimé_militaire.jpg');
 
-insert into modele values ('EBA13', 'BA', 'CH', 'E', 'PE', 'Chaussures basses', 14.99, 9, 'Textile','Rouge', '');
+insert into modele values ('EBA15', 'BA', 'CH', 'E', 'PE', 'Baskets Airness', 39.99, 9, 'Textile','Gris', 'Baskets_Airness.jpg');
 
-insert into modele values ('EBA14', 'BA', 'CH', 'E', 'PE', 'Baskets imprimé militaire', 14.99, 9, 'Textile','Orange', '');
+insert into modele values ('EBA16', 'BA', 'CH', 'E', 'PE', 'Baskets Reine des Neiges', 49.99, 4, 'Textile','Bleu', 'Baskets_Reine_des_Neiges.jpg');
 
-insert into modele values ('EBA15', 'BA', 'CH', 'E', 'PE', 'Baskets Airness', 39.99, 9, 'Textile','Gris', '');
+insert into modele values ('ESP02', 'SP', 'CH', 'E', 'AH', 'Chaussures basses', 19.99, 4, 'Textile','Beige', 'baskets_basses.jpg');
 
-insert into modele values ('EBA16', 'BA', 'CH', 'E', 'PE', 'Baskets Reine des Neiges', 49.99, 4, 'Textile','Bleu', '');
+insert into modele values ('ECH02', 'VI', 'CH', 'E', 'AH', 'Baskets fleurs', 24.99, 4, 'Textile','Bleu', 'Baskets_fleurs.jpg');
 
-insert into modele values ('ESP02', 'SP', 'CH', 'E', 'AH', 'Chaussures basses', 19.99, 4, 'Textile','Beige', '');
+insert into modele values ('EBA17', 'BA', 'CH', 'E', 'AH', 'Baskets ciel', 14.99, 4, 'Textile','Bleu', 'Baskets_ciel.jpg');
 
-insert into modele values ('ECH02', 'VI', 'CH', 'E', 'AH', 'baskets Fleurs', 24.99, 4, 'Textile','Bleu', '');
-
-insert into modele values ('EBA17', 'BA', 'CH', 'E', 'AH', 'Baskets ciel', 14.99, 4, 'Textile','Bleu', '');
-
-insert into modele values ('ECH03', 'VI', 'CH', 'E', 'AH', 'Chaussures multicolors', 14.99, 4, 'Textile','Rose', '');
+insert into modele values ('ECH03', 'VI', 'CH', 'E', 'AH', 'Chaussures multicolors', 14.99, 4, 'Textile','Rose', 'Chaussures_multicolores.jpg');
 
 
 -- ---Insertion Client--- --
-insert into client values (1,'Societe','COPEC','141 rue D',655998877,'admin@copec.com','admin','admin',1);
+insert into client values ('','Societe','COPEC','141 rue D',655998877,'admin@copec.com','admin','admin',1);
 
 --  ---Insertion pointure Femme--- --
 
 insert into pointure values ('FBO01', '36', '5');
-
-insert into pointure values ('FBO01', '38', '5'); 
 
 insert into pointure values ('FBO01', '38', '5'); 
 
@@ -258,3 +254,199 @@ insert into pointure values ('FEP01', '38', '4');
 insert into pointure values ('FBO06', '36', '4');
 
 insert into pointure values ('FBO06', '39', '4');
+
+
+--  ---Insertion pointure Homme 39 à 47--- --
+
+insert into pointure values ('HBA01', '39', '4');
+
+insert into pointure values ('HBA01', '41', '4');
+
+insert into pointure values ('HBA02', '40', '3');
+
+insert into pointure values ('HBA02', '42', '3');
+
+insert into pointure values ('HBA03', '39', '6');
+
+insert into pointure values ('HBA03', '40', '6');
+
+insert into pointure values ('HBA04', '40', '4');
+
+insert into pointure values ('HBA04', '43', '4');
+
+insert into pointure values ('HBA05', '43', '6');
+
+insert into pointure values ('HBA05', '45', '6');
+
+insert into pointure values ('HBA06', '40', '7');
+
+insert into pointure values ('HBA06', '46', '7');
+
+insert into pointure values ('HBO01', '47', '4');
+
+insert into pointure values ('HBO01', '40', '4');
+
+insert into pointure values ('HBO02', '45', '4');
+
+insert into pointure values ('HBO02', '46', '4');
+
+insert into pointure values ('HCH01', '39', '4');
+
+insert into pointure values ('HCH01', '42', '4');
+
+insert into pointure values ('HCH02', '40', '4');
+
+insert into pointure values ('HCH02', '41', '4');
+
+insert into pointure values ('HCH03', '43', '8');
+
+insert into pointure values ('HCH03', '45', '8');
+
+insert into pointure values ('HSP01', '46', '8');
+
+insert into pointure values ('HSP01', '42', '8');
+
+insert into pointure values ('HSP02', '44', '4');
+
+insert into pointure values ('HSP02', '46', '4');
+
+insert into pointure values ('HTO01', '40', '4');
+
+insert into pointure values ('HTO01', '44', '4');
+
+--  ---Insertion pointure Enfant 24 à 38--- --
+
+insert into pointure values ('EBA01', '26', '6');
+
+insert into pointure values ('EBA01', '30', '6');
+
+insert into pointure values ('EBA02', '32', '5');
+
+insert into pointure values ('EBA02', '28', '5');
+
+insert into pointure values ('EBA03', '28', '6');
+
+insert into pointure values ('EBA03', '34', '6');
+
+insert into pointure values ('EBA04', '38', '4');
+
+insert into pointure values ('EBA04', '36', '4');
+
+insert into pointure values ('EBA05', '24', '6');
+
+insert into pointure values ('EBA05', '26', '6');
+
+insert into pointure values ('EBA06', '32', '9');
+
+insert into pointure values ('EBA06', '34', '9');
+
+insert into pointure values ('EBA07', '30', '4');
+
+insert into pointure values ('EBA07', '32', '4');
+
+insert into pointure values ('EBA08', '34', '9');
+
+insert into pointure values ('EBA08', '38', '9');
+
+insert into pointure values ('EBA09', '34', '3');
+
+insert into pointure values ('EBA09', '37', '3');
+
+insert into pointure values ('EBA10', '37', '7');
+
+insert into pointure values ('EBA10', '38', '7');
+
+insert into pointure values ('EBA12', '35', '4');
+
+insert into pointure values ('EBA12', '33', '4');
+
+insert into pointure values ('EBA13', '30', '9');
+
+insert into pointure values ('EBA13', '24', '9');
+
+insert into pointure values ('EBA14', '24', '9');
+
+insert into pointure values ('EBA14', '26', '9');
+
+insert into pointure values ('EBA15', '34', '9');
+
+insert into pointure values ('EBA15', '35', '9');
+
+insert into pointure values ('EBA16', '28', '9');
+
+insert into pointure values ('EBA16', '24', '9');
+
+insert into pointure values ('EBA17', '24', '4');
+
+insert into pointure values ('EBO01', '29', '4');
+
+insert into pointure values ('EBO01', '32', '4');
+
+insert into pointure values ('EBO02', '34', '4');
+
+insert into pointure values ('EBO02', '38', '4');
+
+insert into pointure values ('EBO03', '28', '8');
+
+insert into pointure values ('EBO03', '24', '8');
+
+insert into pointure values ('EBO04', '24', '8');
+
+insert into pointure values ('EBO04', '34', '8');
+
+insert into pointure values ('EBO05', '38', '8');
+
+insert into pointure values ('EBO05', '36', '8');
+
+insert into pointure values ('EBO06', '36', '3');
+
+insert into pointure values ('EBO06', '37', '3');
+
+insert into pointure values ('EBO07', '37', '6');
+
+insert into pointure values ('EBO07', '38', '6');
+
+insert into pointure values ('EBO08', '26', '6');
+
+insert into pointure values ('EBO08', '28', '6');
+
+insert into pointure values ('EBO09', '29', '6');
+
+insert into pointure values ('EBO09', '30', '6');
+
+insert into pointure values ('EBO10', '32', '6');
+
+insert into pointure values ('EBO10', '34', '6');
+
+insert into pointure values ('EBO11', '34', '5');
+
+insert into pointure values ('EBO11', '36', '5');
+
+insert into pointure values ('EBO12', '36', '4');
+
+insert into pointure values ('EBO12', '24', '4');
+
+insert into pointure values ('EBO13', '25', '4');
+
+insert into pointure values ('EBO13', '27', '4');
+
+insert into pointure values ('ECH01', '29', '4');
+
+insert into pointure values ('ECH01', '35', '4');
+
+insert into pointure values ('ECH02', '26', '4');
+
+insert into pointure values ('ECH02', '28', '4');
+
+insert into pointure values ('ECH03', '25', '4');
+
+insert into pointure values ('ECH03', '29', '4');
+
+insert into pointure values ('ESP01', '29', '9');
+
+insert into pointure values ('ESP01', '30', '9');
+
+insert into pointure values ('ESP02', '31', '4');
+
+insert into pointure values ('ESP02', '34', '4');
+
