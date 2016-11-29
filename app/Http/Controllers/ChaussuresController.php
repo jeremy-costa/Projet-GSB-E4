@@ -61,5 +61,25 @@ class ChaussuresController extends Controller {
                 return redirect('/');
         }
     }
+    
+    
+      public function modifierChaussure($id){
+        $unModele = new Modele();
+        $uneChaussure = $unModele->getModele($id);
+       
+        return view('formChaussureModif', compact('uneChaussure'));
+    }
+    
+     public function postmodifierChaussure($id = null){
+        $code = $id;
+        $libelle = Request::input('LIBELLECH');
+        $prix = Request::input('PRIXCH');
+        $stock = Request::input('STOCKCH');
+        $image = Request::input('couverture');
+        $unModele = new Modele();
+        $unModele->modificationChaussure($code,$prix,$stock,$image, $libelle);
+        
+        return view('tableauChaussures', compact(''));
+    }
 
 }

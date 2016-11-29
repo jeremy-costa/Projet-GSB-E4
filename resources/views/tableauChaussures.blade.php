@@ -57,7 +57,7 @@
                     </td>
                       @if(isset($Client)) 
                           @if ( $Client->LVLSECURITE == 1)
-                    <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}">
+                      <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}">
                               <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"></span></a></td>
                      <td style="text-align:center;">
                     <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimer')}}/{{  $uneChaussure->IDCH }}/{{ $type }}"
