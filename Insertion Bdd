@@ -430,10 +430,6 @@ insert into pointure values ('EBO13', '25', '4');
 
 insert into pointure values ('EBO13', '27', '4');
 
-insert into pointure values ('EBO14', '29', '4');
-
-insert into pointure values ('EBO14', '36', '4');
-
 insert into pointure values ('ECH01', '29', '4');
 
 insert into pointure values ('ECH01', '35', '4');
