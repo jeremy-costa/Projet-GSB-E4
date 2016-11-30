@@ -40,7 +40,7 @@
                         {{$uneChaussure->LIBELLECAT}}
                     </td>
                     <td> {{$uneChaussure->LIBELLESAISON }} </td>
-                    <td> <img href src="resources/images/{{$uneChaussure->IMAGE }}"</img></td>
+                    <td > <img src="../resources/images/{{$uneChaussure->IMAGE }}"</img></td>
          
                     <td>  @if ($uneChaussure->STOCKCH !=0)
                         
