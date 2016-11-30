@@ -27,9 +27,9 @@ route::get('/listerChaussureFemme', ['uses' => 'ChaussuresController@getListeCha
 route::get('/listerChaussureEnfant', ['uses' => 'ChaussuresController@getListeChaussuresEnfant']);
 Route::get('/supprimer/{id}/{type}', ['as' => 'SupprimerChaussure',
     'uses' => 'ChaussuresController@SupprimerChaussure']);
-Route::get('/modifierChaussure/{id}', ['as' => 'modifierChaussure',
+Route::get('/modifierChaussure/{id}/{type}', ['as' => 'modifierChaussure',
     'uses' => 'ChaussuresController@modifierChaussure']);
 
-Route::post('/postmodifierChaussure/{id}', ['as' => 'postmodifierChaussure',
+Route::post('/postmodifierChaussure/{id}/{type}', ['as' => 'postmodifierChaussure',
     'uses' => 'ChaussuresController@postmodifierChaussure']);
 

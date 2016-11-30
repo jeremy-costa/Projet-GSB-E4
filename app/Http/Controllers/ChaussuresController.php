@@ -12,7 +12,7 @@ class ChaussuresController extends Controller {
 
     public function getListeChaussuresHomme() {
         $uneChaussure = new Modele();
-        $type = "H";
+        $type = "Homme";
         $lesChaussures = $uneChaussure->getListeModeles($type);
         $unClient = new Client();
         $id = Session::get('id');
@@ -24,7 +24,7 @@ class ChaussuresController extends Controller {
 
     public function getListeChaussuresFemme() {
         $uneChaussure = new Modele();
-        $type = "F";
+        $type = "Femme";
         $lesChaussures = $uneChaussure->getListeModeles($type);
         $unClient = new Client();
         $id = Session::get('id');
@@ -36,7 +36,7 @@ class ChaussuresController extends Controller {
 
     public function getListeChaussuresEnfant() {
         $uneChaussure = new Modele();
-        $type = "E";
+        $type = "Enfant";
         $lesChaussures = $uneChaussure->getListeModeles($type);
         $unClient = new Client();
         $id = Session::get('id');
@@ -51,11 +51,11 @@ class ChaussuresController extends Controller {
         $uneChaussure->SupprimerChaussure($id);
 
         switch ($type) {
-            case "H":
+            case "Homme":
                 return redirect('/listerChaussureHomme');
-            case "F":
+            case "Femme":
                 return redirect('/listerChaussureFemme');
-            case "E":
+            case "Enfant":
                 return redirect('/listerChaussureEnfant');
             default:
                 return redirect('/');
@@ -63,14 +63,14 @@ class ChaussuresController extends Controller {
     }
     
     
-      public function modifierChaussure($id){
+      public function modifierChaussure($id,$type){
         $unModele = new Modele();
         $uneChaussure = $unModele->getModele($id);
        
-        return view('formChaussureModif', compact('uneChaussure'));
+        return view('formChaussureModif', compact('uneChaussure','type'));
     }
     
-     public function postmodifierChaussure($id = null){
+     public function postmodifierChaussure($id = null, $type){
         $code = $id;
         $libelle = Request::input('LIBELLECH');
         $prix = Request::input('PRIXCH');
@@ -78,8 +78,16 @@ class ChaussuresController extends Controller {
         $image = Request::input('couverture');
         $unModele = new Modele();
         $unModele->modificationChaussure($code,$prix,$stock,$image, $libelle);
-        
-        return view('accueil');
+        switch ($type) {
+            case "Homme":
+                return redirect('/listerChaussureHomme');
+            case "Femme":
+                return redirect('/listerChaussureFemme');
+            case "Enfant":
+                return redirect('/listerChaussureEnfant');
+            default:
+                return redirect('/');
+        }
     }
 
 }
