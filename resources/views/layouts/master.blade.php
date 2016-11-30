@@ -19,7 +19,7 @@
                         </button>
                         
                         <a class="navbar-brand" href="{{url('/')}}">
-                            <img src="{{ url('../../images/copeclogo.png') }}" alt="Logo COPEC" height="42" width="42">
+                            <img src="../../images/copeclogo.png" alt="Logo COPEC" height="42" width="42">
                             COPEC</a>
                     </div>
                     @if (Session::get('id') == 0)

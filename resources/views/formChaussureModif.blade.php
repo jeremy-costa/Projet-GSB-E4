@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class='well'>
-        {!! Form::open(array('route' => array('postmodifierChaussure',$uneChaussure->IDCH), 'method' => 'post')) !!}  
+        {!! Form::open(array('route' => array('postmodifierChaussure',$uneChaussure->IDCH,$type), 'method' => 'post')) !!}  
         <div class='form-group'>
             <BR> <BR>
             <div class="col-md-12  col-sm-12 well well-md">

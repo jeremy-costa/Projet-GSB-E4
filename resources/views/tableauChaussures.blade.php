@@ -5,7 +5,7 @@
         <br> <br>
         <div class="container">
             <div class="blanc">
-                <h1>Liste des chaussures</h1>
+                <h1>Liste des chaussures pour {{$type}}</h1>
             </div>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -57,7 +57,7 @@
                     </td>
                       @if(isset($Client)) 
                           @if ( $Client->LVLSECURITE == 1)
-                      <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}">
+                      <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}/{{ $type }}">
                               <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"></span></a></td>
                      <td style="text-align:center;">
                     <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimer')}}/{{  $uneChaussure->IDCH }}/{{ $type }}"

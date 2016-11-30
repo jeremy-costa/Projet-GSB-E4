@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Téléphone : </label>
             <div class="col-md-6 col-md-3">
-                <input type="text" name="tel" class="form-control" placeholder="Votre téléphone" required>
+                <input type="tel" name="tel" class="form-control" placeholder="Votre téléphone">
             </div>
         </div>
         <div class="form-group">
@@ -46,7 +46,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Adresse e-mail : </label>
             <div class="col-md-6 col-md-3">
-                <input type="mail" name="mail" class="form-control" placeholder="Votre adresse e-mail" required>
+                <input type="email" name="mail" class="form-control" placeholder="Votre adresse e-mail" required>
             </div>
         </div>
         

@@ -47,7 +47,7 @@ class Modele extends Model{
                 ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
                 ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
                 ->join('type','modele.IDTYPE','=','type.IDTYPE')
-                ->where('MODELE.IDCAT','=',$type)
+                ->where('categorie.LIBELLECAT','=',$type)
                 ->paginate(10);
         return $lesChaussures;       
     }

@@ -49,14 +49,9 @@ class Client extends Model {
     }
 
     public function subscribe($login, $pwd, $nom,$prenom,$mail,$adr, $tel) {
-        $client = DB::table('client')->insert(['NOMCLI'=>$nom,'PRENOMCLI'=>$prenom,'ADRESSECLI'=>$adr,'NUMTELCLI'=>$tel,'PSEUDO'=>$login,'MDP'=>$pwd,'LVLSECURITE'=>false, 'MAIL'=>$mail]);
-        if ($client) {
-            if ($client->MDP == $pwd) {
-                Session::put('id', $client->IDCLI);
-                $connected = true;
-            }
-        }
-        return $connected;
+        $inscription = DB::table('client')->insert(['NOMCLI'=>$nom,'PRENOMCLI'=>$prenom,'ADRESSECLI'=>$adr,'NUMTELCLI'=>$tel,'PSEUDO'=>$login,'MDP'=>$pwd,'LVLSECURITE'=>false, 'MAIL'=>$mail]);
+        $Client = New Client();
+        return $inscription;
     }
     
     public function getClient($id){
