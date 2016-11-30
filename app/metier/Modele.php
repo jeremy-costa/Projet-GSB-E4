@@ -59,6 +59,6 @@ class Modele extends Model{
     
     public function modificationChaussure($code,$prix,$stock,$image, $libelle){
          DB::table('modele')->where('IDCH', $code)
-                 -> update(['PRIXCH' => $prix, 'STOCKCH' => $stock, 'IMAGE' => $image, 'LIBELLECH'=> $libelle]);
+                 ->update(['PRIXCH' => $prix, 'STOCKCH' => $stock, 'IMAGE' => $image, 'LIBELLECH'=> $libelle]);
     }
 }

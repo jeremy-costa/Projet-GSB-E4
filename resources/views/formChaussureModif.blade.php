@@ -37,14 +37,14 @@
                 <div class='form-group'>
                     <label class='col-md-3 control-label'>Prix : </label>
                     <div class='col-md-3'>
-                        <input type='text' name='prix' value="{{$uneChaussure->PRIXCH or ''}}" class='form-control'>
+                        <input type='text' name='PRIXCH' value="{{$uneChaussure->PRIXCH or ''}}" class='form-control'>
                     </div>
                 </div>
                 <BR> <BR> 
                   <div class='form-group'>
                     <label class='col-md-3 control-label'>Stock : </label>
                     <div class='col-md-3'>
-                        <input type='text' name='prix' value="{{$uneChaussure->STOCKCH or ''}}" class='form-control'>
+                        <input type='text' name='STOCKCH' value="{{$uneChaussure->STOCKCH or ''}}" class='form-control'>
                     </div>
                 </div>
                 <div class="form-group">

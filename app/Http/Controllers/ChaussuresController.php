@@ -79,7 +79,7 @@ class ChaussuresController extends Controller {
         $unModele = new Modele();
         $unModele->modificationChaussure($code,$prix,$stock,$image, $libelle);
         
-        return view('tableauChaussures', compact(''));
+        return view('accueil');
     }
 
 }
