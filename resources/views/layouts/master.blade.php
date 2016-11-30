@@ -39,11 +39,22 @@
                             @if (Session::get('id')> 0)
                             <li><a href="{{url('/')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>                          
                         </ul>  
-                        <ul class="nav navbar-nav navbar-right">                             
+                           @endif
+                        <ul class="nav navbar-nav navbar-right">  
+                             <li>
+                                 @if (Session::get('id') == 0)
+                                 <a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
+                                 @endif
+                                 @if (Session::get('id')> 0)
+                                  <a href="{{url('/panier')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
+                                  @endif
+                                  
+                                    @if (Session::get('id')> 0)
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Se déconnecter</a></li>
+                            @endif
                         </ul> 
                     </div> 
-                    @endif
+                 
                 </div><!--/.container-fluid -->
             </nav>
         </div> 
