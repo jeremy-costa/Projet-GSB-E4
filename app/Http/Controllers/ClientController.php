@@ -46,8 +46,14 @@ class ClientController extends Controller {
         $adr = Request::input('adr');
         $tel = Request::input('tel');
         $unClient = new Client();
-        $unClient->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel);
+        $inscription = $unClient->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel);
+        if ($inscription){
+            $unClient->login($login,$pwd);
+            return view('accueil');
+        }
+        else{
         return view('formSubscribe', compact('erreur'));
+        }
     }
 
 }
