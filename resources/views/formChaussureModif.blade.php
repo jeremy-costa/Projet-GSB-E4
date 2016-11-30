@@ -25,9 +25,9 @@
                 <div class='form-group'>
                     <label class='col-md-3 control-label'>Image : </label>
                     <div class='col-md-3'>
-                        <input type='hidden' name="couverture" value="{{$uneChaussure->IMAGE}}"/>
+                        <input type='hidden' name="couverture" value=""/>
                         <input type='hidden' name="MAX_FILE_SIZE" value="204800"/>
-                        <input type='file' name="couverture" class="btn btn-default pull-left"/>
+                        <input type='file' name="couverture" class="btn btn-default pull-left" value="{{$uneChaussure->IMAGE}}"/>
                        
                     
                     </div>

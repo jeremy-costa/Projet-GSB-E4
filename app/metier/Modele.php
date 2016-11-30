@@ -53,6 +53,7 @@ class Modele extends Model{
     }
     
       public function SupprimerChaussure($id){
+    DB::table('pointure')->where('IDCH','=',$id)->delete();
     DB::table('modele')->where('IDCH','=',$id)->delete();
     }
     

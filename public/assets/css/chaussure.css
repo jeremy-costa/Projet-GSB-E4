@@ -29,5 +29,9 @@ and open the template in the editor.
 }
 .montant{
     font-weight : bold;
-font-weight : 800;
+    font-weight : 800;
+}
+
+img{
+        height: 50px ;
 }
