@@ -32,11 +32,11 @@ class Modele extends Model{
     }
     
     public function getModele($id){
-        $query = DB::table('Modele')
+        $modele = DB::table('Modele')
                 ->select()
                 ->where('idCh', '=', $id)
                 -> first();
-        return $query;
+        return $modele;
     }
     
       public function getListeModeles($type){

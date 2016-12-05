@@ -26,5 +26,14 @@ class Commande extends Model {
         return $this->getKey();
     }
     
+    
+    
+  public function getLesCommandes($id){
+         $commande = DB::table('commande')
+                ->select()
+                ->where('IDCLI', '=', $id);
+                
+        return $commande;
+    }
+  }
   
-}
