@@ -91,8 +91,8 @@ class ChaussuresController extends Controller {
     }
     
     public function getChaussure($id){
-        $uneChaussure = new Modele();
-        $uneChaussure->getModele($id);
+        $unModele = new Modele();
+        $uneChaussure = $unModele->getModele($id);     
         return view('desChaussure', compact('uneChaussure'));
     }
 
