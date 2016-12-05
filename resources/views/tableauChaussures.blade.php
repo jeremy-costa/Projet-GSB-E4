@@ -15,8 +15,6 @@
 
                     @if(isset($Client))     
                     @if ( $Client->LVLSECURITE == 1)
-                    <th>Modifier</th>
-                    <th>Supprimer</th>
                     @endif
                     @endif
 
@@ -24,38 +22,47 @@
             </thead>
             @foreach($lesChaussures as $uneChaussure)
             <div class="col-md-4">
-            {{ $uneChaussure->LIBELLECH }}
-            {{ $uneChaussure->NOMMARQUE }}
-            {{ $uneChaussure->PRIXCH }}
-
-            <img src="../resources/images/{{$uneChaussure->IMAGE }}"</img>
-
-            @if ($uneChaussure->STOCKCH !=0)
-
-            <?php echo " en stock "; ?>
-            <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" </span>
-
-
-            @endif
-            @if ($uneChaussure->STOCKCH==0)
-            <?php echo " Rupture "; ?>
-            <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" </span>
-
-            @endif
-</div>
-            @if(isset($Client)) 
-            @if ( $Client->LVLSECURITE == 1)
-            <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}/{{ $type }}">
-                    <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"></span></a></td>
-            <td style="text-align:center;">
-                <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimer')}}/{{  $uneChaussure->IDCH }}/{{ $type }}"
-                   onclick="javascript:if (confirm('Suppression confirmée ?'))">
+                <div class="col-md-8">
+                    {{ $uneChaussure->LIBELLECH }}
+                
+                    <a href="{{ url('/chaussure') }}/{{ $uneChaussure->IDCH }}">
+                    <img  src="../resources/images/{{$uneChaussure->IMAGE }}"</img>   
                 </a>
-            </td>                     
-            @endif
-            @endif
-            </tr>
-            @endforeach
+                {{ $uneChaussure->NOMMARQUE }}
+                {{ $uneChaussure->PRIXCH }}
+                <br>
+                @if(isset($Client)) 
+                @if ( $Client->LVLSECURITE == 1)
+                <a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}/{{ $type }}">
+                    <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"> Modifier</span></a>
+                  <br>
+                <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimer')}}/{{  $uneChaussure->IDCH }}/{{ $type }}"
+                   onclick="javascript:if (confirm('Suppression confirmée ?'))"> Supprimer
+                </a>                  
+                @endif
+                @endif
+                </div>
+                
+                
+                <div class="col-md-4">
+                    @if ($uneChaussure->STOCKCH !=0)
+
+                <?php echo " en stock "; ?>
+                <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" </span>
+
+
+                @endif
+                @if ($uneChaussure->STOCKCH==0)
+                <?php echo " Rupture "; ?>
+                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" </span>
+
+                @endif
+                </div>
+                
+
+                               
+                </div>
+                @endforeach
             
             <BR> <BR>
         </table>
