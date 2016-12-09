@@ -30,7 +30,7 @@ and open the template in the editor.
 }
 .montant{
     font-weight : bold;
-font-weight : 800;
+    font-weight : 800;
 }
 
 
@@ -44,7 +44,7 @@ font-weight : 800;
 }
 
 #login-modal input[type=text], input[type=password] {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 #div-login-msg,
@@ -93,10 +93,12 @@ font-weight : 800;
 #icon-register-msg.error {
     background-color: #eb575b !important;
 }
-
+.navbar-brand{
+    margin-top :-12%;
+}
 #img_logo {
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 50px;
+    max-width: 50px;      
 }
 
 /* #########################################
@@ -168,7 +170,7 @@ font-weight : 800;
 }
 
 .form-control {
-  border-radius: 0px;
+    border-radius: 0px;
 }
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -205,5 +207,6 @@ and open the template in the editor.
 }
 
 img{
-        height: 300px ;
+    height: 300px ;
 }
+

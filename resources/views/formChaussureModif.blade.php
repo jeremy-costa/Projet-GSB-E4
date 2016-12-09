@@ -5,10 +5,9 @@
     <br><br>
     <div class="container">
         <div class="blanc">
-            <h1>Modification d'un Manga</h1>
+            <h1>Modification d'un Modèle</h1>
         </div>
     </div>
-    <div class='well'>
         {!! Form::open(array('route' => array('postmodifierChaussure',$uneChaussure->IDCH,$type), 'method' => 'post')) !!}  
         <div class='form-group'>
             <BR> <BR>
@@ -47,11 +46,14 @@
                         <input type='text' name='STOCKCH' value="{{$uneChaussure->STOCKCH or ''}}" class='form-control'>
                     </div>
                 </div>
+                <BR> <BR> 
                 <div class="form-group">
+                    
                     <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-ok"></span> Valider
                         </button>
+                        
                         &nbsp;
                         <button type="button" class="btn btn-default btn-primary" 
                                 onclick="javascript: window.location = '{{url('/listerMangas')}}';">
@@ -60,7 +62,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 {!! Form::close() !!}
 @stop
