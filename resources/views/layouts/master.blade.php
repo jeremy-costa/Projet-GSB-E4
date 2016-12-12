@@ -44,7 +44,7 @@
                                  <a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
                                  @endif
                                  @if (Session::get('id')> 0)
-                                  <a href="{{url('/panier')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
+                                  <a href="{{url('/panier')}}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
                                   @endif
                                   
                                     @if (Session::get('id')> 0)

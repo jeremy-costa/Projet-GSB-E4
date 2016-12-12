@@ -5,7 +5,7 @@
         <br> <br>
         <div class="container">
             <div class="blanc">
-                <h1>Liste des chaussures pour {{$type}}</h1>
+                <h1>Commande</h1>
             </div>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -18,13 +18,6 @@
                         <th>Pour quand ?</th>
                         <th>Image</th>
                         <th>Stock </th>
-                  
-                   @if(isset($Client))     
-                        @if ( $Client->LVLSECURITE == 1)
-                            <th>Modifier</th>
-                            <th>Supprimer</th>
-                        @endif
-                   @endif
                          
                     </tr>
                 </thead>
@@ -55,17 +48,6 @@
                             
                          @endif
                     </td>
-                      @if(isset($Client)) 
-                          @if ( $Client->LVLSECURITE == 1)
-                      <td style="text-align:center;"><a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}/{{ $type }}">
-                              <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier"></span></a></td>
-                     <td style="text-align:center;">
-                    <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimer')}}/{{  $uneChaussure->IDCH }}/{{ $type }}"
-                       onclick="javascript:if (confirm('Suppression confirmée ?'))">
-                    </a>
-                </td>                     
-                              @endif
-                              @endif
                 </tr>
                 @endforeach
                 <BR> <BR>
