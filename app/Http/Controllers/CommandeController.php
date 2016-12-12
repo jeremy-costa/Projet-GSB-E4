@@ -15,11 +15,8 @@ class CommandeController extends Controller {
     public function getListeCommandeClient($id) {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
-        $NumCommandes = $uneCommande->getlesCommandes($id);
-        $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommandes);
-        
-
-
+        $NumCommande =  $uneCommande->getUneCommande($id);
+        $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
         return view('panier', compact('lesChaussures'));
     }
     
