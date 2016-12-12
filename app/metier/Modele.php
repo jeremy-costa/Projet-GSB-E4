@@ -33,9 +33,13 @@ class Modele extends Model{
     
     public function getModele($id){
         $query = DB::table('Modele')
-                ->select()
-                ->where('idCh', '=', $id)
-                -> first();
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('IDCH', '=', $id)
+                ->first();
         return $query;
     }
     

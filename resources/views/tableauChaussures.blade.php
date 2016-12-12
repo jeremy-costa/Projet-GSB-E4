@@ -27,9 +27,8 @@
                 <div class="col-md-8">
                     
                     {{ $uneChaussure->LIBELLECH }}
-                
                     <a href="{{ url('/chaussure') }}/{{ $uneChaussure->IDCH }}">
-                    <img  src="../resources/images/{{$uneChaussure->IMAGE }}"</img>   
+                    <img  src="../resources/images/{{$uneChaussure->IMAGE }}">   
                 </a>
                 {{ $uneChaussure->NOMMARQUE }}
                 {{ $uneChaussure->PRIXCH }}
