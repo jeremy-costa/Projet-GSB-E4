@@ -33,3 +33,5 @@ Route::get('/modifierChaussure/{id}/{type}', ['as' => 'modifierChaussure',
 Route::post('/postmodifierChaussure/{id}/{type}', ['as' => 'postmodifierChaussure',
     'uses' => 'ChaussuresController@postmodifierChaussure']);
 
+Route::get('/chaussure/{id}', ['uses'=> 'ChaussuresController@getChaussure']);
+

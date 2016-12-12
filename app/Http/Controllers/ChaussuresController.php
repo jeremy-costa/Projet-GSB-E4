@@ -89,5 +89,11 @@ class ChaussuresController extends Controller {
                 return redirect('/');
         }
     }
+    
+    public function getChaussure($id){
+        $unModele = new Modele();
+        $uneChaussure = $unModele->getModele($id);     
+        return view('desChaussure', compact('uneChaussure'));
+    }
 
 }

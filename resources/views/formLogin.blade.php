@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="col-md-12 well well-md">
+
 
     <center><h1>Authentification</h1></center>
     {!! Form::open(['url' => 'login']) !!}
@@ -31,9 +31,8 @@
             <button id="login_register_btn" type="button" class="btn btn-link">S'enregistrer</button>
         </div>
     </div>
-</div>
+
 {!! Form::close() !!}
-</div>
 @stop
 
 

@@ -12,7 +12,7 @@ use Exception;
 
 class CommandeController extends Controller {
 
- public function getListeCommandeClient($id) {
+    public function getListeCommandeClient($id) {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $NumCommandes = $uneCommande->getlesCommandes($id);

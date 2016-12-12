@@ -19,7 +19,7 @@
                         </button>
                         
                         <a class="navbar-brand" href="{{url('/')}}">
-                            <img src="../../images/copeclogo.png" alt="Logo COPEC" height="42" width="42">
+                            <img id="img_logo" src="../resources/images/copeclogo.gif">
                             COPEC</a>
                     </div>
                     @if (Session::get('id') == 0)
@@ -36,10 +36,8 @@
                             <li><a href="{{url('/listerChaussureFemme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Femme</a></li>
                             <li><a href="{{url('/listerChaussureHomme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Homme</a></li>
                             <li><a href="{{url('/listerChaussureEnfant')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Enfant</a></li> 
-                            @if (Session::get('id')> 0)
-                            <li><a href="{{url('/')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>                          
                         </ul>  
-                           @endif
+
                         <ul class="nav navbar-nav navbar-right">  
                              <li>
                                  @if (Session::get('id') == 0)
