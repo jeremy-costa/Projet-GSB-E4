@@ -12,6 +12,7 @@ html {
 }
 body {
   margin: 0;
+  background:url(../../img/test.png) no-repeat center fixed;
 }
 article,
 aside,
@@ -63,6 +64,10 @@ h1 {
   margin: .67em 0;
   font-size: 2em;
 }
+affich{
+    width:200px;
+}
+
 mark {
   color: #000;
   background: #ff0;

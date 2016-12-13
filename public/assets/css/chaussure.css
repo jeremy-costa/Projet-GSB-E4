@@ -11,10 +11,21 @@ and open the template in the editor.
 
 .body{
     padding-top: 80px;
-    background-image : url(../img/fond.jpg);
-}
+    background-image:url('../img/test.png');
+    }
 .titre{
     padding-bottom: 20px;
+}
+h1{
+    text-align: center;
+}
+.roundedImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
 }
 .imgReduite {
     padding-left: 10px;
@@ -32,9 +43,16 @@ and open the template in the editor.
     font-weight : bold;
     font-weight : 800;
 }
+.affich{
+    height: 100%;
+}
 
-
-
+div{
+    
+}
+table{
+     text-align: center;
+}
 * {
     font-family: 'Roboto', sans-serif;
 }
@@ -184,7 +202,6 @@ and open the template in the editor.
 
 .body{
     padding-top: 80px;
-    background-image : url(../img/fond.jpg);
 }
 .titre{
     padding-bottom: 20px;
@@ -200,6 +217,7 @@ and open the template in the editor.
 }
 .table{
     background-color : white;
+    
 }
 .montant{
     font-weight : bold;
@@ -207,6 +225,12 @@ and open the template in the editor.
 }
 
 img{
-    height: 300px ;
+    overflow:hidden;
+    -webkit-border-radius:90px;
+    -moz-border-radius:90px;
+    border-radius:90px;
+    width:135px;    /*                            */
+    height:135px;  /*modifie la taille de l'image*/
+    
 }
 
