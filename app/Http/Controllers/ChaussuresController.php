@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\metier\Modele;
 use App\metier\Client;
+use App\metier\Pointure;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -92,8 +93,10 @@ class ChaussuresController extends Controller {
     
     public function getChaussure($id){
         $unModele = new Modele();
-        $uneChaussure = $unModele->getModele($id);     
-        return view('desChaussure', compact('uneChaussure'));
+        $unePointure = new Pointure();
+        $uneChaussure = $unModele->getModele($id);    
+        $lesPointures = $unePointure->getPointure($id);
+        return view('desChaussure', compact('uneChaussure','lesPointures'));
     }
 
 }

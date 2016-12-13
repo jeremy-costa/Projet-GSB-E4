@@ -36,4 +36,6 @@ Route::post('/postmodifierChaussure/{id}/{type}', ['as' => 'postmodifierChaussur
 Route::get('/chaussure/{id}', ['uses'=> 'ChaussuresController@getChaussure']);
 
 Route::get('/panier/{id}', 'CommandeController@getListeCommandeClient');
-
+Route::get('/supprimerChPanier/{id}/{idc}', ['as' => 'SupprimerChaussurePanier',
+    'uses' => 'CommandeController@SupprimerChaussurePanier']);
+Route::get('/ajouterPanier/{id}', 'CommandeController@ajouterChaussurePanier');

@@ -17,7 +17,21 @@ class CommandeController extends Controller {
         $uneChaussure = new LignComm();
         $NumCommande =  $uneCommande->getUneCommande($id);
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-        return view('panier', compact('lesChaussures'));
+        return view('panier', compact('lesChaussures','id'));
+    }
+    
+    public function SupprimerChaussurePanier($id,$idc) {
+        $uneChCommande = new LignComm();
+        $uneChCommande->SupprimerLignComm($id);
+        return redirect('/panier/'+$idc);
+        
+    }
+    
+    public function ajouterChaussurePanier($id){
+        $Pointure = Request::input('cbPointures');
+        $uneChCommande = new LignComm();
+        $uneChCommande->AjouterLignComm($id,$Pointure);
+        
     }
     
 }
