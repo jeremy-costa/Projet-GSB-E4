@@ -2,7 +2,6 @@
 @section('content')
 <div>
     <br> <br>
-    <br> <br>
     <div class="container">
         <div class="blanc">
             <h1>Chaussures pour {{$type}}</h1>
@@ -22,21 +21,22 @@
             </thead>
             
             @foreach($lesChaussures as $uneChaussure)
-            <div class="col-md-4">
-                <br>
-                <div class="col-md-8">
-                    
+            <div class="col-md-4 col-lg-4">
+                <div class="col-md-7 col-lg-9" >
+                    <br>
                     {{ $uneChaussure->LIBELLECH }}
+                    <br>
                     <a href="{{ url('/chaussure') }}/{{ $uneChaussure->IDCH }}">
-                    <img  src="../resources/images/{{$uneChaussure->IMAGE }}">   
+                    <img  src="../resources/images/{{$uneChaussure->IMAGE }}" size=portrait>  
                 </a>
-                {{ $uneChaussure->NOMMARQUE }}
-                {{ $uneChaussure->PRIXCH }}
+                    <br><br>
+                <div class="col-md-5 col-lg-7">
+                {{$uneChaussure->NOMMARQUE}} {{$uneChaussure->PRIXCH}}
                 <br>
                 </div>
+                </div>
                 
-               
-                <div class="col-md-offset-9">
+                <div class="col-md-8 col-lg-6">
                     @if ($uneChaussure->STOCKCH !=0)
                     
                 <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" style="color: green" </span>
@@ -63,11 +63,6 @@
                 @endif
                 
                 </div>
-                </div>
-                
-                
-
-                               
                 </div>
                 @endforeach
             

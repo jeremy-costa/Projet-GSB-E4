@@ -34,13 +34,12 @@
                 <div class="col-md-4">
                     @if ($uneChaussure->STOCKCH !=0)
                     <?php echo " en stock "; ?>
-                    <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
+                    <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" style="color: green"> </span>
                     @endif
                     @if ($uneChaussure->STOCKCH==0)
                     <?php echo " Rupture "; ?>
-                    <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"> </span>
+                    <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"style="color: red"> </span>
                     @endif
-                    <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
                 </div>      
                 <a href="{{ url('/ajouterPanier') }}/{{ $uneChaussure->IDCH }}" type="button" class="btn btn-success">Ajouter au panier :)</a>
             </div>
