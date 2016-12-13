@@ -8,17 +8,6 @@
             <br><br>
         </div>
         <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-
-
-                    @if(isset($Client))     
-                    @if ( $Client->LVLSECURITE == 1)
-                    @endif
-                    @endif
-
-                </tr>
-            </thead>
             
             @foreach($lesChaussures as $uneChaussure)
             <div class="col-md-4 col-lg-4">

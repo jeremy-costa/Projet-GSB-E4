@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* INSERT: 29/11/2016	15:44	                                        */
+/* INSERT: 13/12/16   09:36                                     */
 /*==============================================================*/
 
 
@@ -96,7 +96,7 @@ insert into modele values ('HCH01', 'VI', 'LH', 'H', 'AH', 'Chaussures renforcé
 
 insert into modele values ('HSP01', 'SP', 'LH', 'H', 'AH', 'Chaussures de marche bicolore', 89.95, 8, 'Textile','Noir', 'chaussures_de_marche_bicolore.jpg');
 
-insert into modele values ('HBO01', 'BO', 'LH', 'H', 'AH', 'Bottines unies en cuir avec ouverture lacets', 59.99, 4, 'Cuir','Gris', 'bottines_unies_en_cuir_avec_ouverture_lacets.jpg');
+insert into modele values ('HBO01', 'BO', 'LH', 'H', 'AH', 'Bottines unies en cuir avec lacets', 59.99, 4, 'Cuir','Gris', 'bottines_unies_en_cuir_avec_ouverture_lacets.jpg');
 
 insert into modele values ('HBA01', 'BA', 'LH', 'H', 'PE', 'Tennis basses bicolores', 59.99, 4, 'Textile','Bleu', 'Tennis_basses_bicolores.jpg');
 
@@ -108,7 +108,7 @@ insert into modele values ('HBA04', 'BA', 'LH', 'H', 'AH', 'Baskets bimatières 
 
 insert into modele values ('HBA05', 'BA', 'LH', 'H', 'PE', 'Tennis basses milne', 50, 6, 'Textile','Noir', 'Tennis_basses_milne.jpg');
 
-insert into modele values ('HSP02', 'SP', 'LH', 'H', 'AH', 'Baskets running basses flex experience', 70, 4, 'Textile','Rouge', 'Baskets_running_basses_flex_experience.jpg');
+insert into modele values ('HSP02', 'SP', 'LH', 'H', 'AH', 'Baskets running basses flex', 70, 4, 'Textile','Rouge', 'Baskets_running_basses_flex_experience.jpg');
 
 insert into modele values ('HBA06', 'BA', 'LH', 'H', 'PE', 'Baskets basses star wars', 29.99, 7, 'Textile','Noir', 'Baskets_basses_star_wars.jpg');
 
