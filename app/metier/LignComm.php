@@ -22,7 +22,7 @@ class LignComm extends Model {
 
     public function getlesChaussuresCommande($idcmde) {
         $lesChaussures = DB::table('ligncomm')
-                ->Select('modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH')
+                ->Select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
                 ->join('modele', 'ligncomm.IDCH', '=', 'modele.IDCH')
                 ->join('marque', 'marque.IDMARQUE', '=', 'modele.IDMARQUE')
                 ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')
@@ -33,15 +33,22 @@ class LignComm extends Model {
         return $lesChaussures;
     }
     
-    public function SupprimerLignComm($id){
-        DB::table('ligncomm')->where('IDCH','=',$id)->delete();
+    public function SupprimerLignComm($id,$idtaille){
+        DB::table('ligncomm')->where('IDCH','=',$id)
+                             ->where('idTaille','=',$idtaille)
+                             ->delete();
     }
     
-    
-    
-    public function AjouterLignComm($id,$pointure,$idCmde){  
-        $id = (int)$idCmde;
-        DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$id,'IDTAILLE'=>$pointure, 'QTECOMMANDE'=>1]);
-    }
 
+    public function AjouterLignComm($id,$pointure,$idCmde){  
+        DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$idCmde,'IDTAILLE'=>(int)$pointure, 'QTECOMMANDE'=>1]);
+    }
+    public function chaussureInPanier($id,$Pointure,$idCmde){
+        $query = DB::table('ligncomm')->Select('idCmde')
+                ->where('idCmde', '=', $idCmde)
+                ->where('idCh','=',$id)
+                ->where('idTaille','=',$Pointure)
+                ->first();
+        return $query;
+    }
 }

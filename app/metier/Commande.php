@@ -25,10 +25,10 @@ class Commande extends Model {
 
     public function getUneCommande($id) {
         $commande = DB::table('commande')
-                ->select('IDCMDE')
-                ->where('IDCLI', '=', $id)
+                ->select('idCmde')
+                ->where('idCli', '=', $id)
                 ->first();
-        return $commande;
+        return $commande->idCmde;
     }
     
     public function ajouterCommande($idCli){

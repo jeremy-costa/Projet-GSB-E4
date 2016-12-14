@@ -78,13 +78,13 @@
                     @if ($uneChaussure->STOCKCH !=0)
                     
                 <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" style="color: green" </span>
-                <?php echo "en stock"; ?>
+                En stock
 
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
                 
                 <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red"</span>
-                <?php echo "Rupture"; ?>
+                Rupture
                 
                 @endif
                 <br>

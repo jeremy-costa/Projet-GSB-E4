@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* INSERT: 13/12/16   09:36                                     */
+/* INSERT: 14/12/16   09:36                                     */
 /*==============================================================*/
 
 
@@ -65,7 +65,7 @@ insert into modele values ('FBO01', 'BO', 'LH', 'F', 'AH', 'Bottines avec liens 
 
 insert into modele values ('FES01', 'TA', 'LH', 'F', 'PE', 'Escarpins à talons aiguille et bride', 39.99, 7, 'Textile','Noir', 'Escarpins_à_talon_aiguille_et_bride.jpg');
 
-insert into modele values ('FES02', 'TA', 'LH', 'F', 'PE', 'Escarpins unis bouts pointus', 20.99, 7, 'Textile','Bordeaux', 'Escarpins_unis_bout_pointu.jpg');
+insert into modele values ('FES02', 'TA', 'LH', 'F', 'PE', 'Escarpins unis bouts pointus', 20.99, 7, 'Textile','Bordeau', 'Escarpins_unis_bout_pointu.jpg');
 
 insert into modele values ('FBL01', 'VI', 'LH', 'F', 'PE', 'Ballerines bicolores', 19.99, 4, 'Textile','Bleu', 'Ballerines_bicolores.jpg');
 
@@ -75,13 +75,13 @@ insert into modele values ('FBO02', 'BO', 'LH', 'F', 'AH', 'Bottines avec talons
 
 insert into modele values ('FBO03', 'BO', 'LH', 'F', 'AH', 'Bottines imprimé fleuri à talons', 65.00, 7, 'Textile','Noir', 'Bottines_imprimé_fleuri_à_talon.jpg');
 
-insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noire', 'Boots_à_talons.jpg');
+insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noir', 'Boots_à_talons.jpg');
 
 insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes montantes à talons aiguilles', 65.00, 10, 'Textile','Noir', 'Bottes_montantes_à_talons_aiguilles.jpg');
 
 insert into modele values ('FBA02', 'BA', 'LH', 'F', 'PE', 'Baskets montantes unies', 37.99, 8, 'Textile','Bleu', 'Baskets_montantes_unies.jpg');
 
-insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.99, 4, 'Textile/Cuir','Grise', 'Tennis_basses.jpg');
+insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.99, 4, 'Textile/Cuir','Gris', 'Tennis_basses.jpg');
 
 insert into modele values ('FBA04', 'BA', 'LH', 'F', 'PE', 'Baskets bicolores fluos', 39.99, 4, 'Textile','Bleu', 'Baskets_bicolores_fluos.jpg');
 
