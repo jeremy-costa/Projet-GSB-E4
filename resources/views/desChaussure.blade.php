@@ -47,6 +47,7 @@
         </div>
         <BR> <BR>
         {!! Form::open(['url' => '/ajouterPanier']) !!}
+        <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
         <select class='form-control' name='cbPointures' required>
             <OPTION VALUE=0>Sélectionner une Taille</option>
             @foreach ($lesPointures as $uneP)

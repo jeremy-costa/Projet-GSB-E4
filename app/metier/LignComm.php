@@ -36,8 +36,12 @@ class LignComm extends Model {
     public function SupprimerLignComm($id){
         DB::table('ligncomm')->where('IDCH','=',$id)->delete();
     }
-    public function AjouterLignComm($id,$pointure){
-        DB::table('ligncomm')->insert(['idch'=>$id,'idtaille'=>$pointure]);
+    
+    
+    
+    public function AjouterLignComm($id,$pointure,$idCmde){  
+        $id = (int)$idCmde;
+        DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$id,'IDTAILLE'=>$pointure, 'QTECOMMANDE'=>1]);
     }
 
 }

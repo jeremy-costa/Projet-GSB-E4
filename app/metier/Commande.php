@@ -27,8 +27,13 @@ class Commande extends Model {
         $commande = DB::table('commande')
                 ->select('IDCMDE')
                 ->where('IDCLI', '=', $id)
-                ->get();
+                ->first();
         return $commande;
+    }
+    
+    public function ajouterCommande($idCli){
+        $dateJour = new DateTime();
+        DB::table('commande')->insert(['IDCLI'=>$idCli,'DATECMDE'=>$dateJour]);
     }
 
 }

@@ -27,11 +27,20 @@ class CommandeController extends Controller {
         
     }
     
-    public function ajouterChaussurePanier($id){
+    public function ajouterChaussurePanier(){
         $Pointure = Request::input('cbPointures');
+        $id = Request::input('idCH');
+        $idCli = Session::get('id');
+        $uneCommande = new Commande();
         $uneChCommande = new LignComm();
-        $uneChCommande->AjouterLignComm($id,$Pointure);
-        
+        if($uneCommande->getUneCommande($idCli) != null){         
+            $uneChCommande->AjouterLignComm($id,$Pointure,$uneCommande->getUneCommande($idCli));
+        }
+        else{
+            $uneCommande->ajouterCommande($idCli);
+            $uneChCommande->AjouterLignComm($id,$Pointure,$uneCommande->getUneCommande($idCli));        
+        }
+     return redirect('/panier/'+$idCli);
     }
     
 }
