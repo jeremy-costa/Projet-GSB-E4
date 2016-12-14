@@ -66,4 +66,6 @@ class Modele extends Model{
          DB::table('modele')->where('IDCH', $code)
                  ->update(['PRIXCH' => $prix, 'STOCKCH' => $stock, 'IMAGE' => $image, 'LIBELLECH'=> $libelle]);
     }
+    
+    
 }

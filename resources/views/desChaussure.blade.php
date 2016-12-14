@@ -33,11 +33,11 @@
 
             <div class="col-md-4">
                 @if ($uneChaussure->STOCKCH !=0)
-                <?php echo " en stock "; ?>
+                En stock
                 <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
-                <?php echo " Rupture "; ?>
+                Rupture
                 <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
 
@@ -48,7 +48,7 @@
         <BR> <BR>
         {!! Form::open(['url' => '/ajouterPanier']) !!}
         <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
-        <select class='form-control' name='cbPointures' required>
+        <select class='form-control' name='cbPointures' required="true">
             <OPTION VALUE=0>Sélectionner une Taille</option>
             @foreach ($lesPointures as $uneP)
             {
@@ -56,6 +56,7 @@
             }
             @endforeach
         </select>
+        <BR> <BR>
         <button type="submit" class="btn btn-success">Ajouter au panier</button>
         {!! Form::close() !!}
 

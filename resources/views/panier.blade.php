@@ -35,8 +35,10 @@
                 <td> {{$uneChaussure->LIBELLESAISON }} </td>
                 <td > <img src="../resources/images/{{$uneChaussure->IMAGE }}"</img></td>
                 <td> {{ $uneChaussure->PRIXCH }}</td>
-                <td></td>
-                <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimerChPanier')}}/{{  $uneChaussure->IDCH }}/{{$id}}"
+                <td><a href="{{ url('/augmenterQte')}}" class=" glyphicon glyphicon-chevron-up" data-toggle="tooltip" data-placement="top"></a>
+                    {{$uneChaussure->QTECOMMANDE }}
+                    <a href="{{ url('/diminuerQte')}}" class=" glyphicon glyphicon-chevron-down" data-toggle="tooltip" data-placement="top" ><a></a></td>
+                <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimerChPanier')}}/{{  $uneChaussure->IDCH }}/{{$uneChaussure->IDTAILLE}}/{{$id}}"
                    onclick="javascript:if (confirm('Voulez vous vraiment enlever la chaussure du panier ?'))"> 
                 </a></td>
             </tr>

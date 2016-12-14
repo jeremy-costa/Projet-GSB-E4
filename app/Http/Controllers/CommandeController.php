@@ -15,32 +15,36 @@ class CommandeController extends Controller {
     public function getListeCommandeClient($id) {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
-        $NumCommande =  $uneCommande->getUneCommande($id);
+        $NumCommande = $uneCommande->getUneCommande($id);
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-        return view('panier', compact('lesChaussures','id'));
+        return view('panier', compact('lesChaussures', 'id'));
     }
-    
-    public function SupprimerChaussurePanier($id,$idc) {
+
+    public function SupprimerChaussurePanier($id,$idtaille, $idc) {
         $uneChCommande = new LignComm();
-        $uneChCommande->SupprimerLignComm($id);
-        return redirect('/panier/'+$idc);
-        
+        $uneChCommande->SupprimerLignComm($id,$idtaille);
+        return redirect('/panier/' . $idc);
     }
-    
-    public function ajouterChaussurePanier(){
+
+    public function ajouterChaussurePanier() {
         $Pointure = Request::input('cbPointures');
         $id = Request::input('idCH');
         $idCli = Session::get('id');
         $uneCommande = new Commande();
         $uneChCommande = new LignComm();
-        if($uneCommande->getUneCommande($idCli) != null){         
-            $uneChCommande->AjouterLignComm($id,$Pointure,$uneCommande->getUneCommande($idCli));
+        $idCmde = $uneCommande->getUneCommande($idCli);
+        $chaussure = $uneChCommande->chaussureInPanier($id, $Pointure, $idCmde);
+        if ($idCmde != null) {
+            if ( $chaussure == null) {
+                $uneChCommande->AjouterLignComm($id, $Pointure, $idCmde);
+                return redirect('/panier/' . $idCli);
+            } else
+                return redirect('/chaussure/' . $id);
         }
-        else{
+        else {
             $uneCommande->ajouterCommande($idCli);
-            $uneChCommande->AjouterLignComm($id,$Pointure,$uneCommande->getUneCommande($idCli));        
+            $uneChCommande->AjouterLignComm($id, $Pointure, $idCmde);
+            return redirect('/panier/' . $idCli);
         }
-     return redirect('/panier/'+$idCli);
     }
-    
 }
