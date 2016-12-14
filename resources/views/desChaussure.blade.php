@@ -46,7 +46,12 @@
 
         </div>
         <BR> <BR>
-        {!! Form::open(['url' => '/ajouterPanier']) !!}
+        @if(Session::get('id') == 0)
+        {!! Form::open(['url' => '/getLogin']) !!}
+        @endif
+        @if (Session::get('id') > 0)
+         {!! Form::open(['url' => '/ajouterPanier']) !!}
+        @endif
         <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
         <select class='form-control' name='cbPointures' required>
             <OPTION VALUE=0>Sélectionner une Taille</option>
@@ -55,11 +60,14 @@
             <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
             }
             @endforeach
+            
+            
         </select>
+        
         <button type="submit" class="btn btn-success">Ajouter au panier</button>
         {!! Form::close() !!}
-
-
+    
+        
         <BR> <BR>
 
 

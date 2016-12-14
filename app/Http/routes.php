@@ -21,6 +21,8 @@ Route::get('/getSubscribe', 'ClientController@getsubscribe');
 Route::post('/subscribe', 'ClientController@SubscribeIn');
 Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
+Route::post('/getLogin', 'ClientController@getlogin');
+
 
 route::get('/listerChaussureHomme', ['uses' => 'ChaussuresController@getListeChaussuresHomme']);
 route::get('/listerChaussureFemme', ['uses' => 'ChaussuresController@getListeChaussuresFemme']);
@@ -39,3 +41,6 @@ Route::get('/panier/{id}', 'CommandeController@getListeCommandeClient');
 Route::get('/supprimerChPanier/{id}/{idc}', ['as' => 'SupprimerChaussurePanier',
     'uses' => 'CommandeController@SupprimerChaussurePanier']);
 Route::post('/ajouterPanier', 'CommandeController@ajouterChaussurePanier');
+
+Route::post('/getChaussureCondition', 'ChaussuresController@filrerChaussure');
+

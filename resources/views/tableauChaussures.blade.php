@@ -7,6 +7,55 @@
             <h1>Chaussures pour {{$type}}</h1>
             <br><br>
         </div>
+        
+        {!! Form::open(['url' => '/getChaussureCondition']) !!}
+         <select class='form-control' name='cbCouleurs'>
+             <OPTION VALUE=0>Couleurs</option>
+             @foreach ($lesCouleurs as $uneC)
+             {
+             <OPTION VALUE=' {{ $uneC->COULEURCH }}'> {{ $uneC->COULEURCH}}</OPTION>
+             }
+             @endforeach
+              </select>
+             <select class='form-control' name='cbType' >
+             <OPTION VALUE=0>Type</option>
+             @foreach ($lesTypes as $unT)
+             {
+             <OPTION VALUE=' {{ $unT->IDTYPE }}'> {{ $unT->LIBELLETYPE}}</OPTION>
+             }
+             
+             
+            @endforeach
+             </select>
+        <select class='form-control' name='cbSaison' >
+             <OPTION VALUE=0>Saison</option>
+             @foreach ($lesSaisons as $uneS)
+             {
+             <OPTION VALUE=' {{ $uneS->IDSAISON }}'> {{ $uneS->LIBELLESAISON}}</OPTION>
+             }
+             
+             
+            @endforeach
+             </select>
+         <select class='form-control' name='cbPrix' >
+             <OPTION VALUE=0>Prix</option>
+          
+             {
+             <OPTION VALUE='20'>moins de 20€</OPTION>
+             <OPTION VALUE='40'>entre 20€ et 40€</OPTION>
+             <OPTION VALUE='plus40'>plus de 40€</OPTION>
+             }
+             
+             
+        
+             </select>
+        
+         <input name="type"  type="hidden" value="{{$type}}">
+           <button type="submit" class="btn btn-success">filtrer</button>
+         {!! Form::close() !!}
+            
+            
+        </select>
         <table class="table table-bordered table-striped">
             
             @foreach($lesChaussures as $uneChaussure)

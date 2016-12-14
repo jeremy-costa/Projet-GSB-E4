@@ -8,19 +8,28 @@ use App\metier\Pointure;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
+use App\metier\Saison;
+use App\metier\Type;
+
 
 class ChaussuresController extends Controller {
 
     public function getListeChaussuresHomme() {
         $uneChaussure = new Modele();
+     
         $type = "Homme";
         $lesChaussures = $uneChaussure->getListeModeles($type);
         $unClient = new Client();
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
+   
+        $uneSaison = new Saison();
+        $lesSaisons= $uneSaison->getListeSaison();
+        $lesCouleurs = $uneChaussure->getListeCouleurs($type);
+        $lesTypes = $uneChaussure->getLesTypes($type);
+      
 
-
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type'));
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type', 'lesSaisons', 'lesTypes', 'lesCouleurs'  ));
     }
 
     public function getListeChaussuresFemme() {
@@ -30,9 +39,13 @@ class ChaussuresController extends Controller {
         $unClient = new Client();
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
+        $uneSaison = new Saison();
+        $lesSaisons= $uneSaison->getListeSaison();
+        $lesCouleurs = $uneChaussure->getListeCouleurs($type);
+        $lesTypes = $uneChaussure->getLesTypes($type);
 
 
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type'));
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type','lesSaisons', 'lesTypes', 'lesCouleurs'));
     }
 
     public function getListeChaussuresEnfant() {
@@ -42,9 +55,13 @@ class ChaussuresController extends Controller {
         $unClient = new Client();
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
+           $uneSaison = new Saison();
+        $lesSaisons= $uneSaison->getListeSaison();
+        $lesCouleurs = $uneChaussure->getListeCouleurs($type);
+        $lesTypes = $uneChaussure->getLesTypes($type);
 
 
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type'));
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type','lesSaisons', 'lesTypes', 'lesCouleurs'));
     }
 
     public function SupprimerChaussure($id, $type) {
@@ -99,4 +116,30 @@ class ChaussuresController extends Controller {
         return view('desChaussure', compact('uneChaussure','lesPointures'));
     }
 
-}
+    
+    public function filrerChaussure(){
+         $uneChaussure = new Modele();
+        $type = Request::input('type');
+        $couleur = Request::input('cbCouleurs');
+        $prix = Request::input('cbPrix');
+        $Type = Request::input('cbType');
+        $saison = Request::input('cbSaison');
+        $unModele = new Modele();
+        $uneSaison = new Saison();
+        $lesSaisons= $uneSaison->getListeSaison();
+        $lesCouleurs = $uneChaussure->getListeCouleurs($type);
+        $lesTypes = $uneChaussure->getLesTypes($type);
+        if (!isset($prix) && isset($Type,$saison,$couleur))
+        {
+            $lesChaussures=$unModele->filtrerSansPrix($type,$saison,$couleur);
+        }
+          return view('tableauChaussures', compact('lesChaussures','type', 'lesCouleurs','lesTypes','lesSaisons'));
+       
+        }
+    }
+    
+    
+    
+    
+    
+
