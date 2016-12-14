@@ -18,9 +18,9 @@ class Type extends Model{
     }
     
     public function getListeTypes(){
-        $query = DB::table('Type')
+        $types = DB::table('Type')
                 ->get();
-        return $query;       
+        return $types;       
     }
     
     public function getidType(){

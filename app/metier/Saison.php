@@ -18,9 +18,10 @@ class Saison extends Model{
     }
     
     public function getListeSaison(){
-        $query = DB::table('Marque')
-                ->get();
-        return $query;       
+        $saison= DB::table('saison')
+                ->select('IDSAISON','LIBELLESAISON')
+                ->distinct()->get();
+        return $saison;       
     }
     
     public function getidSaison(){
@@ -28,7 +29,7 @@ class Saison extends Model{
     }
     
     public function getSaison($id){
-        $query = DB::table('Saison')
+        $query = DB::table('saison')
                 ->select()
                 ->where('idSaison', '=', $id)
                 -> first();

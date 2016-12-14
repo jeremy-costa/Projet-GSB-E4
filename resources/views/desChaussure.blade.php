@@ -35,12 +35,12 @@
 
             <div class="col-md-8 col-lg-6">
                 @if ($uneChaussure->STOCKCH !=0)
-                <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" style="color: darkgreen"> </span>
-                <?php echo " en stock "; ?>
+                En stock
+                <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
-                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red"> </span>
-                <?php echo " Rupture "; ?>
+                Rupture
+                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
 
             </div>
@@ -48,20 +48,27 @@
 
         </div>
         <BR> <BR>
-        {!! Form::open(['url' => '/ajouterPanier']) !!}
+        @if(Session::get('id') == 0)
+        {!! Form::open(['url' => '/getLogin']) !!}
+        @endif
+        @if (Session::get('id') > 0)
+         {!! Form::open(['url' => '/ajouterPanier']) !!}
+        @endif
         <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
-        <select class='form-control' name='cbPointures' required>
-            <OPTION VALUE=0>Sélectionner une taille</option>
             @foreach ($lesPointures as $uneP)
             {
             <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
             }
             @endforeach
+            
+            
         </select>
+        
+        <BR> <BR>
         <button type="submit" class="btn btn-success">Ajouter au panier</button>
         {!! Form::close() !!}
-
-
+    
+        
         <BR> <BR>
 
 
@@ -74,3 +81,5 @@
 
 
 
+        <select class='form-control' name='cbPointures' required>
+            <OPTION VALUE=0>Sélectionner une taille</option>
