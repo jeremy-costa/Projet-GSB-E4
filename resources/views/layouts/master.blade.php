@@ -18,41 +18,42 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar+ bvn"></span>
                         </button>
-                        
+
                         <a class="navbar-brand" href="{{url('/')}}">
                             <img id="img_logo" src="../resources/images/copeclogo.gif">
                             COPEC</a>
                     </div>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="{{url('/listerChaussureFemme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Femme</a></li>
+                        <li><a href="{{url('/listerChaussureHomme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Homme</a></li>
+                        <li><a href="{{url('/listerChaussureEnfant')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Enfant</a></li> 
+                    </ul>
                     @if (Session::get('id') == 0)
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav navbar-right">  
-                            <ul class="nav navbar-nav navbar-left">
-                                <li><a href="{{url('/listerChaussureFemme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Femme</a></li>
-                                <li><a href="{{url('/listerChaussureHomme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Homme</a></li>
-                                <li><a href="{{url('/listerChaussureEnfant')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Enfant</a></li> 
-                            </ul>
-                                <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>
+
+                            <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>
                             <li><a href="{{url('/getSubscribe')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Inscription</a></li>
                         </ul> 
                     </div>
                     @endif
-                  
+
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                           <ul class="nav navbar-nav navbar-right">  
-                             <li>
-                                 @if (Session::get('id') == 0)
-                                 <a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
-                                 @endif
-                                 @if (Session::get('id')> 0)
-                                  <a href="{{url('/panier')}}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
-                                  @endif
-                                  
-                                    @if (Session::get('id')> 0)
+                        <ul class="nav navbar-nav navbar-right">  
+                            <li>
+                                @if (Session::get('id') == 0)
+                                <a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
+                            @endif
+                            @if (Session::get('id')> 0)
+                            <a href="{{url('/panier')}}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
+                            @endif
+
+                            @if (Session::get('id')> 0)
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Se déconnecter</a></li>
                             @endif
                         </ul> 
                     </div> 
-                 
+
                 </div><!--/.container-fluid -->
             </nav>
         </div> 
