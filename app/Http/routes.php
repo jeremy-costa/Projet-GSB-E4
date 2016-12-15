@@ -43,4 +43,5 @@ Route::get('/supprimerChPanier/{id}/{idtaille}/{idc}', ['as' => 'SupprimerChauss
 Route::post('/ajouterPanier', 'CommandeController@ajouterChaussurePanier');
 
 Route::post('/getChaussureCondition', 'ChaussuresController@filtrerChaussure');
-
+Route::get('/augmenterQte/{idCh}/{id}','CommandeController@augmenterQuantite');
+Route::get('/diminuerQte/{idCh}/{id}','CommandeController@diminuerQuantite');

@@ -54,7 +54,7 @@
              </select>
         
          <input name="type"  type="hidden" value="{{$type}}">
-           <button type="submit" class="btn btn-success">filtrer</button>
+           <button type="submit" class="btn btn-success">Filtrer</button>
          {!! Form::close() !!}
             
             

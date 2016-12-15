@@ -23,6 +23,14 @@ class Commande extends Model {
         return $this->getKey();
     }
 
+    public function getUneCommandeClient($id) {
+        $commande = DB::table('commande')
+                ->select('idCmde')
+                ->where('idCli', '=', $id)
+                ->first();
+        return $commande;
+    }
+
     public function getUneCommande($id) {
         $commande = DB::table('commande')
                 ->select('idCmde')
@@ -30,10 +38,10 @@ class Commande extends Model {
                 ->first();
         return $commande->idCmde;
     }
-    
-    public function ajouterCommande($idCli){
-        $dateJour = new DateTime();
-        DB::table('commande')->insert(['IDCLI'=>$idCli,'DATECMDE'=>$dateJour]);
+
+    public function ajouterCommande($idCli) {
+        $dateJour = date('Y/m/d', time());
+        DB::table('commande')->insert(['IDCLI' => $idCli, 'DATECMDE' => $dateJour]);
     }
 
 }

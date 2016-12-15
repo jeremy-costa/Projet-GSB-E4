@@ -15,9 +15,12 @@ class CommandeController extends Controller {
     public function getListeCommandeClient($id) {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
-        $NumCommande = $uneCommande->getUneCommande($id);
+        $error = "";
+        $NumCommande = $uneCommande->getUneCommandeClient($id);
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-        return view('panier', compact('lesChaussures', 'id'));
+        if ($lesChaussures == null)
+            $error = "Votre panier est vide";
+        return view('panier', compact('lesChaussures', 'id', 'error'));
     }
 
     public function SupprimerChaussurePanier($id,$idtaille, $idc) {
@@ -46,5 +49,17 @@ class CommandeController extends Controller {
             $uneChCommande->AjouterLignComm($id, $Pointure, $idCmde);
             return redirect('/panier/' . $idCli);
         }
+    }
+    
+    public function augmenterQuantite($idCh,$id){
+        $uneChaussure = new LignComm();
+        $uneChaussure->augmenterQte($idCh);
+        return redirect('/panier/' . $id);
+    }
+    
+    public function diminuerQuantite($idCh,$id){
+        $uneChaussure = new LignComm();
+        $uneChaussure->diminuerQte($idCh);
+        return redirect('/panier/' . $id);
     }
 }

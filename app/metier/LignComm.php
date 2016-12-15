@@ -21,6 +21,7 @@ class LignComm extends Model {
     }
 
     public function getlesChaussuresCommande($idcmde) {
+        
         $lesChaussures = DB::table('ligncomm')
                 ->Select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
                 ->join('modele', 'ligncomm.IDCH', '=', 'modele.IDCH')
@@ -28,7 +29,20 @@ class LignComm extends Model {
                 ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')
                 ->join('type', 'modele.IDTYPE', '=', 'type.IDTYPE')
                 ->join('categorie', 'modele.IDCAT', '=', 'categorie.IDCAT')
-                ->where('ligncomm.IDCMDE', '=', (int)$idcmde)
+                ->where('ligncomm.idCmde', '=', $idcmde->idCmde)
+                ->get();
+        return $lesChaussures;
+    }
+    public function getlesChaussuresCommandeClient($idcmde) {
+        
+        $lesChaussures = DB::table('ligncomm')
+                ->Select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
+                ->join('modele', 'ligncomm.IDCH', '=', 'modele.IDCH')
+                ->join('marque', 'marque.IDMARQUE', '=', 'modele.IDMARQUE')
+                ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')
+                ->join('type', 'modele.IDTYPE', '=', 'type.IDTYPE')
+                ->join('categorie', 'modele.IDCAT', '=', 'categorie.IDCAT')
+                ->where('ligncomm.idCmde', '=', $idcmde)
                 ->get();
         return $lesChaussures;
     }
@@ -50,5 +64,12 @@ class LignComm extends Model {
                 ->where('idTaille','=',$Pointure)
                 ->first();
         return $query;
+    }
+    
+    public function augmenterQte($idCh){
+        DB::table('ligncomm')->where('idCh', '=', $idCh)->Increment('QteCommande');
+    }
+    public function diminuerQte($idCh){
+        DB::table('ligncomm')->where('idCh', '=', $idCh)->Decrement('QteCommande');
     }
 }
