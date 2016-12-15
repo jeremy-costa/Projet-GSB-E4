@@ -12,7 +12,7 @@
         </div>
         
         {!! Form::open(['url' => '/getChaussureCondition']) !!}
-         <select class='form-control' name='cbCouleurs'>
+         <select class='form-control col-sm-6' name='cbCouleurs'>
              <OPTION VALUE=0>Couleurs</option>
              @foreach ($lesCouleurs as $uneC)
              {
@@ -20,7 +20,7 @@
              }
              @endforeach
               </select>
-             <select class='form-control' name='cbType' >
+             <select class='form-control col-sm-6'  name='cbType' >
              <OPTION VALUE=0>Type</option>
              @foreach ($lesTypes as $unT)
              {
@@ -30,7 +30,7 @@
              
             @endforeach
              </select>
-        <select class='form-control' name='cbSaison' >
+        <select class='form-control col-sm-6' name='cbSaison' >
              <OPTION VALUE=0>Saison</option>
              @foreach ($lesSaisons as $uneS)
              {

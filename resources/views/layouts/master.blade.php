@@ -4,29 +4,32 @@
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/chaussure.css') !!}
         {!! Html::style('assets/css/bootstrap.css') !!}
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale)1, user-scalable=no"/>
+        <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="chaussure.css">
     </head>
     <body class="body">
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
+                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                            <span class="icon-bar+ bvn"></span>
+                            <span class="icon-bar"></span>
                         </button>
 
                         <a class="navbar-brand" href="{{url('/')}}">
                             <img id="img_logo" src="../resources/images/copeclogo.gif">
                             COPEC</a>
                     </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
-                                <li><a href="{{url('/listerChaussureFemme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Femme</a></li>
-                                <li><a href="{{url('/listerChaussureHomme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Homme</a></li>
-                                <li><a href="{{url('/listerChaussureEnfant')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Enfant</a></li> 
+                                <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
+                                <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
+                                <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
                             </ul>
                     @if (Session::get('id') == 0)
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
