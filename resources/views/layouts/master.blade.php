@@ -23,15 +23,15 @@
                             <img id="img_logo" src="../resources/images/copeclogo.gif">
                             COPEC</a>
                     </div>
-                    @if (Session::get('id') == 0)
-                    <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                        <ul class="nav navbar-nav navbar-right">  
-                            <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left">
                                 <li><a href="{{url('/listerChaussureFemme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Femme</a></li>
                                 <li><a href="{{url('/listerChaussureHomme')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Homme</a></li>
                                 <li><a href="{{url('/listerChaussureEnfant')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Enfant</a></li> 
                             </ul>
-                                <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>
+                    @if (Session::get('id') == 0)
+                    <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                        <ul class="nav navbar-nav navbar-right">  
+                            <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>
                             <li><a href="{{url('/getSubscribe')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Inscription</a></li>
                         </ul> 
                     </div>
