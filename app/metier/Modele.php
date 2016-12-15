@@ -96,10 +96,10 @@ class Modele extends Model{
                 ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
                 ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
                 ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
-                ->join('type','modele.IDTYPE','=','type.IDTYPE')
-                ->where('categorie.LIBELLECAT','=',$type)
+                ->join('type','modele.IDTYPE','=','type.IDTYPE') 
+                ->where('categorie.LIBELLECAT','=',$type) 
                  ->where('saison.LIBELLESAISON','=',$saison)
-                  >where('modele.COULEURCH','=',$couleur)
+                 ->where('modele.COULEURCH','=',$couleur)
                 ->paginate(12);
         return $lesChaussures;       
     }

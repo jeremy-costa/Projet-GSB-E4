@@ -14,6 +14,7 @@
                     <th>Nom du modèle</th>
                     <th>Marque</th>
                     <th>Type de modèle</th>
+                    <th>Pointure</th>
                     <th>Pour qui ?</th>
                     <th>Pour quand ?</th>
                     <th>Image</th>
@@ -29,6 +30,9 @@
 
                 <td>  
                     {{ $uneChaussure->LIBELLETYPE }}
+                </td>
+                <td>
+                    {{$uneChaussure->IDTAILLE}}
                 </td>
                 <td>  
                     {{$uneChaussure->LIBELLECAT}}

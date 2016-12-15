@@ -117,11 +117,10 @@ class ChaussuresController extends Controller {
     }
 
     
-    public function filrerChaussure(){
+    public function filtrerChaussure(){
          $uneChaussure = new Modele();
         $type = Request::input('type');
         $couleur = Request::input('cbCouleurs');
-        $prix = Request::input('cbPrix');
         $Type = Request::input('cbType');
         $saison = Request::input('cbSaison');
         $unModele = new Modele();
@@ -129,10 +128,8 @@ class ChaussuresController extends Controller {
         $lesSaisons= $uneSaison->getListeSaison();
         $lesCouleurs = $uneChaussure->getListeCouleurs($type);
         $lesTypes = $uneChaussure->getLesTypes($type);
-        if (!isset($prix) && isset($Type,$saison,$couleur))
-        {
-            $lesChaussures=$unModele->filtrerSansPrix($type,$saison,$couleur);
-        }
+        $lesChaussures=$unModele->filtrerSansPrix($type,$saison,$couleur);
+
           return view('tableauChaussures', compact('lesChaussures','type', 'lesCouleurs','lesTypes','lesSaisons'));
        
         }

@@ -40,18 +40,6 @@
              
             @endforeach
              </select>
-         <select class='form-control' name='cbPrix' >
-             <OPTION VALUE=0>Prix</option>
-          
-             {
-             <OPTION VALUE='20'>moins de 20€</OPTION>
-             <OPTION VALUE='40'>entre 20€ et 40€</OPTION>
-             <OPTION VALUE='plus40'>plus de 40€</OPTION>
-             }
-             
-             
-        
-             </select>
         
          <input name="type"  type="hidden" value="{{$type}}">
            <button type="submit" class="btn btn-success">Filtrer</button>
