@@ -11,15 +11,13 @@
 
         <div class="col-md-4">
             <div class="col-md-8">
-                <strong>
                 {{ $uneChaussure->LIBELLECH }}
-                </strong>
-                {{ $uneChaussure->NOMMARQUE }}
-                {{ $uneChaussure->PRIXCH }}<?php echo "€"; ?>
-                <br>
                 <a href="{{ url('/chaussure') }}/{{ $uneChaussure->IDCH }}">
                     <img  src="../../resources/images/{{$uneChaussure->IMAGE }}"</img>   
                 </a>
+                {{ $uneChaussure->NOMMARQUE }}
+                {{ $uneChaussure->PRIXCH }}
+                <br>
                 @if(isset($Client)) 
                 @if ( $Client->LVLSECURITE == 1)
                 <a href="{{ url('/modifierChaussure') }}/{{ $uneChaussure->IDCH }}/{{ $type }}">
@@ -33,13 +31,13 @@
             </div>
 
 
-            <div class="col-md-8 col-lg-6">
+            <div class="col-md-4">
                 @if ($uneChaussure->STOCKCH !=0)
-                En stock
+                <?php echo " en stock "; ?>
                 <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
-                Rupture
+                <?php echo " Rupture "; ?>
                 <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"> </span>
                 @endif
 
@@ -55,6 +53,8 @@
          {!! Form::open(['url' => '/ajouterPanier']) !!}
         @endif
         <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
+        <select class='form-control' name='cbPointures' required>
+            <OPTION VALUE=0>Sélectionner une Taille</option>
             @foreach ($lesPointures as $uneP)
             {
             <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
@@ -64,7 +64,6 @@
             
         </select>
         
-        <BR> <BR>
         <button type="submit" class="btn btn-success">Ajouter au panier</button>
         {!! Form::close() !!}
     
@@ -81,5 +80,3 @@
 
 
 
-        <select class='form-control' name='cbPointures' required>
-            <OPTION VALUE=0>Sélectionner une taille</option>
