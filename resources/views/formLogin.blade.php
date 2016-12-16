@@ -26,11 +26,9 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block">Se connecter</button>
 </div>
 <div class="bouton-connexion-features col-md-12">
-    <button <a href="{{ url('/mdpoublie')}}"  id="login_lost_btn" type="button" class="btn btn-link"</a>Mot de passe oublié</button>
+    <a href="{{ url('/mdpoublie')}}" data-toggle="tooltip" data-placement="top" title="Modifier" style="color: purple"</a>Mot de passe oublié</button>
     <button id="login_register_btn" type="button" class="btn btn-link">S'enregistrer</button>
-</div><a href="{{ url('/mdpoublie')}}">
-                    <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Modifier" style="color: purple"> Modifier</span>
-
+</div>
 {!! Form::close() !!}
 @stop
 

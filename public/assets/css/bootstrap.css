@@ -39,8 +39,6 @@ ul.topnav {
     padding: 0;
     overflow: hidden;
     background-color: red;
-    display: block;
-    width: 100px;
 }
 
 /* Float the list items side by side */
