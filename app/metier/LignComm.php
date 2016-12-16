@@ -51,9 +51,9 @@ class LignComm extends Model {
         DB::table('ligncomm')->where('IDCH','=',$id)
                              ->where('idTaille','=',$idtaille)
                              ->delete();
-        $uneChaussure = new lignnCom();
+        $uneChaussure = new lignComm();
         $lesChaussures = $uneChaussure->getlesChaussuresCommandeClient($idc);
-        if ($leschaussures == null)
+        if ($lesChaussures == null)
         {
             $uneCommande = new Commande();
             $uneCommande->supprimerCommande($idc);

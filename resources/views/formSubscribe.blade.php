@@ -32,6 +32,7 @@
             </div>
         </div>
         <div class="form-group">
+            {{$erreur}}
             <label class="col-md-3 control-label">Identifiant : </label>
             <div class="col-md-6  col-md-3">
                 <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>

@@ -50,8 +50,13 @@ class ClientController extends Controller {
         if ($inscription){
             $unClient->login($login,$pwd);
             return view('accueil');
-        }
-        else{
+        }        
+        else{       
+        $exemple = $prenom.".".$nom;
+        if($unClient->verificationLogin($exemple))
+            $erreur="Identifiant déja pris, veuillez en choisir un autre. Suggestion: ".$exemple;
+        else
+            $erreur="Identifiant déja pris, veuillez en choisir un autre.";
         return view('formSubscribe', compact('erreur'));
         }
     }

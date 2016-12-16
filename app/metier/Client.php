@@ -49,9 +49,14 @@ class Client extends Model {
     }
 
     public function subscribe($login, $pwd, $nom,$prenom,$mail,$adr, $tel) {
-        $inscription = DB::table('client')->insert(['NOMCLI'=>$nom,'PRENOMCLI'=>$prenom,'ADRESSECLI'=>$adr,'NUMTELCLI'=>$tel,'PSEUDO'=>$login,'MDP'=>$pwd,'LVLSECURITE'=>false, 'MAIL'=>$mail]);
         $Client = New Client();
-        return $inscription;
+        if($Client->verificationLogin($login)){
+            DB::table('client')->insert(['NOMCLI'=>$nom,'PRENOMCLI'=>$prenom,'ADRESSECLI'=>$adr,'NUMTELCLI'=>$tel,'PSEUDO'=>$login,'MDP'=>$pwd,'LVLSECURITE'=>false, 'MAIL'=>$mail]);        
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     public function getClient($id){
@@ -60,5 +65,15 @@ class Client extends Model {
                 ->Where ('IDCLI','=',$id)
                 ->first();
         return $client;
+    }
+    public function verificationLogin($login){
+        $verif = DB::table('client')
+                ->Select('IDCLI')
+                ->Where ('PSEUDO','=',$login)
+                ->first();
+        if ($verif != null)
+            return false;       
+        else
+            return true;
     }
 }
