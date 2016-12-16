@@ -7,7 +7,7 @@
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="chaussure.css">
+        
     </head>
     <body class="body">
         <div class="container">
@@ -25,6 +25,7 @@
                             <img id="img_logo" src="../resources/images/copeclogo.gif">
                             COPEC</a>
                     </div>
+                    
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="topnav" id="myTopnav">
                                 <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
@@ -34,6 +35,7 @@
                                     <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
                                 </li>
                             </ul>
+                    </div>
                     @if (Session::get('id') == 0)
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav navbar-right">  
@@ -43,7 +45,7 @@
                         </ul> 
                     </div>
                     @endif
-
+                    
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav navbar-right">  
                             @if (Session::get('id')> 0)
@@ -56,7 +58,9 @@
                         </ul> 
                     </div> 
 
-                </div><!--/.container-fluid -->
+                </div>
+                    
+                </div>
             </nav>
         </div> 
         <div class="container">

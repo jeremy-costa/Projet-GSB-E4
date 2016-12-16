@@ -49,8 +49,8 @@ class ClientController extends Controller {
         $inscription = $unClient->subscribe($login, $pwd, $nom, $prenom, $mail, $adr, $tel);
         if ($inscription){
             $unClient->login($login,$pwd);
-            return view('accueil');
-        }        
+           return view('Merci', compact('mail','nom'));
+        }    
         else{       
         $exemple = $prenom.".".$nom;
         if($unClient->verificationLogin($exemple))

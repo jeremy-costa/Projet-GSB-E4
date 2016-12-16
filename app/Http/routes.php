@@ -45,3 +45,4 @@ Route::post('/ajouterPanier', 'CommandeController@ajouterChaussurePanier');
 Route::post('/getChaussureCondition', 'ChaussuresController@filtrerChaussure');
 Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQuantite');
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
+Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');

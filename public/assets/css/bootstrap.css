@@ -28,6 +28,9 @@ section,
 summary {
     display: block;
 }
+.navbar-collapse-1{
+    width: 20px;
+}
 
 /*début*/
 ul.topnav {
@@ -35,7 +38,9 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: none;
+    background-color: red;
+    display: block;
+    width: 100px;
 }
 
 /* Float the list items side by side */
@@ -45,7 +50,7 @@ ul.topnav li {float: left;}
 ul.topnav li a {
     display: inline-block;
     color: black;
-    text-align:justify;
+    text-align:center;
     padding: 14px 16px;
     text-decoration: none;
     transition: 0.3s;
@@ -63,6 +68,7 @@ ul.topnav li.icon {display: none;}
     ul.topnav li {
         display: none;
     }
+    
 
     ul.topnav li.icon { /*positionnement de l'icone */
         float: right;
@@ -74,7 +80,7 @@ ul.topnav li.icon {display: none;}
 @media screen and (max-width:800px) {
     ul.topnav.responsive {position: relative;}
     ul.topnav.responsive li.icon {
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 0;
     }
@@ -3858,6 +3864,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-collapse.in {
     overflow-y: auto;
+    size:auto;
 }
 @media (min-width: 768px) {
     .navbar-collapse {
@@ -3874,6 +3881,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
     .navbar-collapse.in {
         overflow-y: visible;
+        size:auto;
+        position:absolute;
     }
     .navbar-fixed-top .navbar-collapse,
     .navbar-static-top .navbar-collapse,
