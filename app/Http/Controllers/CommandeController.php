@@ -25,7 +25,7 @@ class CommandeController extends Controller {
 
     public function SupprimerChaussurePanier($id,$idtaille, $idc) {
         $uneChCommande = new LignComm();
-        $uneChCommande->SupprimerLignComm($id,$idtaille);
+        $uneChCommande->SupprimerLignComm($id,$idtaille, $idc);
         return redirect('/panier/' . $idc);
     }
 
@@ -51,15 +51,15 @@ class CommandeController extends Controller {
         }
     }
     
-    public function augmenterQuantite($idCh,$id){
+    public function augmenterQuantite($idCh,$id,$idTaille){
         $uneChaussure = new LignComm();
-        $uneChaussure->augmenterQte($idCh);
+        $uneChaussure->augmenterQte($idCh,$idTaille);
         return redirect('/panier/' . $id);
     }
     
-    public function diminuerQuantite($idCh,$id){
+    public function diminuerQuantite($idCh,$id,$idTaille){
         $uneChaussure = new LignComm();
-        $uneChaussure->diminuerQte($idCh);
+        $uneChaussure->diminuerQte($idCh,$idTaille);
         return redirect('/panier/' . $id);
     }
 }
