@@ -66,6 +66,31 @@ class Client extends Model {
                 ->first();
         return $client;
     }
+    
+    public function getClientExistance($login, $mail){
+        $client = DB::table('client')
+                ->Select('NOMCLI','PRENOMCLI','PSEUDO')
+                ->Where ('PSEUDO','=',$login)
+                ->Where('MAIL','=',$mail)
+                ->first();
+        if ($client) {
+          
+                $connected = true;
+            }
+            else
+                $connected=false;
+        
+        return $connected;
+    }
+    
+    public function getMdpClient($login, $mail) {
+        $mdp = DB::table('client')
+                ->Select('MDP')
+                ->Where ('PSEUDO','=',$login)
+                ->Where('MAIL','=',$mail)
+                ->first();       
+        return $mdp;
+    }
     public function verificationLogin($login){
         $verif = DB::table('client')
                 ->Select('IDCLI')
@@ -76,4 +101,7 @@ class Client extends Model {
         else
             return true;
     }
+    
+    
+    
 }

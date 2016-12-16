@@ -22,7 +22,7 @@ Route::post('/subscribe', 'ClientController@SubscribeIn');
 Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 Route::post('/getLogin', 'ClientController@getlogin');
-
+Route::post('/mdp','EmailController@envoiMdp');
 
 route::get('/listerChaussureHomme', ['uses' => 'ChaussuresController@getListeChaussuresHomme']);
 route::get('/listerChaussureFemme', ['uses' => 'ChaussuresController@getListeChaussuresFemme']);
@@ -46,3 +46,4 @@ Route::post('/getChaussureCondition', 'ChaussuresController@filtrerChaussure');
 Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQuantite');
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
+Route::get('/mdpoublie', 'ClientController@Mdpoublie');
