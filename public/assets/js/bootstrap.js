@@ -73,7 +73,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";           /* fonction pour permettre le menu hamburger */
+    } else {
+        x.className = "topnav";
+    }
+}
 
 +function ($) {
   'use strict';

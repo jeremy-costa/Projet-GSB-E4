@@ -11,7 +11,7 @@
     </head>
     <body class="body">
         <div class="container">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- a modifier pour la mettre en responsive -->
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -26,10 +26,13 @@
                             COPEC</a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="topnav" id="myTopnav">
                                 <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
                                 <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
                                 <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
+                                <li class="icon">
+                                    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+                                </li>
                             </ul>
                     @if (Session::get('id') == 0)
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">

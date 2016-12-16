@@ -10,6 +10,8 @@
 h1{
     text-align: center;
 }
+
+
 .roundedImage{
     overflow:hidden;
     -webkit-border-radius:50px;
