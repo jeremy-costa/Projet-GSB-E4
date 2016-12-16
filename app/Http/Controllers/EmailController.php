@@ -31,6 +31,36 @@ class EmailController extends Controller {
     return redirect('/');
     
 }
-
+public function envoiMdp() {
+    
+      $login = Request::input('login');
+      $mail = Request::input('email');
+      $unClient = new Client();
+        $connected = $unClient->getClientExistance($login, $mail);
+       
+    
+        if ($connected) {
+              $mdp= $unClient->getMdpClient($login, $mail);
+              $title = "Nouveau mot de passe";
+              $content = "je suis le contenu du mail";
+              $erreur="";
+        
+       
+            $data = ['email'=> $mail,'mdp'=> $mdp,'subject' => $title, 'content' => $content];
+            Mail::send('mailMdp', $data, function($message) use($data)
+            {
+                
+                $subject=$data['subject'];
+                $message->from('SiteCopec@gmail.com');
+                $message->to($data['email'], $data['email'])->subject($subject);
+            });
+            
+            return view('formLogin', compact('erreur'));
+        } else {
+            $erreur = "Login ou email incorrect";
+            return view('formMdpOublie', compact('erreur'));
+        }
+      
+}
 
         }

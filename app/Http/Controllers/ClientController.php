@@ -60,5 +60,10 @@ class ClientController extends Controller {
         return view('formSubscribe', compact('erreur'));
         }
     }
+    
+    public function Mdpoublie(){
+        $erreur="";
+        return view('formMdpOublie', compact('erreur'));
+    }
 
 }
