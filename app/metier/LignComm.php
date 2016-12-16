@@ -47,10 +47,17 @@ class LignComm extends Model {
         return $lesChaussures;
     }
     
-    public function SupprimerLignComm($id,$idtaille){
+    public function SupprimerLignComm($id,$idtaille,$idc){
         DB::table('ligncomm')->where('IDCH','=',$id)
                              ->where('idTaille','=',$idtaille)
                              ->delete();
+        $uneChaussure = new lignnCom();
+        $lesChaussures = $uneChaussure->getlesChaussuresCommandeClient($idc);
+        if ($leschaussures == null)
+        {
+            $uneCommande = new Commande();
+            $uneCommande->supprimerCommande($idc);
+        }
     }
     
 
@@ -66,10 +73,15 @@ class LignComm extends Model {
         return $query;
     }
     
-    public function augmenterQte($idCh){
-        DB::table('ligncomm')->where('idCh', '=', $idCh)->Increment('QteCommande');
+    public function augmenterQte($idCh,$idTaille){
+        DB::table('ligncomm')->where('idCh', '=', $idCh)
+                             ->where('idTaille','=',$idTaille)
+                             ->Increment('QteCommande');
     }
-    public function diminuerQte($idCh){
-        DB::table('ligncomm')->where('idCh', '=', $idCh)->Decrement('QteCommande');
+    public function diminuerQte($idCh,$idTaille){
+        DB::table('ligncomm')->where('idCh', '=', $idCh)
+                             ->where('idTaille','=',$idTaille)
+                             ->Decrement('QteCommande');
     }
+    
 }
