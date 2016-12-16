@@ -7,7 +7,7 @@
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="chaussure.css">
+        
     </head>
     <body class="body">
         <div class="container">
@@ -30,6 +30,8 @@
                                 <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
                                 <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
                                 <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
+                                
+                                <li><a href="{{url('/envoimail')}}">Enfant</a></li> 
                             </ul>
                     @if (Session::get('id') == 0)
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
