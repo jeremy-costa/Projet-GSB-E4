@@ -51,22 +51,15 @@ class LignComm extends Model {
         DB::table('ligncomm')->where('IDCH','=',$id)
                              ->where('idTaille','=',$idtaille)
                              ->delete();
-        $uneChaussure = new lignComm();
-        $lesChaussures = $uneChaussure->getlesChaussuresCommandeClient($idc);
-        if ($lesChaussures == null)
-        {
-            $uneCommande = new Commande();
-            $uneCommande->supprimerCommande($idc);
-        }
     }
     
 
     public function AjouterLignComm($id,$pointure,$idCmde){  
-        DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$idCmde,'IDTAILLE'=>(int)$pointure, 'QTECOMMANDE'=>1]);
+        DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$idCmde->idCmde,'IDTAILLE'=>(int)$pointure, 'QTECOMMANDE'=>1]);
     }
     public function chaussureInPanier($id,$Pointure,$idCmde){
         $query = DB::table('ligncomm')->Select('idCmde')
-                ->where('idCmde', '=', $idCmde)
+                ->where('idCmde', '=', $idCmde->idCmde)
                 ->where('idCh','=',$id)
                 ->where('idTaille','=',$Pointure)
                 ->first();

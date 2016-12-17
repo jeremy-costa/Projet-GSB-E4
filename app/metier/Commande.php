@@ -23,7 +23,7 @@ class Commande extends Model {
         return $this->getKey();
     }
 
-    public function getUneCommandeClient($id) {
+    public function getIdCommandeClient($id) {
         $commande = DB::table('commande')
                 ->select('idCmde')
                 ->where('idCli', '=', $id)
@@ -31,20 +31,12 @@ class Commande extends Model {
         return $commande;
     }
 
-    public function getUneCommande($id) {
-        $commande = DB::table('commande')
-                ->select('idCmde')
-                ->where('idCli', '=', $id)
-                ->first();
-        return $commande->idCmde;
-    }
-
     public function ajouterCommande($idCli) {
         $dateJour = date('Y/m/d', time());
         DB::table('commande')->insert(['IDCLI' => $idCli, 'DATECMDE' => $dateJour]);
     }
-    public function supprimerCommande($idCmde) {
-        DB::table('ligncomm')->where('IDCMDE','=',$idCmde)
+    public function supprimerCommande($idCli) {
+        DB::table('commande')->where('IDCMDE','=',$idCli)
                              ->delete();
     }
 

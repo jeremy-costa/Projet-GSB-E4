@@ -40,10 +40,10 @@
                 <td> {{$uneChaussure->LIBELLESAISON }} </td>
                 <td > <img src="../../resources/images/{{$uneChaussure->IMAGE }}"</img></td>
                 <td> {{ $uneChaussure->PRIXCH * $uneChaussure->QTECOMMANDE}}</td>
-                <td><a href="{{ url('/augmenterQte')}}/{{$uneChaussure->IDCH}}/{{$id}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-up" data-toggle="tooltip" data-placement="top"></a>
+                <td><a href="{{ url('/augmenterQte')}}/{{$uneChaussure->IDCH}}/{{$idCli}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-up" data-toggle="tooltip" data-placement="top"></a>
                     {{$uneChaussure->QTECOMMANDE }}
-                    <a href="{{ url('/diminuerQte')}}/{{$uneChaussure->IDCH}}/{{$id}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-down" data-toggle="tooltip" data-placement="top" ><a></a></td>
-                <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimerChPanier')}}/{{  $uneChaussure->IDCH }}/{{$uneChaussure->IDTAILLE}}/{{$id}}"
+                    <a href="{{ url('/diminuerQte')}}/{{$uneChaussure->IDCH}}/{{$idCli}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-down" data-toggle="tooltip" data-placement="top" ><a></a></td>
+                <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimerChPanier')}}/{{  $uneChaussure->IDCH }}/{{$uneChaussure->IDTAILLE}}/{{$idCli}}"
                    onclick="javascript:if (confirm('Voulez vous vraiment enlever la chaussure du panier ?'))"> 
                 </a></td>
             </tr>

@@ -52,6 +52,7 @@
         @if (Session::get('id') > 0)
          {!! Form::open(['url' => '/ajouterPanier']) !!}
         @endif
+        <input name="idCli"  type="hidden" value="{{Session::get('id')}}">
         <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
         <select class='form-control' name='cbPointures' required>
             <OPTION VALUE=0>Sélectionner une Taille</option>
