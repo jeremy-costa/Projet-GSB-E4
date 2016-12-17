@@ -12,7 +12,8 @@
     <body class="body">
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- a modifier pour la mettre en responsive -->
-                <div class="container-fluid">
+                <div class="container">
+                    <br>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -22,11 +23,10 @@
                         </button>
 
                         <a class="navbar-brand" href="{{url('/')}}">
-                            <img id="img_logo" src="../resources/images/copeclogo.gif">
+                            <img id="img_logo" src="../resources/images/copeclogo.gif" >
                             COPEC</a>
                     </div>
-                    
-                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <div class="navbar-default navbar-static-top">
                     <ul class="topnav" id="myTopnav">
                                 <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
                                 <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
@@ -37,7 +37,7 @@
                             </ul>
                     </div>
                     @if (Session::get('id') == 0)
-                    <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                    <div class="navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav navbar-right">  
                             <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
                             <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>

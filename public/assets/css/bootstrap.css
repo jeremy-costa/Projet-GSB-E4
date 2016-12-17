@@ -28,6 +28,11 @@ section,
 summary {
     display: block;
 }
+
+img#img_logo{
+    height: auto;
+}
+
 .navbar-collapse-1{
     width: 20px;
 }
@@ -38,11 +43,10 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: red;
 }
 
 /* Float the list items side by side */
-ul.topnav li {float: left;}
+ul.topnav li {float: right;}
 
 /* Style the links inside the list items */
 ul.topnav li a {
