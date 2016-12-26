@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
-
+<!doctype html>
+<html lang="fr">
+    <body class="body">
 <div class="col-md-12 well well-md">
     
     <center><h1>Inscription</h1></center>
@@ -63,5 +65,7 @@
     {!! Form::close() !!}
 </div>
 @stop
+    </body>
+</html>
 
 

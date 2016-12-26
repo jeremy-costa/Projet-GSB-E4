@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
-
-
-
+<!doctype html>
+<html lang="fr">
+    <body class="body">
 <center><h1>Envoyez-moi mon mot de passe</h1></center>
 <br><br>
 {!! Form::open(['url' => 'mdp']) !!}
@@ -26,4 +26,6 @@
 {!! Form::close() !!}
 @stop
 
+</body>
+</html>
 

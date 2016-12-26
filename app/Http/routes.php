@@ -51,4 +51,8 @@ Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQ
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
 Route::get('/mdpoublie', 'ClientController@Mdpoublie');
+
 Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');
+
+
+

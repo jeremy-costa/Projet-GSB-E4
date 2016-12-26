@@ -60,7 +60,7 @@ ul.topnav li a {
 }
 
 /* Change background color of links on hover */
-ul.topnav li a:hover {background-color: blue;}
+ul.topnav li a:hover {background-color:brown; opacity:0.5;} /*transparence de la couleur des onglets menu*/
 
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
 ul.topnav li.icon {display: none;}
@@ -70,7 +70,7 @@ ul.topnav li.icon {display: none;}
     ul.topnav li {
         display: none;
     }
-    
+
 
     ul.topnav li.icon { /*positionnement de l'icone */
         float: right;
@@ -131,6 +131,7 @@ dfn {
 h1 {
     margin: .67em 0;
     font-size: 2em;
+    text-align: center;
 }
 affich{
     width:200px;
@@ -973,6 +974,7 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
+    font-size: 16px; /* taille police dans le site*/
 }
 input,
 button,
@@ -1464,8 +1466,8 @@ pre code {
     overflow-y: scroll;
 }
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -1481,12 +1483,13 @@ pre code {
 }
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 1250px; /*modifie l'espace entre le texte et le bord de page */
+        text-align: center;
     }
 }
 .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -2427,8 +2430,8 @@ output {
     display: block;
     width: auto;
     height: 34px;
-    padding: 6px 12px;
     font-size: 14px;
+    size: auto;
     line-height: 1.42857143;
     color: #555;
     background-color: #fff;
@@ -2441,6 +2444,7 @@ output {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
 .form-control:focus {
     border-color: #66afe9;
     outline: 0;
@@ -2923,10 +2927,16 @@ fieldset[disabled] .btn-primary.active {
     color: #428bca;
     background-color: #fff;
 }
+.menu-deroulant{
+    margin-top: 70px;
+    border-radius: 5px;
+    font-size: 18px;
+}
 .btn-success {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
+    margin-top: 70px;
 }
 .btn-success:hover,
 .btn-success:focus,

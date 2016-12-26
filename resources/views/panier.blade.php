@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+<!doctype html>
+<html lang="fr">
+    <body class="body">
 <div>
     <br> <br>
     <br> <br>
@@ -88,4 +91,6 @@
 {!! Form::close() !!}
 @stop
 
+    </body>
+</html>
 

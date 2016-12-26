@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+<!doctype html>
+<html lang="fr">
+    <body class="body">
 <div>
     <br> <br>
     <br> <br>
@@ -9,14 +12,13 @@
         </div>
 
 
-        <div class="col-md-4">
-            <div class="col-md-8">
+        <div class="col-md-5">
+            <div class="col-md-6">
                 {{ $uneChaussure->LIBELLECH }}
+                <br /><br />
                 <a href="{{ url('/chaussure') }}/{{ $uneChaussure->IDCH }}">
                     <img  src="../../resources/images/{{$uneChaussure->IMAGE }}"</img>   
-                </a>
-                {{ $uneChaussure->NOMMARQUE }}
-                {{ $uneChaussure->PRIXCH }}
+                </a>   
                 <br>
                 @if(isset($Client)) 
                 @if ( $Client->LVLSECURITE == 1)
@@ -28,56 +30,63 @@
                 </a>                  
                 @endif
                 @endif
+                <br />
+                {{ $uneChaussure->NOMMARQUE }}
+                {{ $uneChaussure->PRIXCH }}
             </div>
-
-
-            <div class="col-md-4">
+            <br />
+            <div class="menu-deroulant">
                 @if ($uneChaussure->STOCKCH !=0)
-                <?php echo " en stock "; ?>
-                <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top"> </span>
+                <?php echo "En stock "; ?>
+                <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" style="color: green" > </span>
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
-                <?php echo " Rupture "; ?>
-                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top"> </span>
+                <?php echo "Rupture "; ?>
+                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red" > </span>
                 @endif
-
+                <br/>
             </div>
 
-
         </div>
-        <BR> <BR>
-        @if(Session::get('id') == 0)
-        {!! Form::open(['url' => '/getLogin']) !!}
-        @endif
-        @if (Session::get('id') > 0)
-         {!! Form::open(['url' => '/ajouterPanier']) !!}
-        @endif
-        <input name="idCli"  type="hidden" value="{{Session::get('id')}}">
-        <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}">
-        <select class='form-control' name='cbPointures' required>
-            <OPTION VALUE=0>Sélectionner une Taille</option>
-            @foreach ($lesPointures as $uneP)
-            {
-            <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
-            }
-            @endforeach
-            
-            
-        </select>
-        
-        <button type="submit" class="btn btn-success">Ajouter au panier</button>
-        {!! Form::close() !!}
-    
-        
-        <BR> <BR>
+        <div class="col-md-3">
+            @if(Session::get('id') == 0)
+            {!! Form::open(['url' => '/getLogin']) !!}
+            @endif
+            @if (Session::get('id') > 0)
+            {!! Form::open(['url' => '/ajouterPanier']) !!}
+            @endif
+            <input name="idCli"  type="hidden" value="{{Session::get('id')}}">
+            <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}"> 
+
+
+            <select class='menu-deroulant' name='cbPointures' required>
+                <OPTION VALUE=0>Sélectionner une Taille</option>
+                @foreach ($lesPointures as $uneP)
+                {
+                <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
+                }
+                @endforeach
+
+
+            </select>
+            </div>
+
+            <div class="col-md-3">
+            <button type="submit" class="btn btn-success">Ajouter au panier</button>
+            {!! Form::close() !!}
+            </div>
+
+            <BR> <BR>
 
 
 
-        <BR> <BR>
+            <BR> <BR>
+
     </div>
 </div>
 @stop
-
+    </body>
+</html>
 
 
 
