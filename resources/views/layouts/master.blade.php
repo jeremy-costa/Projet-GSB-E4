@@ -35,13 +35,13 @@
                             @endif
                             
                             @if (Session::get('id')> 0)
-                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier</a></li>
-                            @endif
-
-                            @if (Session::get('id')> 0)
                             <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
                             @endif
                             
+                            @if (Session::get('id')> 0)
+                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier</a></li>
+                            @endif
+                                                       
                             <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
                             <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
                             <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
