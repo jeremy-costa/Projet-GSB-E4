@@ -23,7 +23,7 @@ class LignComm extends Model {
     public function getlesChaussuresCommande($idcmde) {
         
         $lesChaussures = DB::table('ligncomm')
-                ->Select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
+                ->Select('ligncomm.IDCMDE', 'ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
                 ->join('modele', 'ligncomm.IDCH', '=', 'modele.IDCH')
                 ->join('marque', 'marque.IDMARQUE', '=', 'modele.IDMARQUE')
                 ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')

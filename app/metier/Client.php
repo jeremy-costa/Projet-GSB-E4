@@ -103,5 +103,11 @@ class Client extends Model {
     }
     
     
-    
+    public function getEmailClient($idCli){
+            $email= DB::table('client')
+            ->Select('MAIL','NOMCLI')
+            ->Where ('IDCLI','=',$idCli)
+            ->first();
+ return $email;
+            }
 }

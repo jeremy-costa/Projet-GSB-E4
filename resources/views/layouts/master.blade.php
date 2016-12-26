@@ -53,6 +53,7 @@
                             @endif
 
                             @if (Session::get('id')> 0)
+                            <li><a href="{{url('/getProfil')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Profil</a></li>
                             <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Se déconnecter</a></li>
                             @endif
                         </ul> 
