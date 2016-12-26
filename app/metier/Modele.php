@@ -103,4 +103,11 @@ class Modele extends Model{
                 ->paginate(12);
         return $lesChaussures;       
     }
+    
+    public function getQteStock($idch){
+        $qte = DB::table('Modele')->Select('stockCh')
+                ->where('idCh', '=', $idCh)
+                ->first();
+        return $qte;
+    }
 }

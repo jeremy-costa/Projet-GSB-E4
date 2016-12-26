@@ -51,27 +51,7 @@
                             </li>
                         </ul>
                     </div>
-                    <!--                    @if (Session::get('id') == 0)
-                                        <div class="navbar-collapse" id="navbar-collapse-target">
-                                            <ul class="nav navbar-nav navbar-right">  
-                                                <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
-                                                <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Connexion</a></li>
-                                                <li><a href="{{url('/getSubscribe')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Inscription</a></li>
-                                            </ul> 
-                                        </div>
-                                        @endif-->
-
-<!--                    <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                        <ul class="nav navbar-nav navbar-right">  
-                            @if (Session::get('id')> 0)
-                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Panier</a></li>
-                            @endif
-
-                            @if (Session::get('id')> 0)
-                            <li><a href="{{url('/getLogout')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Se déconnecter</a></li>
-                            @endif
-                        </ul> 
-                    </div> -->
+                   
 
                 </div>
 

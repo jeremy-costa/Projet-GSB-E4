@@ -23,8 +23,8 @@ Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 Route::post('/getLogin', 'ClientController@getlogin');
 Route::post('/mdp','EmailController@envoiMdp');
+Route::post('/passercommande','CommandeController@passerCommande');
 Route::post('/validercommande','CommandeController@validerCommande');
-
 
 
 
@@ -51,4 +51,4 @@ Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQ
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
 Route::get('/mdpoublie', 'ClientController@Mdpoublie');
-Route::get('/pdf/{order}', ['as' => 'order.pdf', 'uses' => 'OrderController@orderPdf']);
+Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');

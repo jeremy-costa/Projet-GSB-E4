@@ -1,3 +1,6 @@
+
+<h1>Suite à votre demande voici votre mot de passe : {{ $mdp->MDP }}</h1>
+
 <!--Page qui permet la création du corps d'un email envoyé lors de la perte du mot de passe d'un client-->
 <!doctype html>
 <html lang="fr">
@@ -13,3 +16,4 @@
         <address> L'équipe COPEC </address>
     </footer>
 </html>
+

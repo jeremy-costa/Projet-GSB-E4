@@ -23,7 +23,7 @@ class LignComm extends Model {
     public function getlesChaussuresCommande($idcmde) {
         
         $lesChaussures = DB::table('ligncomm')
-                ->Select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
+                ->Select('ligncomm.IDCMDE', 'ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE')
                 ->join('modele', 'ligncomm.IDCH', '=', 'modele.IDCH')
                 ->join('marque', 'marque.IDMARQUE', '=', 'modele.IDMARQUE')
                 ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')
@@ -48,12 +48,21 @@ class LignComm extends Model {
     }
     
     public function SupprimerLignComm($id,$idtaille,$idCmde){
-        DB::table('ligncomm')->where('IDCH','=',$id)
+        DB::table('ligncomm')
+                             ->where('IDCH','=',$id)
                              ->where('idTaille','=',$idtaille)
                              ->where('idCmde','=',$idCmde->idCmde)
                              ->delete();
     }
     
+    public function getQte($idCh, $id, $idTaille){
+        $qte = DB::table('ligncomm')->Select('Qtecommande)')
+                             ->where('IDCH','=',$idCh)
+                             ->where('idTaille','=',$idTaille)
+                             ->where('idCmde','=',$id->idCmde)
+                             ->first();
+        return $qte;
+    }
 
     public function AjouterLignComm($id,$pointure,$idCmde){  
         DB::table('ligncomm')->insert(['IDCH'=>$id,'IDCMDE'=>$idCmde->idCmde,'IDTAILLE'=>(int)$pointure, 'QTECOMMANDE'=>1]);

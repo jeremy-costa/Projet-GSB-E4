@@ -33,16 +33,42 @@ class CommandeController extends Controller {
             
     }
     
+    
     public function validerCommande(){
+        $idcli= Request::input('idCli');
+        $total = Request::input('total');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idcli);      
+        if ($NumCommande != null) {
+            
+                $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+             foreach($lesChaussures as $unC)
+             {
+                $idCmde=$unC->IDCMDE;
+                break;
+             }
+            return view('validerCommande', compact('idcli', 'error','total','idCmde'));
+    }
+    }
+    public function passercommande(){
         
         $idCli = Request::input('idCli');
+        $total = Request::input('total');
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
         $NumCommande = $uneCommande->getIdCommandeClient($idCli);      
         if ($NumCommande != null) {
-            $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-            return view('recapCommande', compact('lesChaussures', 'idCli', 'error'));
+            
+                $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+             foreach($lesChaussures as $unC)
+             {
+                $idCmde=$unC->IDCMDE;
+                break;
+             }
+            return view('recapCommande', compact('lesChaussures', 'idCli', 'error','total','idCmde'));
         } 
         else{
             $lesChaussures = null;
@@ -86,8 +112,12 @@ class CommandeController extends Controller {
     }
 
     public function augmenterQuantite($idCh, $id, $idTaille) {
-        $uneChaussure = new LignComm();
-        $uneChaussure->augmenterQte($idCh, $idTaille);
+        $uneLigneCommande = new LignComm();
+        $uneChaussure = new Modele();
+        $uneCommande = new Commande();
+        $idCmde = $uneCommande->getIdCommandeClient($id); 
+        if ($uneLigneCommande->getQte($idCh, $idCmde, $idTaille)<=$uneChaussure->getQteStock($idCh))
+            $uneLigneCommande->augmenterQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
 
