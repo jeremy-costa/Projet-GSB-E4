@@ -16,25 +16,49 @@ class CommandeController extends Controller {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli); 
+        $total=0;
+        if ($NumCommande != null) {
+            $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+            foreach ($lesChaussures as $uneC)
+            {
+                $total += $uneC->PRIXCH * $uneC->QTECOMMANDE; 
+            }
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        } else{
+            $lesChaussures = null;
+            $error = "Pas de commande";
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        }
+            
+    }
+    
+    public function validerCommande(){
+        
+        $idCli = Request::input('idCli');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
         $NumCommande = $uneCommande->getIdCommandeClient($idCli);      
         if ($NumCommande != null) {
             $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-            return view('panier', compact('lesChaussures', 'idCli', 'error'));
-        } else{
+            return view('recapCommande', compact('lesChaussures', 'idCli', 'error'));
+        } 
+        else{
             $lesChaussures = null;
             $error = "Pas de commande";
             return view('panier', compact('lesChaussures', 'idCli', 'error'));
         }
-            
+         
     }
 
     public function SupprimerChaussurePanier($idch, $idtaille, $idcli) {
-        $uneChCommande = new LignComm();
-        $uneChCommande->SupprimerLignComm($idch, $idtaille, $idcli);
+        $uneChCommande = new LignComm();      
         $uneCommande = new Commande();
-        $idcmde = $uneCommande->getIdCommandeClient($idcli);  
-        if($uneChCommande->getlesChaussuresCommande($idcmde) == null)
-            $uneCommande->supprimerCommande($idcli);
+        $idCmde = $uneCommande->getIdCommandeClient($idcli);  
+        $uneChCommande->SupprimerLignComm($idch, $idtaille, $idCmde);
+        if($uneChCommande->getlesChaussuresCommande($idCmde) == null)
+            $uneCommande->supprimerCommande($idCmde);
         return redirect('/panier/' . $idcli);
     }
 
@@ -44,9 +68,9 @@ class CommandeController extends Controller {
         $idCli = Request::input('idCli');
         $uneCommande = new Commande();
         $uneChCommande = new LignComm();
-        $idCmde = $uneCommande->getIdCommandeClient($idCli);
-        $chaussure = $uneChCommande->chaussureInPanier($id, $Pointure, $idCmde);
+        $idCmde = $uneCommande->getIdCommandeClient($idCli);       
         if ($idCmde != null) {
+            $chaussure = $uneChCommande->chaussureInPanier($id, $Pointure, $idCmde);
             if ($chaussure == null) {
                 $uneChCommande->AjouterLignComm($id, $Pointure, $idCmde);
                 return redirect('/panier/' . $idCli);

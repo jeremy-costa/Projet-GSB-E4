@@ -47,9 +47,10 @@ class LignComm extends Model {
         return $lesChaussures;
     }
     
-    public function SupprimerLignComm($id,$idtaille,$idc){
+    public function SupprimerLignComm($id,$idtaille,$idCmde){
         DB::table('ligncomm')->where('IDCH','=',$id)
                              ->where('idTaille','=',$idtaille)
+                             ->where('idCmde','=',$idCmde->idCmde)
                              ->delete();
     }
     
@@ -76,5 +77,7 @@ class LignComm extends Model {
                              ->where('idTaille','=',$idTaille)
                              ->Decrement('QteCommande');
     }
+    
+   
     
 }

@@ -23,6 +23,10 @@ Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 Route::post('/getLogin', 'ClientController@getlogin');
 Route::post('/mdp','EmailController@envoiMdp');
+Route::post('/validercommande','CommandeController@validerCommande');
+
+
+
 
 route::get('/listerChaussureHomme', ['uses' => 'ChaussuresController@getListeChaussuresHomme']);
 route::get('/listerChaussureFemme', ['uses' => 'ChaussuresController@getListeChaussuresFemme']);
@@ -38,7 +42,7 @@ Route::post('/postmodifierChaussure/{id}/{type}', ['as' => 'postmodifierChaussur
 Route::get('/chaussure/{id}', ['uses'=> 'ChaussuresController@getChaussure']);
 
 Route::get('/panier/{id}', 'CommandeController@getListeCommandeClient');
-Route::get('/supprimerChPanier/{id}/{idtaille}/{idc}', ['as' => 'SupprimerChaussurePanier',
+Route::get('/supprimerChPanier/{idch}/{idtaille}/{idcli}', ['as' => 'SupprimerChaussurePanier',
     'uses' => 'CommandeController@SupprimerChaussurePanier']);
 Route::post('/ajouterPanier', 'CommandeController@ajouterChaussurePanier');
 
@@ -47,3 +51,4 @@ Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQ
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
 Route::get('/mdpoublie', 'ClientController@Mdpoublie');
+Route::get('/pdf/{order}', ['as' => 'order.pdf', 'uses' => 'OrderController@orderPdf']);
