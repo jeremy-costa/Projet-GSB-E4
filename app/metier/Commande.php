@@ -35,8 +35,8 @@ class Commande extends Model {
         $dateJour = date('Y/m/d', time());
         DB::table('commande')->insert(['IDCLI' => $idCli, 'DATECMDE' => $dateJour]);
     }
-    public function supprimerCommande($idCli) {
-        DB::table('commande')->where('IDCMDE','=',$idCli)
+    public function supprimerCommande($idCmde) {
+        DB::table('commande')->where('IDCMDE','=',$idCmde->idCmde)
                              ->delete();
     }
 

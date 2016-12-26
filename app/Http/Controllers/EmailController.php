@@ -14,7 +14,7 @@ class EmailController extends Controller {
     
     
     public function sendMailWelcome($user_email, $user_name) {
-           $title = "Welcome";
+           $title = "Finalisation de l'inscription";
         $content = "je suis le contenu du mail";
        
         
