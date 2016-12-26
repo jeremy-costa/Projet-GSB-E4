@@ -16,16 +16,40 @@ class CommandeController extends Controller {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli); 
+        $total=0;
+        if ($NumCommande != null) {
+            $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+            foreach ($lesChaussures as $uneC)
+            {
+                $total += $uneC->PRIXCH * $uneC->QTECOMMANDE; 
+            }
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        } else{
+            $lesChaussures = null;
+            $error = "Pas de commande";
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        }
+            
+    }
+    
+    public function validerCommande(){
+        
+        $idCli = Request::input('idCli');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
         $NumCommande = $uneCommande->getIdCommandeClient($idCli);      
         if ($NumCommande != null) {
             $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-            return view('panier', compact('lesChaussures', 'idCli', 'error'));
-        } else{
+            return view('recapCommande', compact('lesChaussures', 'idCli', 'error'));
+        } 
+        else{
             $lesChaussures = null;
             $error = "Pas de commande";
             return view('panier', compact('lesChaussures', 'idCli', 'error'));
         }
-            
+         
     }
 
     public function SupprimerChaussurePanier($idch, $idtaille, $idcli) {
