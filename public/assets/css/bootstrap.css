@@ -70,7 +70,7 @@ ul.topnav li.icon {display: none;}
     ul.topnav li {
         display: none;
     }
-    
+
 
     ul.topnav li.icon { /*positionnement de l'icone */
         float: right;
@@ -974,6 +974,7 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
+    font-size: 16px; /* taille police dans le site*/
 }
 input,
 button,
@@ -2428,7 +2429,7 @@ output {
 .form-control {
     display: block;
     width: auto;
-    height: auto;
+    height: 34px;
     font-size: 14px;
     size: auto;
     line-height: 1.42857143;
@@ -2800,8 +2801,6 @@ select[multiple].input-lg {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
-    width: auto;
-    height: auto;
     font-size: 14px;
     font-weight: normal;
     line-height: 1.42857143;
@@ -2928,10 +2927,16 @@ fieldset[disabled] .btn-primary.active {
     color: #428bca;
     background-color: #fff;
 }
+.menu-deroulant{
+    margin-top: 70px;
+    border-radius: 5px;
+    font-size: 18px;
+}
 .btn-success {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
+    margin-top: 70px;
 }
 .btn-success:hover,
 .btn-success:focus,
