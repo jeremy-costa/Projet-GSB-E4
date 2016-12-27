@@ -56,7 +56,7 @@ class LignComm extends Model {
     }
     
     public function getQte($idCh, $id, $idTaille){
-        $qte = DB::table('ligncomm')->Select('Qtecommande)')
+        $qte = DB::table('ligncomm')->Select('QTECOMMANDE')
                              ->where('IDCH','=',$idCh)
                              ->where('idTaille','=',$idTaille)
                              ->where('idCmde','=',$id->idCmde)

@@ -105,8 +105,8 @@ class Modele extends Model{
     }
     
     public function getQteStock($idch){
-        $qte = DB::table('Modele')->Select('stockCh')
-                ->where('idCh', '=', $idCh)
+        $qte = DB::table('Modele')->Select('STOCKCH')
+                ->where('IDCH', '=', $idch)
                 ->first();
         return $qte;
     }

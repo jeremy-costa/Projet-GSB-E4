@@ -115,15 +115,21 @@ class CommandeController extends Controller {
         $uneLigneCommande = new LignComm();
         $uneChaussure = new Modele();
         $uneCommande = new Commande();
-        $idCmde = $uneCommande->getIdCommandeClient($id); 
-        if ($uneLigneCommande->getQte($idCh, $idCmde, $idTaille)<=$uneChaussure->getQteStock($idCh))
+        $idCmde = $uneCommande->getIdCommandeClient($id);
+        $qte = $uneLigneCommande->getQte($idCh, $idCmde, $idTaille);
+        $qteStock = $uneChaussure->getQteStock($idCh);
+        if ($qte->QTECOMMANDE<$qteStock->STOCKCH)
             $uneLigneCommande->augmenterQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
 
     public function diminuerQuantite($idCh, $id, $idTaille) {
         $uneChaussure = new LignComm();
-        $uneChaussure->diminuerQte($idCh, $idTaille);
+        $uneCommande = new Commande();
+        $idCmde = $uneCommande->getIdCommandeClient($id);
+        $qte = $uneChaussure->getQte($idCh, $idCmde, $idTaille);
+        if($qte->QTECOMMANDE>1)
+            $uneChaussure->diminuerQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
 

@@ -55,7 +55,6 @@ ul.topnav li a {
     text-align:center;
     padding: 14px 16px;
     text-decoration: none;
-    transition: 0.3s;
     font-size: 15px; /*taille texte affiché */
 }
 
