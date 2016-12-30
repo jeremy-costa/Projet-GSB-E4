@@ -180,6 +180,47 @@ class ChaussuresController extends Controller {
             $idpage = 1;
             $lesChaussures = $uneChaussure->getListeModeles($type);
         }
+         if ($Type != "0" && $couleur != "0" && $saison != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDTYPE == $Type && $unC->IDSAISON == $saison && $unC->COULEURCH == $couleur) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        
+        if ($Type != "0" && $couleur != "0" ) {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDTYPE == $Type && $unC->COULEURCH == $couleur) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        if ($Type != "0"  && $saison != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDTYPE == $Type && $unC->IDSAISON == $saison) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        if ($couleur != "0" && $saison != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDSAISON == $saison && $unC->COULEURCH == $couleur) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
         return view('tableauChaussures', compact('lesChaussures', 'type', 'lesCouleurs', 'lesTypes', 'lesSaisons', 'Type','idpage','Client'));
     }
 
