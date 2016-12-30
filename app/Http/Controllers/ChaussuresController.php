@@ -126,7 +126,9 @@ class ChaussuresController extends Controller {
         $couleur = Request::input('cbCouleurs');
         $Type = Request::input('cbType');
         $saison = Request::input('cbSaison');
-
+        $id = Session::get('id');
+        $unClient = new Client();
+        $Client = $unClient->getClient($id);
         $uneSaison = new Saison();
         $allChaussures = $uneChaussure->getListeModelesBis($type);
         $lesSaisons = $uneSaison->getListeSaison();
@@ -134,7 +136,6 @@ class ChaussuresController extends Controller {
         $lesTypes = $uneChaussure->getLesTypes($type);
         $lesChaussures = new Collection();
         $idpage=0;
-
         if ($Type != "0" && $couleur != "0" && $saison != "0") {
                 
 
@@ -145,7 +146,41 @@ class ChaussuresController extends Controller {
                 }
             }
         }
-        return view('tableauChaussures', compact('lesChaussures', 'type', 'lesCouleurs', 'lesTypes', 'lesSaisons', 'Type','idpage'));
+        if ($Type != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDTYPE == $Type) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        if ($couleur != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->COULEURCH == $couleur) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        if ($saison != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDSAISON == $saison) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
+        }
+        if ($Type == "0" && $couleur == "0" && $saison == "0"){
+            $idpage = 1;
+            $lesChaussures = $uneChaussure->getListeModeles($type);
+        }
+        return view('tableauChaussures', compact('lesChaussures', 'type', 'lesCouleurs', 'lesTypes', 'lesSaisons', 'Type','idpage','Client'));
     }
 
 }
