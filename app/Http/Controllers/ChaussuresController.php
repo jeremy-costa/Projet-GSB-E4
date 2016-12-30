@@ -10,26 +10,28 @@ use Illuminate\Support\Facades\Session;
 use Exception;
 use App\metier\Saison;
 use App\metier\Type;
-
-
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use DB;
 class ChaussuresController extends Controller {
 
     public function getListeChaussuresHomme() {
         $uneChaussure = new Modele();
-     
+
         $type = "Homme";
         $lesChaussures = $uneChaussure->getListeModeles($type);
         $unClient = new Client();
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
-   
+
         $uneSaison = new Saison();
-        $lesSaisons= $uneSaison->getListeSaison();
+        $lesSaisons = $uneSaison->getListeSaison();
         $lesCouleurs = $uneChaussure->getListeCouleurs($type);
         $lesTypes = $uneChaussure->getLesTypes($type);
-      
+        $idpage=1;
 
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type', 'lesSaisons', 'lesTypes', 'lesCouleurs'  ));
+
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type', 'lesSaisons', 'lesTypes', 'lesCouleurs','idpage'));
     }
 
     public function getListeChaussuresFemme() {
@@ -40,12 +42,13 @@ class ChaussuresController extends Controller {
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
         $uneSaison = new Saison();
-        $lesSaisons= $uneSaison->getListeSaison();
+        $lesSaisons = $uneSaison->getListeSaison();
         $lesCouleurs = $uneChaussure->getListeCouleurs($type);
         $lesTypes = $uneChaussure->getLesTypes($type);
+        $idpage=1;
 
 
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type','lesSaisons', 'lesTypes', 'lesCouleurs'));
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type', 'lesSaisons', 'lesTypes', 'lesCouleurs', 'idpage'));
     }
 
     public function getListeChaussuresEnfant() {
@@ -55,13 +58,15 @@ class ChaussuresController extends Controller {
         $unClient = new Client();
         $id = Session::get('id');
         $Client = $unClient->getClient($id);
-           $uneSaison = new Saison();
-        $lesSaisons= $uneSaison->getListeSaison();
+        $uneSaison = new Saison();
+        $lesSaisons = $uneSaison->getListeSaison();
         $lesCouleurs = $uneChaussure->getListeCouleurs($type);
         $lesTypes = $uneChaussure->getLesTypes($type);
+        $idpage=1;
+     
 
 
-        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type','lesSaisons', 'lesTypes', 'lesCouleurs'));
+        return view('tableauChaussures', compact('lesChaussures', 'Client', 'type', 'lesSaisons', 'lesTypes', 'lesCouleurs','idpage'));
     }
 
     public function SupprimerChaussure($id, $type) {
@@ -79,23 +84,22 @@ class ChaussuresController extends Controller {
                 return redirect('/');
         }
     }
-    
-    
-      public function modifierChaussure($id,$type){
+
+    public function modifierChaussure($id, $type) {
         $unModele = new Modele();
         $uneChaussure = $unModele->getModele($id);
-       
-        return view('formChaussureModif', compact('uneChaussure','type'));
+
+        return view('formChaussureModif', compact('uneChaussure', 'type'));
     }
-    
-     public function postmodifierChaussure($id = null, $type){
+
+    public function postmodifierChaussure($id = null, $type) {
         $code = $id;
         $libelle = Request::input('LIBELLECH');
         $prix = Request::input('PRIXCH');
         $stock = Request::input('STOCKCH');
         $image = Request::input('couverture');
         $unModele = new Modele();
-        $unModele->modificationChaussure($code,$prix,$stock,$image, $libelle);
+        $unModele->modificationChaussure($code, $prix, $stock, $image, $libelle);
         switch ($type) {
             case "Homme":
                 return redirect('/listerChaussureHomme');
@@ -107,36 +111,41 @@ class ChaussuresController extends Controller {
                 return redirect('/');
         }
     }
-    
-    public function getChaussure($id){
+
+    public function getChaussure($id) {
         $unModele = new Modele();
         $unePointure = new Pointure();
-        $uneChaussure = $unModele->getModele($id);    
+        $uneChaussure = $unModele->getModele($id);
         $lesPointures = $unePointure->getPointure($id);
-        return view('desChaussure', compact('uneChaussure','lesPointures'));
+        return view('desChaussure', compact('uneChaussure', 'lesPointures'));
     }
 
-    
-    public function filtrerChaussure(){
-         $uneChaussure = new Modele();
+    public function filtrerChaussure() {
+        $uneChaussure = new Modele();
         $type = Request::input('type');
         $couleur = Request::input('cbCouleurs');
         $Type = Request::input('cbType');
         $saison = Request::input('cbSaison');
-        $unModele = new Modele();
+
         $uneSaison = new Saison();
-        $lesSaisons= $uneSaison->getListeSaison();
+        $allChaussures = $uneChaussure->getListeModelesBis($type);
+        $lesSaisons = $uneSaison->getListeSaison();
         $lesCouleurs = $uneChaussure->getListeCouleurs($type);
         $lesTypes = $uneChaussure->getLesTypes($type);
-        $lesChaussures=$unModele->filtrerSansPrix($type,$saison,$couleur);
+        $lesChaussures = new Collection();
+        $idpage=0;
 
-          return view('tableauChaussures', compact('lesChaussures','type', 'lesCouleurs','lesTypes','lesSaisons'));
-       
+        if ($Type != "0" && $couleur != "0" && $saison != "0") {
+                
+
+            foreach ($allChaussures as $unC) {
+                if ($unC->IDTYPE == $Type && $unC->IDSAISON == $saison && $unC->COULEURCH == $couleur) {
+
+                    $lesChaussures->add($unC);
+                }
+            }
         }
+        return view('tableauChaussures', compact('lesChaussures', 'type', 'lesCouleurs', 'lesTypes', 'lesSaisons', 'Type','idpage'));
     }
-    
-    
-    
-    
-    
 
+}

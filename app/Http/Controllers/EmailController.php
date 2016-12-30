@@ -34,7 +34,7 @@ class EmailController extends Controller {
 
 
 
-        $title = "Récapitulatif de la commande commande numero $idCmde";
+        $title = "Récapitulatif de la commande numero $idCmde";
         $content = "je suis le contenu du mail";
         $client = new Client();
         $mail = $client->getEmailClient($idCli);
@@ -74,7 +74,7 @@ class EmailController extends Controller {
             $mdp = $unClient->getMdpClient($login, $mail);
             $title = "Nouveau mot de passe";
             $content = "je suis le contenu du mail";
-            $erreur = "";
+            $erreur = "Le mot de passe vous a été envoyé à l'adresse $mail";
 
 
             $data = ['email' => $mail, 'mdp' => $mdp, 'subject' => $title, 'content' => $content];

@@ -19,7 +19,7 @@
             <OPTION VALUE=0>Couleurs</option>
             @foreach ($lesCouleurs as $uneC)
             {
-            <OPTION VALUE=' {{ $uneC->COULEURCH }}'> {{ $uneC->COULEURCH}}</OPTION>
+            <OPTION VALUE='{{ $uneC->COULEURCH }}'> {{ $uneC->COULEURCH}}</OPTION>
             }
             @endforeach
         </select>
@@ -28,7 +28,7 @@
             <OPTION VALUE=0>Type</option>
             @foreach ($lesTypes as $unT)
             {
-            <OPTION VALUE=' {{ $unT->IDTYPE }}'> {{ $unT->LIBELLETYPE}}</OPTION>
+            <OPTION VALUE='{{ $unT->IDTYPE }}'> {{ $unT->LIBELLETYPE}}</OPTION>
             }
             @endforeach
         </select>
@@ -37,12 +37,13 @@
             <OPTION VALUE=0>Saison</option>
             @foreach ($lesSaisons as $uneS)
             {
-            <OPTION VALUE=' {{ $uneS->IDSAISON }}'> {{ $uneS->LIBELLESAISON}}</OPTION>
+            <OPTION VALUE='{{ $uneS->IDSAISON }}'> {{ $uneS->LIBELLESAISON}}</OPTION>
             }
             @endforeach
         </select>
-
         <input name="type"  type="hidden" value="{{$type}}">
+        
+       
         <button type="submit" class="btn btn-success">Filtrer</button>
         {!! Form::close() !!}
 
@@ -97,10 +98,12 @@
                         </div>
                     </div>
                     @endforeach
-
+                    @if ($idpage==1)
+                    {{ $lesChaussures->render() }}
+                    @endif
                     <BR> <BR>
                 </table>
-                <?php echo $lesChaussures->render(); ?>
+               
             </div>
         </div>
     </div>
