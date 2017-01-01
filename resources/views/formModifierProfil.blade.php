@@ -8,7 +8,7 @@
     <center><h1>Modification du profil</h1></center>
     <br><br>
 
-            {!! Form::open(['url' => 'subscribe']) !!}
+            {!! Form::open(['url' => 'modifierProfil']) !!}
             <div class="form-horizontal">   
                 <div class="form-group">
 
@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Téléphone : </label>
                         <div class="col-md-6 col-md-3">
-                           <input type='tel' name='telcli' value='{{$unC->NUMTELCLI or ''}}'
+                           <input type='tel' name='telcli' value='0{{$unC->NUMTELCLI or ''}}'
                                class='form-control' required>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Adresse e-mail : </label>
                         <div class="col-md-6 col-md-3">
-                             <input type='text' name='telcli' value='{{$unC->MAIL or ''}}'
+                             <input type='text' name='mail' value='{{$unC->MAIL or ''}}'
                                class='form-control' required >
                         </div>
                     </div>

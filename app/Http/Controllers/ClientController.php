@@ -86,6 +86,17 @@ class ClientController extends Controller {
        return view('formModifierProfil', compact('erreur','unC'));
        
    }
+   public function modifierProfil(){
+       $unClient = new Client();
+       $adresse=Request::input('adressecli');
+       $tel=Request::input('telcli');
+       $mdp=Request::input('mdp');
+       $mail=Request::input('mail');
+       $id=Session::get('id');
+       $unClient->modificationProfil($id, $adresse, $tel, $mdp, $mail);
+       
+         return redirect('/getProfil/'.$id);
+   }
             
 
 }
