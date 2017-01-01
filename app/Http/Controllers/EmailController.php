@@ -50,7 +50,7 @@ class EmailController extends Controller {
         
         
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-        
+        $uneCommande->ValiderCommande($NumCommande);
       
      $data = ['email' => $user_email, 'numCommande' => $idCmde, 'total' => $total, 'date' => $format, 'lesChaussures'=>$lesChaussures, 'subject' => $title, 'content' => $content];
         Mail::send('mailRecap', $data, function($message) use($data) {
