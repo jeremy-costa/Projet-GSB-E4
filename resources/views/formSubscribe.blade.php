@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i>Adresse : </label>
+            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i> Adresse : </label>
             <div class="col-md-6 col-md-3">
                 <input type="text" name="adr" class="form-control" placeholder="Votre adresse" required>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Mot de passe : </label>
+            <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i>Mot de passe : </label>
             <div class="col-md-6 col-md-3">
                 <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
             </div>
