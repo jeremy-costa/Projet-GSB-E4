@@ -49,6 +49,7 @@ class CommandeController extends Controller {
                 $idCmde=$unC->IDCMDE;
                 break;
              }
+        
             return view('validerCommande', compact('idcli', 'error','total','idCmde'));
     }
     }
