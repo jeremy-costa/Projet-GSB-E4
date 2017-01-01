@@ -95,8 +95,9 @@ class ChaussuresController extends Controller {
         return view('formChaussureModif', compact('uneChaussure', 'type'));
     }
 
-    public function postmodifierChaussure($id = null, $type) {
-        $code = $id;
+    public function postmodifierChaussure() {
+        $code = Request::input('IDCH');
+        $type = Request::input('IDTYPE');
         $libelle = Request::input('LIBELLECH');
         $prix = Request::input('PRIXCH');
         $stock = Request::input('STOCKCH');

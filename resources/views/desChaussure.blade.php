@@ -44,7 +44,7 @@
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
                 <?php echo "Rupture "; ?>
-                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red" > </span>
+                <span id="rupture" class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red" > </span>
                 @endif
                 <br/>
             </div>
@@ -61,7 +61,7 @@
             <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}"> 
 
 
-            <select class='menu-deroulant' name='cbPointures' id="deroulant" onclick="checkEmpty()" >
+            <select class='menu-deroulant' name='cbPointures' id="deroulant" onclick="checkEmpty();checkStock()" >
                 <OPTION VALUE=0>Sélectionner une Taille</option>
                 @foreach ($lesPointures as $uneP)
                 {
