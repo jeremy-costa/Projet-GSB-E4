@@ -59,7 +59,7 @@
                         
                         &nbsp;
                         <button type="button" class="btn btn-default btn-primary" 
-                                onclick="javascript: window.location = '{{url('/listerMangas')}}';">
+                                onclick="javascript: window.location = '{{url('/')}}';">
                             <span class="glyphicon glyphicon-remove" ></span> Annuler</button>
                     </div>           
                 </div>

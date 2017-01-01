@@ -167,4 +167,18 @@ class Modele extends Model{
               
         return $lesChaussures;       
     }
+    
+    public function ajoutChaussure($idCh,$titre,$code_cat,$code_mar,$code_saison,$couverture,$prix,$stock,$couleur,$code_type,$matiere){
+        
+        DB::table('Modele')->insert(['IDCH'=> $idCh,'IDTYPE' => $code_type, 'IDMARQUE' => $code_mar, 'IDCAT' => $code_cat, 'IDSAISON' => $code_saison, 'LIBELLECH' => $titre, 'PRIXCH' => $prix, 'STOCKCH' => $stock, 'MATIERECH' => $matiere, 'COULEURCH' => $couleur,'IMAGE' => $couverture]);        
+    }
+    
+    public function compterChaussureType($code_type,$code_cat){
+     $cpt = DB::table('Modele')->Select('IDCH')
+                ->where('IDTYPE','=',$code_type)
+                ->where('IDCAT','=',$code_cat)
+                ->count();
+     $cpt += 2;
+     return  (string)$cpt;         
+    }
 }

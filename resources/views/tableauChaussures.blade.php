@@ -12,8 +12,11 @@
                 <h1>Chaussures pour {{$type}}</h1>
                 <br><br>
             </div>
-
-            
+        @if(isset($Client)) 
+        @if ( $Client->LVLSECURITE == 1)   
+        <a href="{{url('/ajoutChaussure')}}"><button class="btn btn-success">Ajouter Chaussure</button></a>
+        @endif
+        @endif
         {!! Form::open(['url' => '/getChaussureCondition']) !!}
         <select class='form-control col-sm-2' name='cbCouleurs'>
             <OPTION VALUE=0>Couleurs</option>
