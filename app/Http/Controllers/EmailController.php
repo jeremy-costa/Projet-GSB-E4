@@ -41,18 +41,23 @@ class EmailController extends Controller {
         $carbon = Carbon::today();
         $timestamp = $carbon->timestamp;
         $format = $carbon->format('d/m/y');
-        $user_email=$mail->MAIL;
-        
+        $user_email = $mail->MAIL;
+
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
-        $NumCommande = $uneCommande->getIdCommandeClient($idCli); 
-        
-        
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli);
+
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+        
+        $LignComm = new LignComm();
+        $mesLignComm = $LignComm->getlesChaussuresCommande($NumCommande);
+        $uneChaussure = new Modele();
+        foreach ($mesLignComm as $uneL) {
+            $uneChaussure->miseAJourDonnee($uneL);
+        }
         $uneCommande->ValiderCommande($NumCommande);
-      
-     $data = ['email' => $user_email, 'numCommande' => $idCmde, 'total' => $total, 'date' => $format, 'lesChaussures'=>$lesChaussures, 'subject' => $title, 'content' => $content];
+        $data = ['email' => $user_email, 'numCommande' => $idCmde, 'total' => $total, 'date' => $format, 'lesChaussures' => $lesChaussures, 'subject' => $title, 'content' => $content];
         Mail::send('mailRecap', $data, function($message) use($data) {
             $subject = $data['subject'];
             $message->from('SiteCopec@gmail.com');

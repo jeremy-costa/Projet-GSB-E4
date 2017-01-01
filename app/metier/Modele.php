@@ -181,4 +181,12 @@ class Modele extends Model{
      $cpt += 2;
      return  (string)$cpt;         
     }
+    
+    public function miseAJourDonnee($uneL){
+         DB::table('modele')->where('IDCH', $uneL->IDCH)
+                 ->decrement('STOCKCH', $uneL->QTECOMMANDE);
+         DB::table('pointure')->where('IDCH', $uneL->IDCH)
+                            ->where('IDTAILLE',$uneL->IDTAILLE)
+                            ->decrement('QTESTOCK', $uneL->QTECOMMANDE);
+    }
 }
