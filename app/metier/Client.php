@@ -61,7 +61,7 @@ class Client extends Model {
     
     public function getClient($id){
         $client = DB::table('client')
-                ->Select('NOMCLI','PRENOMCLI','PSEUDO','LVLSECURITE')
+                ->Select('NOMCLI','PRENOMCLI','PSEUDO','LVLSECURITE', 'NUMTELCLI','ADRESSECLI','MAIL')
                 ->Where ('IDCLI','=',$id)
                 ->first();
         return $client;

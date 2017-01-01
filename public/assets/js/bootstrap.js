@@ -82,6 +82,25 @@ function myFunction() {
     }
 }
 
+function checkEmpty(){
+   if(document.getElementById('deroulant').value != "0"){
+      document.getElementById('ajouter').disabled="";
+   }
+   else{
+      document.getElementById('ajouter').disabled = "disabled";
+   }
+}
+
+function checkEmptyTrier(){
+   if(document.getElementById('type').value != "0"){
+      document.getElementById('trier').disabled="";
+   }
+   else{
+      document.getElementById('trier').disabled = "disabled";
+   }
+}
+
+
 +function ($) {
   'use strict';
 

@@ -35,6 +35,7 @@
                             @endif
                             
                             @if (Session::get('id')> 0)
+                            <li><a href="{{url('/getProfil')}}/{{ Session::get('id') }}">Profil</a></li>
                             <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
                             @endif
                             

@@ -2,9 +2,11 @@
 @section('content')
 <!doctype html>
 <html lang="fr">
+    <body onload="checkEmptyTrier()"> 
     <head>
         <meta name="viewport" content="width=device-width"/>
     </head>
+
     <div>
         <br> <br>
         <div class="container">
@@ -15,7 +17,9 @@
 
             
         {!! Form::open(['url' => '/getChaussureCondition']) !!}
-        <select class='form-control col-sm-2' name='cbCouleurs'>
+       
+        
+        <select class='form-control col-sm-2' name='cbCouleurs' id="couleur" onclick="checkEmptyTrier()" >
             <OPTION VALUE=0>Couleurs</option>
             @foreach ($lesCouleurs as $uneC)
             {
@@ -24,7 +28,7 @@
             @endforeach
         </select>
 
-        <select class='form-control col-sm-2'  name='cbType' >
+        <select class='form-control col-sm-2'  name='cbType' id="type" onclick="checkEmptyTrier()">
             <OPTION VALUE=0>Type</option>
             @foreach ($lesTypes as $unT)
             {
@@ -33,7 +37,7 @@
             @endforeach
         </select>
 
-        <select class='form-control col-sm-2' name='cbSaison' >
+        <select class='form-control col-sm-2' name='cbSaison' id="saison" onclick="checkEmptyTrier()">
             <OPTION VALUE=0>Saison</option>
             @foreach ($lesSaisons as $uneS)
             {
@@ -43,7 +47,7 @@
         </select>
         <input name="type"  type="hidden" value="{{$type}}">
        
-        <button type="submit" class="btn btn-success">Filtrer</button>
+       <button type="submit" class="btn btn-success" id="trier" disabled="disabled">Filtrer</button>
         {!! Form::close() !!}
 
 
@@ -109,4 +113,5 @@
     @stop
 
 
+</body>
 </html>

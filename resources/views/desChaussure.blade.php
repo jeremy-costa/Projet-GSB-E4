@@ -2,7 +2,9 @@
 @section('content')
 <!doctype html>
 <html lang="fr">
-    <body class="body">
+    
+
+<body onload="checkEmpty()">
 <div>
     <br> <br>
     <br> <br>
@@ -59,11 +61,11 @@
             <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}"> 
 
 
-            <select class='menu-deroulant' name='cbPointures' required>
+            <select class='menu-deroulant' name='cbPointures' id="deroulant" onclick="checkEmpty()" >
                 <OPTION VALUE=0>Sélectionner une Taille</option>
                 @foreach ($lesPointures as $uneP)
                 {
-                <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
+                <OPTION  VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
                 }
                 @endforeach
 
@@ -71,8 +73,11 @@
             </select>
             </div>
 
+  
+  
+
             <div class="col-md-3">
-            <button type="submit" class="btn btn-success">Ajouter au panier</button>
+                <button type="submit" class="btn btn-success" id="ajouter" disabled="disabled">Ajouter au panier</button>
             {!! Form::close() !!}
             </div>
 
@@ -85,6 +90,8 @@
     </div>
 </div>
 @stop
+
+
     </body>
 </html>
 
