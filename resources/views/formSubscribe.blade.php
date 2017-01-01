@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Nom : </label>
             <div class="col-md-6 col-md-3">
-                <input type="text" name="nom" class="form-control" placeholder="Votre Nom" required>
+                <input type="text" name="nom" class="form-control" placeholder="Votre Nom" required autofocus>
             </div>
         </div>
         <div class="form-group">
@@ -37,7 +37,7 @@
             {{$erreur}}
             <label class="col-md-3 control-label">Identifiant : </label>
             <div class="col-md-6  col-md-3">
-                <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
+                <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required>
             </div>
         </div>
         <div class="form-group">
@@ -58,9 +58,7 @@
                 <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider</button>
             </div>
         </div>
-        <div class="col-md-6 col-md-offset-3">
-            
-        </div>
+       
     </div>
     {!! Form::close() !!}
 </div>

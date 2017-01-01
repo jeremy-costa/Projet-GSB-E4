@@ -25,6 +25,9 @@ Route::post('/getLogin', 'ClientController@getlogin');
 Route::post('/mdp','EmailController@envoiMdp');
 Route::post('/passercommande','CommandeController@passerCommande');
 Route::post('/validercommande','CommandeController@validerCommande');
+Route::get('/getProfil/{id}','ClientController@getProfil');
+Route::post('/postmodificationProfil','ClientController@postModifierProfil');
+Route::post('/modifierProfil','ClientController@modifierProfil');
 
 
 
