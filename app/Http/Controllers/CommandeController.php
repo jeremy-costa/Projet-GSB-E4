@@ -33,6 +33,30 @@ class CommandeController extends Controller {
             
     }
     
+    public function getLesAnciennesCommandes()
+    {
+        $id= Session::get('id');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli); 
+        $total=0;
+        if ($NumCommande != null) {
+            $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+            foreach ($lesChaussures as $uneC)
+            {
+                $total += $uneC->PRIXCH * $uneC->QTECOMMANDE; 
+            }
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        } else{
+            $lesChaussures = null;
+            $error = "Pas de commande";
+            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+        }
+            
+    }
+    
+    
     
     public function validerCommande(){
         $idcli= Request::input('idCli');

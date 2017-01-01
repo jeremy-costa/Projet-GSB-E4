@@ -10,7 +10,7 @@
     {!! Form::open(['url' => 'subscribe']) !!}
     <div class="form-horizontal">   
         <div class="form-group">
-            <label class="col-md-3 control-label">Nom : </label>
+            <label class="col-md-3 control-label">Nom : </label>   
             <div class="col-md-6 col-md-3">
                 <input type="text" name="nom" class="form-control" placeholder="Votre Nom" required autofocus>
             </div>
@@ -22,20 +22,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Adresse : </label>
+            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i>Adresse : </label>
             <div class="col-md-6 col-md-3">
                 <input type="text" name="adr" class="form-control" placeholder="Votre adresse" required>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-md-3 control-label">Téléphone : </label>
-            <div class="col-md-6 col-md-3">
+        <div class="form-group ">
+            
+            <label class="col-md-3 control-label "> <i class="glyphicon glyphicon-earphone"> </i> Téléphone :</label>
+            <div class="col-md-6 col-md-3 ">
                 <input type="tel" name="tel" class="form-control" placeholder="Votre téléphone">
             </div>
         </div>
         <div class="form-group">
             {{$erreur}}
-            <label class="col-md-3 control-label">Identifiant : </label>
+            <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-user"> </i> Identifiant : </label>
             <div class="col-md-6  col-md-3">
                 <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required>
             </div>
@@ -47,7 +48,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Adresse e-mail : </label>
+            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-envelope"> </i> Adresse e-mail : </label>
             <div class="col-md-6 col-md-3">
                 <input type="email" name="mail" class="form-control" placeholder="Votre adresse e-mail" required>
             </div>
