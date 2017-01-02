@@ -32,6 +32,9 @@ class Commande extends Model {
                 ->first();
         return $commande;
     }
+    
+   
+    
 
     public function ajouterCommande($idCli) {
         $dateJour = date('Y/m/d', time());

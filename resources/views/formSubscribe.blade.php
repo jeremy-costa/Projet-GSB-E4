@@ -10,13 +10,13 @@
     {!! Form::open(['url' => 'subscribe']) !!}
     <div class="form-horizontal">   
         <div class="form-group">
-            <label class="col-md-3 control-label">Nom : </label>   
+            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-tag"> </i> Nom : </label>   
             <div class="col-md-6 col-md-3">
                 <input type="text" name="nom" class="form-control" placeholder="Votre Nom" required autofocus>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Prénom : </label>
+            <label class="col-md-3 control-label"><i class="glyphicon glyphicon-tag"> </i> Prénom : </label>
             <div class="col-md-6 col-md-3">
                 <input type="text" name="prenom" class="form-control" placeholder="Votre Prénom" required>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i>Mot de passe : </label>
+            <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i> Mot de passe : </label>
             <div class="col-md-6 col-md-3">
                 <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
             </div>
