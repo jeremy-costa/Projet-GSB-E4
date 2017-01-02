@@ -1,37 +1,40 @@
 <?php
 
 namespace App\metier;
+
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Type extends Model{
+class Type extends Model {
+
     protected $table = 'Type';
     protected $primaryKey = 'idType';
     public $timestamps = false;
     protected $fillable = [
-         'idType',
+        'idType',
         'libelleType',
     ];
-    
-    public function __construct(){
-        $this->id_marque= 0;
+
+    public function __construct() {
+        $this->id_marque = 0;
     }
-    
-    public function getListeTypes(){
+
+    public function getListeTypes() {
         $types = DB::table('Type')
                 ->get();
-        return $types;       
+        return $types;
     }
-    
-    public function getidType(){
+
+    public function getidType() {
         return $this->getKey();
     }
-    
-    public function getType($id){
+
+    public function getType($id) {
         $query = DB::table('Type')
                 ->select()
                 ->where('idType', '=', $id)
-                -> first();
+                ->first();
         return $query;
     }
+
 }

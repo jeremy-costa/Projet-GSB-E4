@@ -48,7 +48,7 @@ class EmailController extends Controller {
         $NumCommande = $uneCommande->getIdCommandeClient($idCli);
 
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-        
+
         $LignComm = new LignComm();
         $mesLignComm = $LignComm->getlesChaussuresCommande($NumCommande);
         $uneChaussure = new Modele();

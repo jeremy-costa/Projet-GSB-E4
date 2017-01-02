@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class ClientController extends Controller {
 
     //Renvoie vers la page de connexion
-    
+
     public function getLogin() {
         $erreur = "";
         return view('formLogin', compact('erreur'));

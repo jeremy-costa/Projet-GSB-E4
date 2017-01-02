@@ -28,26 +28,24 @@ class Commande extends Model {
         $commande = DB::table('commande')
                 ->select('idCmde')
                 ->where('idCli', '=', $id)
-                ->where('effectue','=',false)
+                ->where('effectue', '=', false)
                 ->first();
         return $commande;
     }
-    
-   
-    
 
     public function ajouterCommande($idCli) {
         $dateJour = date('Y/m/d', time());
         DB::table('commande')->insert(['IDCLI' => $idCli, 'DATECMDE' => $dateJour]);
     }
+
     public function supprimerCommande($idCmde) {
-        DB::table('commande')->where('IDCMDE','=',$idCmde->idCmde)
-                             ->delete();
+        DB::table('commande')->where('IDCMDE', '=', $idCmde->idCmde)
+                ->delete();
     }
-    
-    public function validerCommande($idCmde){
-        DB::table('commande')->where('IDCMDE','=',$idCmde->idCmde)
-                ->update(['EFFECTUE'=> true]);
+
+    public function validerCommande($idCmde) {
+        DB::table('commande')->where('IDCMDE', '=', $idCmde->idCmde)
+                ->update(['EFFECTUE' => true]);
     }
 
 }

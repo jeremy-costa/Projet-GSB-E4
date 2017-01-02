@@ -50,7 +50,7 @@ class LignComm extends Model {
 
     public function getAnciennesCommandesClient($id) {
         $commandes = DB::table('ligncomm')
-                ->select('ligncomm.IDTAILLE','modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE','DATECMDE')
+                ->select('ligncomm.IDTAILLE', 'modele.IDCH', 'modele.LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'QTECOMMANDE', 'DATECMDE')
                 ->join('commande', 'commande.idcmde', '=', 'ligncomm.idcmde')
                 ->join('modele', 'modele.IDCH', '=', 'ligncomm.IDCH')
                 ->join('marque', 'marque.IDMARQUE', '=', 'modele.IDMARQUE')
@@ -58,7 +58,7 @@ class LignComm extends Model {
                 ->join('type', 'modele.IDTYPE', '=', 'type.IDTYPE')
                 ->join('categorie', 'modele.IDCAT', '=', 'categorie.IDCAT')
                 ->where('commande.IDCLI', '=', $id)
-                ->where('effectue', '=',true)
+                ->where('effectue', '=', true)
                 ->get();
         return $commandes;
     }

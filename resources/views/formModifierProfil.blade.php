@@ -3,10 +3,10 @@
 <!doctype html>
 <html lang="fr">
     <body class="body">
-<div class="col-md-12 well well-md">
-    
-    <center><h1>Modification du profil</h1></center>
-    <br><br>
+        <div class="col-md-12 well well-md">
+
+            <center><h1>Modification du profil</h1></center>
+            <br><br>
 
             {!! Form::open(['url' => 'modifierProfil']) !!}
             <div class="form-horizontal">   
@@ -16,29 +16,29 @@
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-home"> </i> Adresse : </label>
                         <div class="col-md-6 col-md-3">
                             <input type='text' name='adressecli' value='{{$unC->ADRESSECLI or ''}}'
-                               class='form-control' required>
+                                   class='form-control' required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-earphone"> </i> Téléphone : </label>
                         <div class="col-md-6 col-md-3">
-                           <input type='tel' name='telcli' value='0{{$unC->NUMTELCLI or ''}}'
-                               class='form-control' required>
+                            <input type='tel' name='telcli' value='0{{$unC->NUMTELCLI or ''}}'
+                                   class='form-control' required>
                         </div>
                     </div>
-                  
+
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class= "glyphicon glyphicon-eye-close"> </i> Mot de passe : </label>
                         <div class="col-md-6 col-md-3">
                             <input type='password' name='mdp' value='{{$unC->MDP or ''}}'
-                               class='form-control' required>
+                                   class='form-control' required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"><i class="glyphicon glyphicon-envelope"> </i> Adresse e-mail : </label>
                         <div class="col-md-6 col-md-3">
-                             <input type='text' name='mail' value='{{$unC->MAIL or ''}}'
-                               class='form-control' required >
+                            <input type='text' name='mail' value='{{$unC->MAIL or ''}}'
+                                   class='form-control' required >
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
 
                 </div>
             </div>
-             {!! Form::close() !!}
+            {!! Form::close() !!}
         </div>
         @stop
     </body>  

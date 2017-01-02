@@ -27,10 +27,10 @@
     </div>
     <div class="col-md-4 col-md-offset-2">
         <br/><button href="{{ url('/mdpoublie')}}" type="button" title="Modifier" style="color: white"</button>Mot de passe oublié
-        
+
         <br/><button href="{{url('/getSubscribe')}}" type="button" title="Enregistrement" style="color: white"</button>S'enregistrer
     </div>
-        <br />
+    <br />
     <br />
     {!! Form::close() !!}
     @stop

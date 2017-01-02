@@ -2,11 +2,11 @@
 @section('content')
 <!doctype html>
 <html lang="fr">
-   <br><br> 
-<body class="body">
-<div>
-    <h1>Bienvenue sur COPEC.</h1>
-</div>
+    <br><br> 
+    <body class="body">
+        <div>
+            <h1>Bienvenue sur COPEC.</h1>
+        </div>
     </body>
     <footer>
         <img  src="../resources/images/bts.jpg"/>

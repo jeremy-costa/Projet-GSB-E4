@@ -1,10 +1,12 @@
 <?php
 
 namespace App\metier;
+
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
 class Pointure extends Model {
+
     protected $table = 'pointure';
     protected $primaryKey = 'idCh';
     public $timestamps = false;
@@ -12,23 +14,18 @@ class Pointure extends Model {
         'idCh',
         'idTaille',
         'QteStock',
-       
-        
     ];
-    
-    public function __construct(){
-        $this->idCh= 0;
+
+    public function __construct() {
+        $this->idCh = 0;
     }
-    
-    public function getPointure($id){
+
+    public function getPointure($id) {
         $query = DB::table('pointure')
                 ->Select('IDTAILLE')
                 ->where('IDCH', '=', $id)
                 ->get();
         return $query;
     }
-    
-    
 
-  
 }

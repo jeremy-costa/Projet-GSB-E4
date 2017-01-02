@@ -34,7 +34,7 @@ class Modele extends Model {
 
     public function getModele($id) {
         $query = DB::table('Modele')
-                ->Select('IDCH', 'LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH')
+                ->Select('IDCH', 'LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'MATIERECH')
                 ->join('categorie', 'modele.IDCAT', '=', 'categorie.IDCAT')
                 ->join('marque', 'modele.IDMARQUE', '=', 'marque.IDMARQUE')
                 ->join('saison', 'modele.IDSAISON', '=', 'saison.IDSAISON')
@@ -177,13 +177,12 @@ class Modele extends Model {
                 ->where('IDTYPE', '=', $code_type)
                 ->where('IDCAT', '=', $code_cat)
                 ->count();
-        if ($cpt<10) {
+        if ($cpt < 10) {
             $cpt += 1;
             $idCh = $code_cat . $code_type . '0' . (string) $cpt;
-        }
-        else{
+        } else {
             $cpt += 2;
-            $idCh = $code_cat . $code_type . (string) $cpt; 
+            $idCh = $code_cat . $code_type . (string) $cpt;
         }
         return $idCh;
     }

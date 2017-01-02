@@ -47,7 +47,8 @@
             </div>
             <div class="col-md-6 col-lg-12">
                 <input name="type"  type="hidden" value="{{$type}}">
-                <button type="submit"data-toggle="tooltip" type="button" class="btn btn-md btn-warning"><i class="glyphicon glyphicon-sort"></i> Filtrer</button>
+                <button id = "trier" data-toggle="tooltip" type="button" class="btn btn-md btn-warning"><i class="glyphicon glyphicon-sort"></i> Filtrer</button>
+                {!! Form::close() !!}
                 @if(isset($Client)) 
                 @if ( $Client->LVLSECURITE == 1)   
                 <a href="{{url('/ajoutChaussure')}}" data-original-title="Se deconnecter" data-toggle="tooltip" type="button" class="btn btn-md btn-warning"><i class="glyphicon glyphicon-plus"> Ajouter</i></a>
@@ -56,7 +57,7 @@
             </div>
 
 
-            {!! Form::close() !!}
+
 
             <div class="col-md-12">
                 <table class="table table-bordered table-striped">
@@ -74,8 +75,8 @@
                             </a>
                             <br><br>
 
-                                {{$uneChaussure->NOMMARQUE}} {{$uneChaussure->PRIXCH}}<?php echo "€"; ?>
-                                <br>
+                            {{$uneChaussure->NOMMARQUE}} {{$uneChaussure->PRIXCH}}<?php echo "€"; ?>
+                            <br>
 
                         </div>
 
