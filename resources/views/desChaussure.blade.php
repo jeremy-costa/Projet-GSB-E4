@@ -2,7 +2,6 @@
 @section('content')
 <!doctype html>
 <html lang="fr">
-    
 
 <body onload="checkEmpty()">
 <div>
