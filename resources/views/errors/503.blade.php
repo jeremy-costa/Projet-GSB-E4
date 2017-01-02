@@ -32,8 +32,8 @@
             }
 
             .title {
-                font-size: 72px;
-                margin-bottom: 40px;
+                font-size: 72%;
+                margin-bottom: 40%;
             }
         </style>
     </head>

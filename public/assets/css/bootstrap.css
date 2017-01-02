@@ -13,13 +13,23 @@ html {
 body {
     margin: 0;
     background:url(../../img/test.png) no-repeat center fixed;
+    position: relative;
+}
+footer{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+footer img{
+    height: 120px;
+    width: 130px;
 }
 article,
 aside,
 details,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -189,7 +199,11 @@ select,
 textarea {
     margin: 0;
     font: inherit;
-    color: inherit;
+    border-radius: 5px;
+    background-color: #428bca;
+    border-color: #357ebd;
+    border : 1px solid transparent;
+    margin-right: 2%;
 }
 button {
     overflow: visible;
@@ -1846,7 +1860,7 @@ pre code {
         width: 41.66666667%;
     }
     .col-md-4 {
-        width: 33.33333333%;
+        width: 35%;
     }
     .col-md-3 {
         width: 25%;
@@ -1963,7 +1977,7 @@ pre code {
         margin-left: 33.33333333%;
     }
     .col-md-offset-3 {
-        margin-left: 25%;
+        margin-left: 33.33333333%;
     }
     .col-md-offset-2 {
         margin-left: 16.66666667%;
@@ -2432,6 +2446,7 @@ output {
     height: 34px;
     font-size: 14px;
     size: auto;
+    margin-left: 15%;
     line-height: 1.42857143;
     color: #555;
     background-color: #fff;
@@ -2798,9 +2813,11 @@ select[multiple].input-lg {
     }
 }
 .btn {
-    display: inline-block;
+    display: table;
+    text-align: center;
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin:0 auto;
+    margin-left: auto;
     font-size: 14px;
     font-weight: normal;
     line-height: 1.42857143;
