@@ -77,7 +77,7 @@ insert into modele values ('FBO03', 'BO', 'LH', 'F', 'AH', 'Bottines imprimé fl
 
 insert into modele values ('FBO04', 'BO', 'LH', 'F', 'AH', 'Boots à talons', 70.00, 7, 'Cuir','Noir', 'Boots_à_talons.jpg');
 
-insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes montantes à talons aiguilles', 65.00, 10, 'Textile','Noir', 'Bottes_montantes_à_talons_aiguilles.jpg');
+insert into modele values ('FBO05', 'BO', 'LH', 'F', 'AH', 'Bottes à talons aiguilles', 65.00, 10, 'Textile','Noir', 'Bottes_montantes_à_talons_aiguilles.jpg');
 
 insert into modele values ('FBA02', 'BA', 'LH', 'F', 'PE', 'Baskets montantes unies', 37.99, 8, 'Textile','Bleu', 'Baskets_montantes_unies.jpg');
 
