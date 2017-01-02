@@ -76,15 +76,20 @@
   
 
             <div class="col-md-3">
-                <button type="submit" class="btn btn-success" id="ajouter" disabled="disabled">Ajouter au panier</button>
+                <button type="submit" class="btn btn-success glyphicon glyphicon-shopping-cart" id="ajouter"  disabled="disabled"> Ajouter au panier</button>
             {!! Form::close() !!}
             </div>
 
-            <BR> <BR>
-
-
-
-            <BR> <BR>
+        <br />
+           
+            <div class="menu-deroulant">
+                <br />
+                <p class="glyphicon glyphicon-ok"> Livraison en 24h</p>
+                <br />
+                <p class="glyphicon glyphicon-ok"> 30 jours pour changer d'avis</p> 
+                <br />
+                <p class="glyphicon glyphicon-ok"> Retour gratuit</p>
+            </div>
 
     </div>
 </div>

@@ -33,38 +33,35 @@
                             <li><a href="{{url('/getLogin')}}">Connexion</a></li>
                             <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
                             @endif
-                            
+
                             @if (Session::get('id')> 0)
-                            <li><a href="{{url('/getProfil')}}/{{ Session::get('id') }}">Profil</a></li>
                             <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
-                            @endif
-                            
-                            @if (Session::get('id')> 0)
+                            <li><a href="{{url('/getProfil')}}/{{ Session::get('id') }}">Profil</a></li>
                             <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier </a></li>
+
                             @endif
-                                                       
+
                             <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
                             <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
                             <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
-                            
                             <li class="icon">
                                 <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
                             </li>
                         </ul>
                     </div>
-                   
+
 
                 </div>
-
+            </nav>
         </div>
-    </nav>
-</div> 
-<div class="container">
-    @yield('content')
-</div>
+
+        <div class="container">
+            @yield('content')
+        </div>
+    </body>
+</html>
 {!! Html::script('assets/js/bootstrap.min.js') !!}
 {!! Html::script('assets/js/jquery-2.1.3.min.js')  !!}  
 {!! Html::script('assets/js/ui-bootstrap-tpls.js')  !!}
 {!! Html::script('assets/js/bootstrap.js')  !!}
-</body>
-</html>
+

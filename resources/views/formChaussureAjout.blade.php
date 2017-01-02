@@ -17,11 +17,12 @@
                 <div class="col-md-12  col-sm-12 well well-md">
                     <div class='form-group'>
                         <label class='col-md-3 control-label'>Titre : </label> 
-                        <div class='col-md-3'>
+                        <div class='col-md-2'>
                             <input type='text' name='LIBELLECH'
                                    class='form-control' required autofocus>
                         </div>
                     </div>
+                    <sub>20 caractères maximum !</sub>
                     <BR><BR>
                     <label class='col-md-3 control-label'>Catégorie : </label>
                     <div class='col-md-3'>
