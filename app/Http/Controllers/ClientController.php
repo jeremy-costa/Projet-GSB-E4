@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\metier\Client;
 use Request;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller {
 
@@ -65,5 +66,37 @@ class ClientController extends Controller {
         $erreur="";
         return view('formMdpOublie', compact('erreur'));
     }
+    
+    
+    public function getProfil($id){
+        $unClient = new Client();
+        $unC=$unClient->getClient($id);
+        
+        
+        
+        return view('profil', compact('unC'));
+        
+    }
+    
+   public function postModifierProfil(){
+       $id=Session::get('id');
+       $unClient = new Client();
+       $unC=$unClient->getClient($id);
+       $erreur="";
+       return view('formModifierProfil', compact('erreur','unC'));
+       
+   }
+   public function modifierProfil(){
+       $unClient = new Client();
+       $adresse=Request::input('adressecli');
+       $tel=Request::input('telcli');
+       $mdp=Request::input('mdp');
+       $mail=Request::input('mail');
+       $id=Session::get('id');
+       $unClient->modificationProfil($id, $adresse, $tel, $mdp, $mail);
+       
+         return redirect('/getProfil/'.$id);
+   }
+            
 
 }

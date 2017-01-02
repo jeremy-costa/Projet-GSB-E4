@@ -9,16 +9,17 @@ class Modele extends Model{
     protected $primaryKey = 'idCh';
     public $timestamps = false;
     protected $fillable = [
-         'idCh',
-        'idType',
-         'idMarque',
-        'idCat',
-        'idSaison',
-        'libelleCh',
-        'prixCh',
-        'stockCh',
-        'matiereCh',
-        'couleurCh'
+         'IDCH',
+        'IDTYPE',
+         'IDMARQUE',
+        'IDCAT',
+        'IDSAISON',
+        'LIBELLECH',
+        'PRIXCH',
+        'STOCKCH',
+        'MATIERECH',
+        'COULEURCH',
+        'IMAGE',
     ];
     
     public function __construct(){
@@ -46,7 +47,7 @@ class Modele extends Model{
       public function getListeModeles($type){
 
         $lesChaussures= DB::table('Modele')
-                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH', 'modele.IDSAISON', 'modele.IDTYPE','COULEURCH')
                 ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
                 ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
                 ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
@@ -56,6 +57,18 @@ class Modele extends Model{
         return $lesChaussures;       
     }
     
+      public function getListeModelesBis($type){
+
+        $lesChaussures= DB::table('Modele')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH', 'modele.IDSAISON', 'modele.IDTYPE','COULEURCH')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('categorie.LIBELLECAT','=',$type)
+                ->get();
+        return $lesChaussures;       
+    }
      public function getListeCouleurs($type){
      $couleurs= DB::table('Modele')
                 ->Select('COULEURCH')
@@ -102,5 +115,78 @@ class Modele extends Model{
                  ->where('modele.COULEURCH','=',$couleur)
                 ->paginate(12);
         return $lesChaussures;       
+    }
+    
+    public function getQteStock($idch){
+        $qte = DB::table('Modele')->Select('STOCKCH')
+                ->where('IDCH', '=', $idch)
+                ->first();
+        return $qte;
+    }
+    
+    
+      public function getListeModelesType($type, $Type){
+
+        $lesChaussures= DB::table('Modele')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH', 'modele.IDSAISON', 'modele.IDTYPE')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('categorie.LIBELLECAT','=',$type)
+                ->where('modele.IDTYPE','=',$Type)
+                ->get();
+              
+        return $lesChaussures;       
+    }
+     public function getListeModelesCouleur($type, $couleur){
+
+        $lesChaussures= DB::table('Modele')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH', 'modele.IDSAISON', 'modele.IDTYPE')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('categorie.LIBELLECAT','=',$type)
+                ->where('modele.COULEURCH','=',$couleur)
+                ->get();
+              
+        return $lesChaussures;       
+    }
+     public function getListeModelesSaison($type, $saison){
+
+        $lesChaussures= DB::table('Modele')
+                ->Select('IDCH','LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE','LIBELLECAT', 'LIBELLESAISON','IMAGE','STOCKCH', 'modele.IDSAISON', 'modele.IDTYPE')
+                ->join('categorie','modele.IDCAT','=','categorie.IDCAT')
+                ->join('marque','modele.IDMARQUE','=','marque.IDMARQUE')
+                ->join('saison','modele.IDSAISON','=','saison.IDSAISON')
+                ->join('type','modele.IDTYPE','=','type.IDTYPE')
+                ->where('categorie.LIBELLECAT','=',$type)
+                ->where('modele.IDSAISON','=',$saison)
+                ->get();
+              
+        return $lesChaussures;       
+    }
+    
+    public function ajoutChaussure($idCh,$titre,$code_cat,$code_mar,$code_saison,$couverture,$prix,$stock,$couleur,$code_type,$matiere){
+        
+        DB::table('Modele')->insert(['IDCH'=> $idCh,'IDTYPE' => $code_type, 'IDMARQUE' => $code_mar, 'IDCAT' => $code_cat, 'IDSAISON' => $code_saison, 'LIBELLECH' => $titre, 'PRIXCH' => $prix, 'STOCKCH' => $stock, 'MATIERECH' => $matiere, 'COULEURCH' => $couleur,'IMAGE' => $couverture]);        
+    }
+    
+    public function compterChaussureType($code_type,$code_cat){
+     $cpt = DB::table('Modele')->Select('IDCH')
+                ->where('IDTYPE','=',$code_type)
+                ->where('IDCAT','=',$code_cat)
+                ->count();
+     $cpt += 2;
+     return  (string)$cpt;         
+    }
+    
+    public function miseAJourDonnee($uneL){
+         DB::table('modele')->where('IDCH', $uneL->IDCH)
+                 ->decrement('STOCKCH', $uneL->QTECOMMANDE);
+         DB::table('pointure')->where('IDCH', $uneL->IDCH)
+                            ->where('IDTAILLE',$uneL->IDTAILLE)
+                            ->decrement('QTESTOCK', $uneL->QTECOMMANDE);
     }
 }

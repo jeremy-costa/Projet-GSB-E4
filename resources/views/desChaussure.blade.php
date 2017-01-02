@@ -2,7 +2,9 @@
 @section('content')
 <!doctype html>
 <html lang="fr">
-    <body class="body">
+    
+
+<body onload="checkEmpty()">
 <div>
     <br> <br>
     <br> <br>
@@ -42,7 +44,7 @@
                 @endif
                 @if ($uneChaussure->STOCKCH==0)
                 <?php echo "Rupture "; ?>
-                <span class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red" > </span>
+                <span id="rupture" class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" data-placement="top" style="color: red" > </span>
                 @endif
                 <br/>
             </div>
@@ -59,11 +61,11 @@
             <input name="idCH"  type="hidden" value="{{$uneChaussure->IDCH}}"> 
 
 
-            <select class='menu-deroulant' name='cbPointures' required>
+            <select class='menu-deroulant' name='cbPointures' id="deroulant" onclick="checkEmpty();checkStock()" >
                 <OPTION VALUE=0>Sélectionner une Taille</option>
                 @foreach ($lesPointures as $uneP)
                 {
-                <OPTION VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
+                <OPTION  VALUE=' {{ $uneP->IDTAILLE }}'> {{ $uneP->IDTAILLE }}</OPTION>
                 }
                 @endforeach
 
@@ -71,20 +73,30 @@
             </select>
             </div>
 
+  
+  
+
             <div class="col-md-3">
-            <button type="submit" class="btn btn-success">Ajouter au panier</button>
+                <button type="submit" class="btn btn-success glyphicon glyphicon-shopping-cart" id="ajouter"  disabled="disabled"> Ajouter au panier</button>
             {!! Form::close() !!}
             </div>
 
-            <BR> <BR>
-
-
-
-            <BR> <BR>
+        <br />
+           
+            <div class="menu-deroulant">
+                <br />
+                <p class="glyphicon glyphicon-ok"> Livraison en 24h</p>
+                <br />
+                <p class="glyphicon glyphicon-ok"> 30 jours pour changer d'avis</p> 
+                <br />
+                <p class="glyphicon glyphicon-ok"> Retour gratuit</p>
+            </div>
 
     </div>
 </div>
 @stop
+
+
     </body>
 </html>
 

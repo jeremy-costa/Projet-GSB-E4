@@ -61,7 +61,7 @@ class Client extends Model {
     
     public function getClient($id){
         $client = DB::table('client')
-                ->Select('NOMCLI','PRENOMCLI','PSEUDO','LVLSECURITE')
+                ->Select('NOMCLI','PRENOMCLI','PSEUDO','LVLSECURITE', 'NUMTELCLI','ADRESSECLI','MAIL','MDP')
                 ->Where ('IDCLI','=',$id)
                 ->first();
         return $client;
@@ -103,5 +103,18 @@ class Client extends Model {
     }
     
     
-    
+    public function getEmailClient($idCli){
+            $email= DB::table('client')
+            ->Select('MAIL','NOMCLI')
+            ->Where ('IDCLI','=',$idCli)
+            ->first();
+ return $email;
+            }
+            
+            
+            
+   public function modificationProfil($id, $adresse, $tel, $mdp, $mail){
+         DB::table('client')->where('IDCLI', $id)
+                 ->update(['ADRESSECLI' => $adresse, 'NUMTELCLI' => $tel, 'MDP' => $mdp, 'MAIL'=> $mail]);
+   }
 }

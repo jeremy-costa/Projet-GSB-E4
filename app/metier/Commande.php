@@ -13,6 +13,7 @@ class Commande extends Model {
         'idCmde',
         'idCli',
         'dateCmde',
+        'effectue',
     ];
 
     public function __construct() {
@@ -27,9 +28,13 @@ class Commande extends Model {
         $commande = DB::table('commande')
                 ->select('idCmde')
                 ->where('idCli', '=', $id)
+                ->where('effectue','=',false)
                 ->first();
         return $commande;
     }
+    
+   
+    
 
     public function ajouterCommande($idCli) {
         $dateJour = date('Y/m/d', time());
@@ -38,6 +43,11 @@ class Commande extends Model {
     public function supprimerCommande($idCmde) {
         DB::table('commande')->where('IDCMDE','=',$idCmde->idCmde)
                              ->delete();
+    }
+    
+    public function validerCommande($idCmde){
+        DB::table('commande')->where('IDCMDE','=',$idCmde->idCmde)
+                ->update(['EFFECTUE'=> true]);
     }
 
 }

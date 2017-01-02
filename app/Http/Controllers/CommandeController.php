@@ -9,6 +9,7 @@ use App\metier\Commande;
 use Request;
 use Illuminate\Support\Facades\Session;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 
 class CommandeController extends Controller {
 
@@ -16,48 +17,84 @@ class CommandeController extends Controller {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
-        $NumCommande = $uneCommande->getIdCommandeClient($idCli); 
-        $total=0;
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli);
+        $total = 0;
         if ($NumCommande != null) {
             $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-            foreach ($lesChaussures as $uneC)
-            {
-                $total += $uneC->PRIXCH * $uneC->QTECOMMANDE; 
+            foreach ($lesChaussures as $uneC) {
+                $total += $uneC->PRIXCH * $uneC->QTECOMMANDE;
             }
-            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
-        } else{
+            return view('panier', compact('lesChaussures', 'idCli', 'error', 'total'));
+        } else {
             $lesChaussures = null;
             $error = "Pas de commande";
-            return view('panier', compact('lesChaussures', 'idCli', 'error','total'));
+            return view('panier', compact('lesChaussures', 'idCli', 'error', 'total'));
         }
-            
     }
-    
-    public function validerCommande(){
-        
-        $idCli = Request::input('idCli');
+
+    public function getLesAnciennesCommandes() {
+        $idCli = Session::get('id');
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
-        $NumCommande = $uneCommande->getIdCommandeClient($idCli);      
+        $lesChaussures=$uneChaussure->getAnciennesCommandesClient($idCli);
+        if ($lesChaussures != null) {
+            return view('anciennesCommandes', compact('lesChaussures', 'idCli', 'error', 'total'));
+        } else {
+            $lesChaussures = null;
+            $error = "Pas d'anciennes commandes";
+            return view('anciennesCommandes', compact('lesChaussures', 'idCli', 'error', 'total'));
+        }
+    }
+
+    public function validerCommande() {
+        $idcli = Request::input('idCli');
+        $total = Request::input('total');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idcli);
         if ($NumCommande != null) {
+
             $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
-            return view('recapCommande', compact('lesChaussures', 'idCli', 'error'));
-        } 
-        else{
+            foreach ($lesChaussures as $unC) {
+                $idCmde = $unC->IDCMDE;
+                break;
+            }
+
+            return view('validerCommande', compact('idcli', 'error', 'total', 'idCmde'));
+        }
+    }
+
+    public function passercommande() {
+
+        $idCli = Request::input('idCli');
+        $total = Request::input('total');
+        $uneCommande = new Commande();
+        $uneChaussure = new LignComm();
+        $error = "";
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli);
+        if ($NumCommande != null) {
+
+            $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande);
+            foreach ($lesChaussures as $unC) {
+                $idCmde = $unC->IDCMDE;
+                break;
+            }
+            return view('recapCommande', compact('lesChaussures', 'idCli', 'error', 'total', 'idCmde'));
+        } else {
             $lesChaussures = null;
             $error = "Pas de commande";
             return view('panier', compact('lesChaussures', 'idCli', 'error'));
         }
-         
     }
 
     public function SupprimerChaussurePanier($idch, $idtaille, $idcli) {
-        $uneChCommande = new LignComm();      
+        $uneChCommande = new LignComm();
         $uneCommande = new Commande();
-        $idCmde = $uneCommande->getIdCommandeClient($idcli);  
+        $idCmde = $uneCommande->getIdCommandeClient($idcli);
         $uneChCommande->SupprimerLignComm($idch, $idtaille, $idCmde);
-        if($uneChCommande->getlesChaussuresCommande($idCmde) == null)
+        if ($uneChCommande->getlesChaussuresCommande($idCmde) == null)
             $uneCommande->supprimerCommande($idCmde);
         return redirect('/panier/' . $idcli);
     }
@@ -68,7 +105,7 @@ class CommandeController extends Controller {
         $idCli = Request::input('idCli');
         $uneCommande = new Commande();
         $uneChCommande = new LignComm();
-        $idCmde = $uneCommande->getIdCommandeClient($idCli);       
+        $idCmde = $uneCommande->getIdCommandeClient($idCli);
         if ($idCmde != null) {
             $chaussure = $uneChCommande->chaussureInPanier($id, $Pointure, $idCmde);
             if ($chaussure == null) {
@@ -86,14 +123,24 @@ class CommandeController extends Controller {
     }
 
     public function augmenterQuantite($idCh, $id, $idTaille) {
-        $uneChaussure = new LignComm();
-        $uneChaussure->augmenterQte($idCh, $idTaille);
+        $uneLigneCommande = new LignComm();
+        $uneChaussure = new Modele();
+        $uneCommande = new Commande();
+        $idCmde = $uneCommande->getIdCommandeClient($id);
+        $qte = $uneLigneCommande->getQte($idCh, $idCmde, $idTaille);
+        $qteStock = $uneChaussure->getQteStock($idCh);
+        if ($qte->QTECOMMANDE < $qteStock->STOCKCH)
+            $uneLigneCommande->augmenterQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
 
     public function diminuerQuantite($idCh, $id, $idTaille) {
         $uneChaussure = new LignComm();
-        $uneChaussure->diminuerQte($idCh, $idTaille);
+        $uneCommande = new Commande();
+        $idCmde = $uneCommande->getIdCommandeClient($id);
+        $qte = $uneChaussure->getQte($idCh, $idCmde, $idTaille);
+        if ($qte->QTECOMMANDE > 1)
+            $uneChaussure->diminuerQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
 

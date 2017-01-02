@@ -23,8 +23,12 @@ Route::post('/login', 'ClientController@signIn');
 Route::get('/getLogout', 'ClientController@signOut');
 Route::post('/getLogin', 'ClientController@getlogin');
 Route::post('/mdp','EmailController@envoiMdp');
+Route::post('/passercommande','CommandeController@passerCommande');
 Route::post('/validercommande','CommandeController@validerCommande');
-
+Route::get('/getProfil/{id}','ClientController@getProfil');
+Route::post('/postmodificationProfil','ClientController@postModifierProfil');
+Route::post('/modifierProfil','ClientController@modifierProfil');
+Route::get('/getAnciennesCommandes','CommandeController@getLesAnciennesCommandes');
 
 
 
@@ -35,10 +39,11 @@ Route::get('/supprimer/{id}/{type}', ['as' => 'SupprimerChaussure',
     'uses' => 'ChaussuresController@SupprimerChaussure']);
 Route::get('/modifierChaussure/{id}/{type}', ['as' => 'modifierChaussure',
     'uses' => 'ChaussuresController@modifierChaussure']);
-
-Route::post('/postmodifierChaussure/{id}/{type}', ['as' => 'postmodifierChaussure',
+Route::post('/postmodifierChaussure', ['as' => 'postmodifierChaussure',
     'uses' => 'ChaussuresController@postmodifierChaussure']);
-
+Route::get('/ajoutChaussure', 'ChaussuresController@ajoutChaussure');
+Route::post('/postajouterChaussure', ['as' => 'postajouterChaussure',
+    'uses' => 'ChaussuresController@postajouterChaussure']);
 Route::get('/chaussure/{id}', ['uses'=> 'ChaussuresController@getChaussure']);
 
 Route::get('/panier/{id}', 'CommandeController@getListeCommandeClient');
@@ -51,4 +56,4 @@ Route::get('/augmenterQte/{idCh}/{id}/{idTaille}','CommandeController@augmenterQ
 Route::get('/diminuerQte/{idCh}/{id}/{idTaille}','CommandeController@diminuerQuantite');
 Route::get('/welcomeMail/{mail}/{nom}', 'EmailController@sendMailWelcome');
 Route::get('/mdpoublie', 'ClientController@Mdpoublie');
-Route::get('/pdf/{order}', ['as' => 'order.pdf', 'uses' => 'OrderController@orderPdf']);
+Route::get('/validerMail/{idCli}/{total}/{idCmde}', 'EmailController@sendRecapCommande');

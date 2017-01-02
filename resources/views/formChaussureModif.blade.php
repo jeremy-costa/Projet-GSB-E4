@@ -11,13 +11,14 @@
             <h1>Modification d'un Modèle</h1>
         </div>
     </div>
-        {!! Form::open(array('route' => array('postmodifierChaussure',$uneChaussure->IDCH,$type), 'method' => 'post')) !!}  
+        {!! Form::open(array('route' => array('postmodifierChaussure'), 'method' => 'post')) !!}  
         <div class='form-group'>
             <BR> <BR>
             <div class="col-md-12  col-sm-12 well well-md">
                 <div class='form-group'>
                     <label class='col-md-3 control-label'>Titre : </label> 
                     <div class='col-md-3'>
+                        <input type='hidden' name='IDTYPE' value="{{$uneChaussure->IDTYPE or ''}} ">
                         <input type='hidden' name='IDCH' value="{{$uneChaussure->IDCH or ''}} ">
                         <input type='text' name='LIBELLECH' value='{{$uneChaussure->LIBELLECH or ''}}'
                                class='form-control' required autofocus>
@@ -59,7 +60,7 @@
                         
                         &nbsp;
                         <button type="button" class="btn btn-default btn-primary" 
-                                onclick="javascript: window.location = '{{url('/listerMangas')}}';">
+                                onclick="javascript: window.location = '{{url('/')}}';">
                             <span class="glyphicon glyphicon-remove" ></span> Annuler</button>
                     </div>           
                 </div>
