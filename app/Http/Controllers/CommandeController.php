@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\metier\Modele;
-use App\metier\Client;
 use App\metier\LignComm;
 use App\metier\Commande;
 use Request;
 use Illuminate\Support\Facades\Session;
-use Exception;
-use Illuminate\Database\Eloquent\Collection;
 
 class CommandeController extends Controller {
+    /* Créer l'appel de récupération de l'id d'une commande (non effectuée) à partir de l'id d'un client
+     * puis créer l'appel de récupération des chaussures de la commande et renvoie ces données à l'affichage du panier
+     * ou un message si la commande n'existe pas.
+     */
 
     public function getListeCommandeClient($idCli) {
         $uneCommande = new Commande();
@@ -32,12 +33,17 @@ class CommandeController extends Controller {
         }
     }
 
+    /* Créer l'appel de récupération des commandes effectuées par un client
+     * puis renvoie les données à l'affichage des anciennes commandes
+     * ou un message si il n'y a pas d'ancienne commande.
+     */
+    
     public function getLesAnciennesCommandes() {
         $idCli = Session::get('id');
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
-        $lesChaussures=$uneChaussure->getAnciennesCommandesClient($idCli);
+        $lesChaussures = $uneChaussure->getAnciennesCommandesClient($idCli);
         if ($lesChaussures != null) {
             return view('anciennesCommandes', compact('lesChaussures', 'idCli', 'error', 'total'));
         } else {
@@ -47,6 +53,11 @@ class CommandeController extends Controller {
         }
     }
 
+    /* Récupère en post les données du formulaire de validation d'une commande
+     * puis appel la récupération des données de la commande
+     * et renvoie les données sur la page de validation de la commande.
+     */
+    
     public function validerCommande() {
         $idcli = Request::input('idCli');
         $total = Request::input('total');
@@ -66,6 +77,11 @@ class CommandeController extends Controller {
         }
     }
 
+    /* Récupère en post les données du formulaire de validation d'une commande
+     * puis appel la récupération des données de la commande
+     * et renvoie les données sur la page de récapitulation de la commande.
+     */
+    
     public function passercommande() {
 
         $idCli = Request::input('idCli');
@@ -89,6 +105,12 @@ class CommandeController extends Controller {
         }
     }
 
+    /*
+     * Appel la récupération des données de la commande
+     * puis appel la suppression d'une ligne de la commande ou de la commande si il n'y a plus de ligne
+     * puis renvoie l'affichage de la commande.
+     */
+    
     public function SupprimerChaussurePanier($idch, $idtaille, $idcli) {
         $uneChCommande = new LignComm();
         $uneCommande = new Commande();
@@ -99,6 +121,11 @@ class CommandeController extends Controller {
         return redirect('/panier/' . $idcli);
     }
 
+    /* Récupère en post les données du formulaire d'ajout d'une chaussure dans la commande
+     * puis appel la vérification de l'existance d'une commande (le cas échéant créer une nouvelle commande)
+     * puis ajoute la chaussure dans la commande
+     * et renvoie l'affichage de la commande ou de la chaussure le cas échéant.
+     */
     public function ajouterChaussurePanier() {
         $Pointure = Request::input('cbPointures');
         $id = Request::input('idCH');
@@ -122,6 +149,14 @@ class CommandeController extends Controller {
         }
     }
 
+    /* Appel la récupération des données d'une commande 
+     * puis appel la récupération de la quantitée d'une chaussure de la commande
+     * ainsi que la quantité en stock de la chaussure dans le magasin
+     * et vérifie que la quantité commandée est inférieur à celle en stock
+     * puis augmente la quantité commandée si la condition est vérifiée
+     * et renvoie sur l'affichage de la commande.
+     */
+    
     public function augmenterQuantite($idCh, $id, $idTaille) {
         $uneLigneCommande = new LignComm();
         $uneChaussure = new Modele();
@@ -133,7 +168,14 @@ class CommandeController extends Controller {
             $uneLigneCommande->augmenterQte($idCh, $idTaille);
         return redirect('/panier/' . $id);
     }
-
+    
+    /* Appel la récupération des données d'une commande 
+     * puis appel la récupération de la quantitée d'une chaussure de la commande
+     * et vérifie que la quantité commandée est strictement supérieure à 0
+     * puis diminue la quantité commandée si la condition est vérifiée
+     * et renvoie sur l'affichage de la commande.
+     */
+    
     public function diminuerQuantite($idCh, $id, $idTaille) {
         $uneChaussure = new LignComm();
         $uneCommande = new Commande();
