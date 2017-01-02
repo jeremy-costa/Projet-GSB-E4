@@ -43,8 +43,12 @@
             </div>
                  <div class="panel-footer">
                          
-                             <button type="submit"data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Editer profil</button>
-                            <a href="{{url( '/getLogout') }}"data-original-title="Se deconnecter" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"> Se deconnecter</i></a>
+                            
+                     <button type="submit"data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Editer profil</button>
+                     
+                       
+                     <a href="{{url( '/getAnciennesCommandes') }}"data-original-title="Se deconnecter" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-shopping-cart">Anciennes commandes</i></a>
+                            <a href="{{url( '/getLogout') }}"data-original-title="Se deconnecter" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-off"> Se deconnecter</i></a>
                         </span>
                     </div>
             

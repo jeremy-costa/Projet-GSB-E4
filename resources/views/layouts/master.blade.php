@@ -29,7 +29,7 @@
                     <div class="navbar-default navbar-static-top">
                         <ul class="topnav" id="myTopnav">
                             @if (Session::get('id') == 0)
-                            <li><a href="{{url('/getLogin')}}">Panier</a></li>
+                            <li><a  href="{{url('/getLogin')}}">Panier</a></li>
                             <li><a href="{{url('/getLogin')}}">Connexion</a></li>
                             <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
                             @endif
@@ -40,7 +40,7 @@
                             @endif
                             
                             @if (Session::get('id')> 0)
-                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier</a></li>
+                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier </a></li>
                             @endif
                                                        
                             <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
