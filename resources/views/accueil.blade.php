@@ -5,7 +5,7 @@
    <br><br> 
 <body class="body">
 <div>
-    <h1>Bienvenue sur COPEC!</h1>
+    <h1>Bienvenue sur COPEC</h1>
 </div>
     </body>
     <footer>
