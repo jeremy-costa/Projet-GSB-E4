@@ -8,7 +8,6 @@ use App\metier\LignComm;
 use App\metier\Commande;
 use Request;
 use Illuminate\Support\Facades\Mail;
-use DateTime;
 use Carbon\Carbon;
 
 class EmailController extends Controller {
