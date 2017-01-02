@@ -37,7 +37,7 @@ create table COMMANDE
    IDCMDE               INT(10)NOT NULL AUTO_INCREMENT,
    IDCLI                INT(3)            not null,
    DATECMDE             DATE,
-   LIVRAISON             BOOLEAN,
+   EFFECTUE             BOOLEAN,
    constraint PK_COMMANDE primary key (IDCMDE)
 );
 
