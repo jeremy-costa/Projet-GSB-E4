@@ -1,3 +1,4 @@
+<!--View de transition après s'être inscrit.-->
 @extends('layouts.master')
 @section('content')
 <!doctype html>
