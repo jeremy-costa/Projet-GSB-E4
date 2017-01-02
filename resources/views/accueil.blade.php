@@ -5,7 +5,7 @@
    <br><br> 
 <body class="body">
 <div>
-    <h1>Bienvenue sur COPEC</h1>
+    <h1>Bienvenue sur COPEC!</h1>
 </div>
     </body>
     <footer>
@@ -16,4 +16,3 @@
         <p>Site réalisé par Jérémy, Tayana, Olivier et Casey</p>  
     </footer>
 </html>
-
