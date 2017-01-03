@@ -20,6 +20,7 @@ class Pointure extends Model {
         $this->idCh = 0;
     }
 
+    //Dialogue aves la bdd pour récupérer une pointure
     public function getPointure($id) {
         $query = DB::table('pointure')
                 ->Select('IDTAILLE')

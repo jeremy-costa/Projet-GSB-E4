@@ -17,6 +17,7 @@ class Taille extends Model {
         $this->idTaille = 0;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des tailles
     public function getLesTailles() {
         return $this->getKey();
     }

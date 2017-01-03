@@ -32,6 +32,7 @@ class Modele extends Model {
         return $this->getKey();
     }
 
+    //Dialogue aves la bdd pour récupérer un modèle de chaussure
     public function getModele($id) {
         $query = DB::table('Modele')
                 ->Select('IDCH', 'LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH', 'MATIERECH')
@@ -44,6 +45,7 @@ class Modele extends Model {
         return $query;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des modèles de chaussure (avec pagination)
     public function getListeModeles($type) {
 
         $lesChaussures = DB::table('Modele')
@@ -57,6 +59,7 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des modèles de chaussure (sans pagination)
     public function getListeModelesBis($type) {
 
         $lesChaussures = DB::table('Modele')
@@ -70,6 +73,7 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des couleurs des chaussures
     public function getListeCouleurs($type) {
         $couleurs = DB::table('Modele')
                         ->Select('COULEURCH')
@@ -81,6 +85,7 @@ class Modele extends Model {
         return $couleurs;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des types des chaussures
     public function getLesTypes($type) {
         $lesTypes = DB::table('Modele')
                         ->Select('modele.IDTYPE', 'LIBELLETYPE')
@@ -91,16 +96,19 @@ class Modele extends Model {
         return $lesTypes;
     }
 
+    //Dialogue aves la bdd pour supprimer un modèle de chaussure de la bdd (pointure et modèle)
     public function SupprimerChaussure($id) {
         DB::table('pointure')->where('IDCH', '=', $id)->delete();
         DB::table('modele')->where('IDCH', '=', $id)->delete();
     }
 
+    //Dialogue aves la bdd pour modifier un modèle de chaussure 
     public function modificationChaussure($code, $prix, $stock, $image, $libelle) {
         DB::table('modele')->where('IDCH', $code)
                 ->update(['PRIXCH' => $prix, 'STOCKCH' => $stock, 'IMAGE' => $image, 'LIBELLECH' => $libelle]);
     }
 
+    //Dialogue aves la bdd pour filtrer les modèles de chaussures en fonction du type, de la saison et de la couleur 
     public function filtrerSansPrix($type, $saison, $couleur) {
         $lesChaussures = DB::table('Modele')
                 ->Select('IDCH', 'LIBELLECH', 'NOMMARQUE', 'PRIXCH', 'LIBELLETYPE', 'LIBELLECAT', 'LIBELLESAISON', 'IMAGE', 'STOCKCH')
@@ -115,6 +123,7 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
+    //Dialogue aves la bdd pour récupérer la quantitée en stock d'un modèle de chaussure
     public function getQteStock($idch) {
         $qte = DB::table('Modele')->Select('STOCKCH')
                 ->where('IDCH', '=', $idch)
@@ -122,6 +131,7 @@ class Modele extends Model {
         return $qte;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des modèles de chaussure par type
     public function getListeModelesType($type, $Type) {
 
         $lesChaussures = DB::table('Modele')
@@ -137,6 +147,7 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des modèles de chaussures par couleur
     public function getListeModelesCouleur($type, $couleur) {
 
         $lesChaussures = DB::table('Modele')
@@ -152,6 +163,7 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des modèles de chaussures par saison
     public function getListeModelesSaison($type, $saison) {
 
         $lesChaussures = DB::table('Modele')
@@ -167,11 +179,20 @@ class Modele extends Model {
         return $lesChaussures;
     }
 
-    public function ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $stock, $couleur, $code_type, $matiere) {
-
+    //Dialogue aves la bdd pour ajouter un modéle de chaussure dans la bdd 
+    public function ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $couleur, $code_type, $matiere,$pointures,$qtepointures) {
+        $lesPointures = explode(",", $pointures);
+        $lesQtePointures = explode(",", $qtepointures);
+        $stock = array_sum($lesQtePointures);
         DB::table('Modele')->insert(['IDCH' => $idCh, 'IDTYPE' => $code_type, 'IDMARQUE' => $code_mar, 'IDCAT' => $code_cat, 'IDSAISON' => $code_saison, 'LIBELLECH' => $titre, 'PRIXCH' => $prix, 'STOCKCH' => $stock, 'MATIERECH' => $matiere, 'COULEURCH' => $couleur, 'IMAGE' => $couverture]);
+        $cpt = 0;
+        while($cpt < count($lesPointures)){
+            DB::table('pointure')->insert(['IDCH' => $idCh, 'IDTAILLE' => $lesPointures[$cpt], 'QTESTOCK' => $lesQtePointures[$cpt]]);
+            $cpt += 1;
+        }
     }
 
+    //Dialogue aves la bdd pour composer l'id d'une chaussure 
     public function compositionIDChaussure($code_type, $code_cat) {
         $cpt = DB::table('Modele')->Select('IDCH')
                 ->where('IDTYPE', '=', $code_type)
@@ -187,6 +208,8 @@ class Modele extends Model {
         return $idCh;
     }
 
+    //Dialogue aves la bdd pour mettre à jour la quantitée en stock d'une chaussure (modèle et pointure)
+    //en fonction de la quantité commandée par le client 
     public function miseAJourDonnee($uneL) {
         DB::table('modele')->where('IDCH', $uneL->IDCH)
                 ->decrement('STOCKCH', $uneL->QTECOMMANDE);

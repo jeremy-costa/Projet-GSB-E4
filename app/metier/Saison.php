@@ -19,6 +19,7 @@ class Saison extends Model {
         $this->id_marque = 0;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des saisons
     public function getListeSaison() {
         $saison = DB::table('saison')
                         ->select('IDSAISON', 'LIBELLESAISON')
@@ -26,10 +27,13 @@ class Saison extends Model {
         return $saison;
     }
 
+    
     public function getidSaison() {
         return $this->getKey();
     }
 
+    
+    //Dialogue aves la bdd pour récupérer une saison
     public function getSaison($id) {
         $query = DB::table('saison')
                 ->select()

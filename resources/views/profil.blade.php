@@ -1,3 +1,4 @@
+<!--View qui sert à voir son profil.-->
 @extends('layouts.master')
 @section('content')
 

@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* INSERT: 14/12/16   09:36                                     */
+/* INSERT: 02/01/16  21:43                                     */
 /*==============================================================*/
 
 
@@ -85,10 +85,11 @@ insert into modele values ('FBA03', 'BA', 'LH', 'F', 'PE', 'Tennis basses', 34.9
 
 insert into modele values ('FBA04', 'BA', 'LH', 'F', 'PE', 'Baskets bicolores fluos', 39.99, 4, 'Textile','Bleu', 'Baskets_bicolores_fluos.jpg');
 
-insert into modele values ('FEP01', 'SO', 'LH', 'F', 'PE', 'Espadrilles talons compensés', 29.99, 4, 'Textile','Noir', 'Espadrilles_talons_compensés.jpg');
+insert into modele values ('FSO01', 'SO', 'LH', 'F', 'PE', 'Espadrilles talons compensés', 29.99, 4, 'Textile','Noir', 'Espadrilles_talons_compensés.jpg');
 
 insert into modele values ('FBO06', 'BO', 'LH', 'F', 'AH', 'Boots bottines', 49.99, 4, 'Textile','Marron', 'boots_bottines.jpg');
 
+insert into modele values ('FSO02', 'SO', 'IC', 'F', 'AH', 'Escarpins brillants', 95.90, 6, 'Textile','Noir', 'escarpins_brillants.jpg');
 
 --  ---Insertion modele Homme--- --
 	
@@ -120,6 +121,7 @@ insert into modele values ('HBO02', 'BO', 'LH', 'H', 'AH', 'Bottes santiags unie
 
 insert into modele values ('HCH03', 'VI', 'LH', 'H', 'PE', 'Baskets à lacets jean cuir', 89, 8, 'Textile/Cuir','Marron/bleu', 'Baskets_à_lacets_jean_cuir.jpg');
 
+insert into modele values ('HSO01', 'SO', 'IC', 'H', 'PE', 'Chaussures à lacets', 75.50, 4, 'Textile','Noir', 'chaussures_lacets.jpg');
 
 --  ---Insertion modele Enfant--- --
  			 
@@ -193,6 +195,9 @@ insert into modele values ('EBA17', 'BA', 'CH', 'E', 'AH', 'Baskets ciel', 14.99
 
 insert into modele values ('ECH03', 'VI', 'CH', 'E', 'AH', 'Chaussures multicolors', 14.99, 4, 'Textile','Rose', 'Chaussures_multicolores.jpg');
 
+insert into modele values ('ESO01', 'SO', 'IC', 'E', 'AH', 'Chaussures panda', 30.99, 4, 'Textile','Noir', 'Chaussures_panda.jpg');
+
+insert into modele values ('ESO02', 'SO', 'IC', 'E', 'AH', 'Chaussures licorne', 30.99, 5, 'Textile','Rose', 'Chaussures_licorne.jpg');
 
 -- ---Insertion Client--- --
 insert into client values ('','Societe','COPEC','141 rue D',655998877,'admin@copec.com','admin','admin',1);
@@ -255,6 +260,9 @@ insert into pointure values ('FBO06', '36', '4');
 
 insert into pointure values ('FBO06', '39', '4');
 
+insert into pointure values ('FSO01', '37', '6');
+
+insert into pointure values ('FSO01', '39', '6');
 
 --  ---Insertion pointure Homme 39 à 47--- --
 
@@ -313,6 +321,10 @@ insert into pointure values ('HSP02', '46', '4');
 insert into pointure values ('HTO01', '40', '4');
 
 insert into pointure values ('HTO01', '44', '4');
+
+insert into pointure values ('HSO02', '44', '4');
+
+insert into pointure values ('HSO02', '46', '4');
 
 --  ---Insertion pointure Enfant 24 à 38--- --
 
@@ -450,3 +462,10 @@ insert into pointure values ('ESP02', '31', '4');
 
 insert into pointure values ('ESP02', '34', '4');
 
+insert into pointure values ('ESO01', '34', '4');
+
+insert into pointure values ('ESO01', '32', '4');
+
+insert into pointure values ('ESO02', '30', '5');
+
+insert into pointure values ('ESO02', '32', '5');

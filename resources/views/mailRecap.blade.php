@@ -1,4 +1,4 @@
-
+<!--View utilisée pour l'envoi du mail récapitulatif de la commande.-->
 <p>Bonjour, suite à votre commande effectuée le {{ $date }} , voici un mail de confirmation de celle-ci.</p>
 <p>Numero de commande : {{$numCommande}}</p>
 

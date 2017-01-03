@@ -20,6 +20,7 @@ class Marque extends Model {
         $this->id_marque = 0;
     }
 
+    //Dialogue aves la bdd pour récupérer la liste des marques
     public function getListeMarques() {
         $query = DB::table('Marque')
                 ->get();
@@ -30,6 +31,7 @@ class Marque extends Model {
         return $this->getKey();
     }
 
+    //Dialogue aves la bdd pour récupérer une marque
     public function getMarque($id) {
         $query = DB::table('Marque')
                 ->select()
