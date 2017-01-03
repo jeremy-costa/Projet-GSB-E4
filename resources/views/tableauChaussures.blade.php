@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-6 col-lg-12">
                 <input name="type"  type="hidden" value="{{$type}}">
-                <button id = "trier" data-toggle="tooltip" type="button" class="btn btn-md btn-warning"><i class="glyphicon glyphicon-sort"></i> Filtrer</button>
+                <button id = "trier" data-toggle="tooltip" type="submit" class="btn btn-md btn-warning"><i class="glyphicon glyphicon-sort"></i> Filtrer</button>
                 {!! Form::close() !!}
                 @if(isset($Client)) 
                 @if ( $Client->LVLSECURITE == 1)   
