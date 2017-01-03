@@ -107,10 +107,19 @@
                     </div>
                     <BR> <BR> 
                     <div class='form-group'>
-                        <label class='col-md-3 control-label'>Stock : </label>
+                        <label class='col-md-3 control-label'>Pointures Disponibles : </label>
                         <div class='col-md-3'>
-                            <input type='text' name='STOCKCH'  class='form-control'>
+                            <input type='text' name='POINTURES'  class='form-control'>
                         </div>
+                        <sub>Exemple : 42,45,38 ... (les pointures doivent être comprises entre 24 et 47 inclus !) </sub>
+                    </div>
+                    <BR> <BR> 
+                    <div class='form-group'>
+                        <label class='col-md-3 control-label'>Quantités Disponibles : </label>
+                        <div class='col-md-3'>
+                            <input type='text' name='QTEPOINTURES'  class='form-control'>
+                        </div>
+                        <sub>Exemple : 5,7,2 ... (les quantités correspondent dans l'ordre aux pointures indiquées au-dessus) </sub>
                     </div>
                     <BR> <BR> 
                     <div class="form-group">

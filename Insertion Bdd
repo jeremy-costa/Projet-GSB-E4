@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* INSERT: 02/01/16  21:43                                     */
+/* INSERT: 03/01/16  21:43                                     */
 /*==============================================================*/
 
 
@@ -252,10 +252,6 @@ insert into pointure values ('FBA04', '38', '4');
 
 insert into pointure values ('FBA04', '40', '4');
 
-insert into pointure values ('FEP01', '36', '4');
-
-insert into pointure values ('FEP01', '38', '4');
-
 insert into pointure values ('FBO06', '36', '4');
 
 insert into pointure values ('FBO06', '39', '4');
@@ -322,9 +318,9 @@ insert into pointure values ('HTO01', '40', '4');
 
 insert into pointure values ('HTO01', '44', '4');
 
-insert into pointure values ('HSO02', '44', '4');
+insert into pointure values ('HSO01', '44', '4');
 
-insert into pointure values ('HSO02', '46', '4');
+insert into pointure values ('HSO01', '46', '4');
 
 --  ---Insertion pointure Enfant 24 à 38--- --
 

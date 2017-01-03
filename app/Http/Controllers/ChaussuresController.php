@@ -286,12 +286,13 @@ class ChaussuresController extends Controller {
         $code_type = Request::input('cbType');
         $couverture = Request::input('couverture');
         $prix = Request::input('PRIXCH');
-        $stock = Request::input('STOCKCH');
         $couleur = Request::input('COULEURCH');
         $matiere = Request::input('MATIERECH');
+        $pointures = Request::input('POINTURES');
+        $qtepointures = Request::input('QTEPOINTURES');
         $uneChaussure = new Modele();
         $idCh = $uneChaussure->compositionIDChaussure($code_type, $code_cat);
-        $uneChaussure->ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $stock, $couleur, $code_type, $matiere);
+        $uneChaussure->ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $couleur, $code_type, $matiere, $pointures, $qtepointures);
         switch ($code_cat) {
             case "H":
                 return redirect('/listerChaussureHomme');

@@ -1,37 +1,43 @@
 <?php
 
 namespace App\metier;
+
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Categorie extends Model{
+class Categorie extends Model {
+
     protected $table = 'Categorie';
     protected $primaryKey = 'idCat';
     public $timestamps = false;
     protected $fillable = [
-         'idCat',
+        'idCat',
         'libelleCat',
     ];
-    
-    public function __construct(){
-        $this->id_marque= 0;
+
+    public function __construct() {
+        $this->id_marque = 0;
     }
     
-    public function getListeMCategories(){
+    //Dialogue aves la bdd pour récupérer la liste des catégories
+    public function getListeMCategories() {
         $query = DB::table('Categorie')
                 ->get();
-        return $query;       
+        return $query;
     }
     
-    public function getidCategorie(){
+    //Dialogue aves la bdd pour récupérer l'id d'une catégorie
+    public function getidCategorie() {
         return $this->getKey();
     }
     
-    public function getCategorie($id){
+    //Dialogue aves la bdd pour récupérer une catégorie en fonction de l'id
+    public function getCategorie($id) {
         $query = DB::table('Categorie')
                 ->select()
                 ->where('idCat', '=', $id)
-                -> first();
+                ->first();
         return $query;
     }
+
 }
