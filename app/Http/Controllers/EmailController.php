@@ -14,7 +14,7 @@ class EmailController extends Controller {
 
     public function sendMailWelcome($user_email, $user_name) { //fonction pour le mail de bienvenue lors de l'inscription
         $title = "Welcome";
-        $content = "je suis le contenu du mail";           
+        $content = "je suis le contenu du mail";
 
 
 
@@ -30,9 +30,6 @@ class EmailController extends Controller {
     }
 
     public function sendRecapCommande($idCli, $total, $idCmde) {  //fonction qui concerne l'email envoyé après une commande.
-
-
-
         $title = "Récapitulatif de la commande numero $idCmde";
         $content = "je suis le contenu du mail";
         $client = new Client();
@@ -45,10 +42,10 @@ class EmailController extends Controller {
         $uneCommande = new Commande();
         $uneChaussure = new LignComm();
         $error = "";
-        $NumCommande = $uneCommande->getIdCommandeClient($idCli);   
+        $NumCommande = $uneCommande->getIdCommandeClient($idCli);
 
         $lesChaussures = $uneChaussure->getlesChaussuresCommande($NumCommande); //ici on recupere les commandes du client en question.
-        
+
         $LignComm = new LignComm();
         $mesLignComm = $LignComm->getlesChaussuresCommande($NumCommande);
         $uneChaussure = new Modele();
@@ -67,11 +64,10 @@ class EmailController extends Controller {
     }
 
     public function envoiMdp() { //fonction qui concerne l'envoie de mail lors d'une demande de "mot de passe oublié"
-
         $login = Request::input('login');
-        $mail = Request::input('email');//ici on recupere le login et l'email passé par méthode post
+        $mail = Request::input('email'); //ici on recupere le login et l'email passé par méthode post
         $unClient = new Client();
-        $connected = $unClient->getClientExistance($login, $mail);// on verifie s'il y a bien un client avec cet email et de login dans la bdd
+        $connected = $unClient->getClientExistance($login, $mail); // on verifie s'il y a bien un client avec cet email et de login dans la bdd
 
 
         if ($connected) {   //s'il existe bien un client, on envoi l'email et on est redirigé vers la view formLogin avec un message de confirmation
@@ -89,7 +85,7 @@ class EmailController extends Controller {
                 $message->to($data['email'], $data['email'])->subject($subject);
             });
 
-            return view('formLogin', compact('erreur')); 
+            return view('formLogin', compact('erreur'));
         } else {  //s'il n'existe pas, renvoi sur la viewformMdpOublie avec un message qui informe que le login ou l'email est incorrect.
             $erreur = "Login ou email incorrect";
             return view('formMdpOublie', compact('erreur'));

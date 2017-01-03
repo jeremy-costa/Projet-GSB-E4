@@ -180,13 +180,13 @@ class Modele extends Model {
     }
 
     //Dialogue aves la bdd pour ajouter un modéle de chaussure dans la bdd 
-    public function ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $couleur, $code_type, $matiere,$pointures,$qtepointures) {
+    public function ajoutChaussure($idCh, $titre, $code_cat, $code_mar, $code_saison, $couverture, $prix, $couleur, $code_type, $matiere, $pointures, $qtepointures) {
         $lesPointures = explode(",", $pointures);
         $lesQtePointures = explode(",", $qtepointures);
         $stock = array_sum($lesQtePointures);
         DB::table('Modele')->insert(['IDCH' => $idCh, 'IDTYPE' => $code_type, 'IDMARQUE' => $code_mar, 'IDCAT' => $code_cat, 'IDSAISON' => $code_saison, 'LIBELLECH' => $titre, 'PRIXCH' => $prix, 'STOCKCH' => $stock, 'MATIERECH' => $matiere, 'COULEURCH' => $couleur, 'IMAGE' => $couverture]);
         $cpt = 0;
-        while($cpt < count($lesPointures)){
+        while ($cpt < count($lesPointures)) {
             DB::table('pointure')->insert(['IDCH' => $idCh, 'IDTAILLE' => $lesPointures[$cpt], 'QTESTOCK' => $lesQtePointures[$cpt]]);
             $cpt += 1;
         }
