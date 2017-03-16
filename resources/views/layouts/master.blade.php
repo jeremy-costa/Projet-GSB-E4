@@ -1,67 +1,82 @@
 <!doctype html>
 <html lang="fr">
     <head>
-        {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/chaussure.css') !!}
-        {!! Html::style('assets/css/bootstrap.css') !!}
+        {!! Html::style('local/assets/css/bootstrap.css') !!}
+       
+        {!! Html::style('local/assets/css/Riotware.css') !!}
+        {!! Html::style('local/assets/css/full-slider.css') !!}
+        {!! Html::script('local/assets/js/bootstrap.min.js') !!}
+        {!! Html::script('local/assets/js/jquery.js')  !!}  
+        {!! Html::script('local/assets/js/bootstrap.js')  !!}
+     
+
+  <script type="text/javascript">
+   $(document).ready(function(){
+      $('.carousel').carousel({
+         interval: 4000,
+         cycle: true
+      });
+   });
+   
+</script>
+
+        }
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
         <meta charset="utf-8"/>
 
     </head>
     <body class="body">
         <div class="container">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- a modifier pour la mettre en responsive -->
-                <div class="container"> <!-- Bloc qui affiche la barre en haute -->
-                    <br>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <a class="position_image_mobiltec" href="{{url('/')}}">
+                    <img id="img_logo" src="{{asset('local/assets/img/logo.png')}}"></a>
 
-                        <a class="navbar-brand" href="{{url('/')}}">
-                            <img id="img_logo" src="../resources/images/copeclogo.gif" >
-                            COPEC</a>
-                    </div>
+                <div class="container"> <!-- Bloc qui affiche la barre en haut -->
+
+
                     <div class="navbar-default navbar-static-top">
-                        <ul class="topnav" id="myTopnav">
-                            @if (Session::get('id') == 0)
-                            <li><a  href="{{url('/getLogin')}}">Panier</a></li>
-                            <li><a href="{{url('/getLogin')}}">Connexion</a></li>
-                            <li><a href="{{url('/getSubscribe')}}">Inscription</a></li>
+                        <div class="menu">
+                            <ul class="topnav" id="myTopnav">
+                               
+                                <li><a href="{{url('/Rechercher')}}">Rechercher</a></li>
+
+                             @if (Session::get('nom')== '')
+                            <li><a href="{{url('/Connexion')}}">Connexion</a></li>
                             @endif
-
-                            @if (Session::get('id')> 0)
-                            <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
-                            <li><a href="{{url('/getProfil')}}/{{ Session::get('id') }}">Profil</a></li>
-                            <li><a href="{{url('/panier')}}/{{Session::get('id')}}">Panier </a></li>
-
-                            @endif
-
-                            <li><a href="{{url('/listerChaussureFemme')}}">Femme</a></li>
-                            <li><a href="{{url('/listerChaussureHomme')}}">Homme</a></li>
-                            <li><a href="{{url('/listerChaussureEnfant')}}">Enfant</a></li> 
+                             @if (Session::get('nom')!=null)
+                            <li><a href="{{url('/getLogoutClient')}}">Se déconnecter</a></li>
+                                      
+                            </ul>
+                             </li>
+                             @endif
                             <li class="icon">
-                                <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+                                <a href="javascript:void(0);" onclick="myFunction()">☰</a>
                             </li>
-                        </ul>
-                    </div>
+                               
 
+
+                            </ul>
+                        </div>
+                        
+
+                    </div>
 
                 </div>
             </nav>
         </div>
 
-        <div class="container">
+
+
+        <div class="contenu">
+
             @yield('content')
         </div>
-    </body>
-</html>
-{!! Html::script('assets/js/bootstrap.min.js') !!}
-{!! Html::script('assets/js/jquery-2.1.3.min.js')  !!}  
-{!! Html::script('assets/js/ui-bootstrap-tpls.js')  !!}
-{!! Html::script('assets/js/bootstrap.js')  !!}
+    </div>
 
+
+
+
+
+
+</body></html>

@@ -1,96 +1,162 @@
 @extends('layouts.master')
 @section('content')
 <!doctype html>
-<html lang="fr">
+<html class="body2">
+    <head>
+
+    </head>
     <body class="body">
+
         <div>
             <br> <br>
             <br> <br>
-            @if ($lesChaussures != null)
-            <div class="container">    
-                <div class="blanc">
-                    <h1>Commande</h1>
-                </div>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nom du modèle</th>
-                            <th>Marque</th>
-                            <th>Type de modèle</th>
-                            <th>Pointure</th>
-                            <th>Pour qui ?</th>
-                            <th>Pour quand ?</th>
-                            <th>Image</th>
-                            <th>Prix unitaire</th>
-                            <th>Quantité</th>
-                            <th>Prix</th>
-                            <th>Supprimer</th>
-                            <th>Total</th>
+            @if ($lesProduits != null)
+            <div class="container">
+                @if($page=="Panier") 
+                {!! Form::open(['url' => 'passercommande']) !!}  
+                @else
+                {!! Form::open(['url' => 'validercommande']) !!}  
+                @endif
+                <div class="container_panier">
+
+                    <h1 style="color:white;">{{$page}}</h1>
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom du produit</th>
+                                <th>Reference</th>
+                                <th>Description</th>
+                                <th>Prix HT</th>
+                                <th>Prix TTC</th>
+                                <th>Produit</th>
+                                <th>Quantité</th>
+                                @if($page=="Panier")  
+                                <th>Supprimer du panier</th>
+                                @endif
+                                <th>Total TTC</th>
+
+
+                            </tr>
+
+
+                        </thead>
+
+
+
+
+
+
+                        @foreach($lesProduits as $unProduit)
+                        <?php $dossier = substr($unProduit->ref, 0, 3) ?>
+                        <tr>   
+                            <td>{{ $unProduit->label }}</td> 
+
+                            <td>{{ $unProduit->ref }}</td>
+
+
+                            <td>  
+                                {!! $unProduit->description !!}
+
+                            </td>
+                            <td>
+                                {{$unProduit->price}}€
+
+                            </td>
+
+                            <td>  
+                                {{$unProduit->price_ttc}}€
+
+                            </td>
+                            <td >       @if(file_exists("local/assets/Images_produits/$dossier/$unProduit->ref.jpg"))
+                                <img class="col-md-12  img_produit"  src="{{asset('/local/assets/Images_produits/')}}/{{ substr($unProduit->ref, 0,3) }}/{{$unProduit->ref}}.jpg" size=portrait>   
+                                @else
+                                <img class="col-md-12  img_produit"  src="{{asset('/local/assets/Images_produits/')}}/{{ substr($unProduit->ref, 0,3) }}/{{ substr($unProduit->ref, 0,3) }}.jpg" size=portrait>  
+                                @endif
+
+                            </td>
+
+
+                            <td> @if($page=="Panier")  <a href="{{ url('/augmenterQte')}}/{{$unProduit->rowid}}/{{$idClient}}" class=" glyphicon glyphicon-chevron-up" data-toggle="tooltip" data-placement="top"></a>@endif
+                                {{(int)$unProduit->quantite }}
+                                @if($page=="Panier")     <a href="{{ url('/diminuerQte')}}/{{$unProduit->rowid}}/{{$idClient}}" class=" glyphicon glyphicon-chevron-down" data-toggle="tooltip" data-placement="top" ></td>@endif
+
+                            @if($page=="Panier")   <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/SupprimerProduit')}}/{{ $unProduit->rowid }}/{{$idClient}}"
+                                                          onclick="javascript:if (confirm('Voulez vous vraiment enlever la chaussure du panier ?'))"> 
+                                </a></td>
+                            @endif
+
+
+                            @endforeach
+                            <td> {{ $total_ttc}}€</td>
+
+
                         </tr>
 
 
-                    </thead>
-                    {!! Form::open(['url' => 'passercommande']) !!}      
-
-                    <input type='hidden' name='idCli' value="{{$idCli}}">
-
-                    @foreach($lesChaussures as $uneChaussure)
-                    <tr>   
-                        <td>{{ $uneChaussure->LIBELLECH }}</td> 
-
-                        <td>{{ $uneChaussure->NOMMARQUE }}</td>
-
-
-                        <td>  
-                            {{ $uneChaussure->LIBELLETYPE }}
-
-                        </td>
-                        <td>
-                            {{$uneChaussure->IDTAILLE}}
-
-                        </td>
-
-                        <td>  
-                            {{$uneChaussure->LIBELLECAT}}
-
-                        </td>
-                        <td> {{$uneChaussure->LIBELLESAISON }} </td>
-                        <td > <img src="../../resources/images/{{$uneChaussure->IMAGE }}"</img></td>
-
-                        <td> {{ $uneChaussure->PRIXCH }}€</td>
-                        <td><a href="{{ url('/augmenterQte')}}/{{$uneChaussure->IDCH}}/{{$idCli}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-up" data-toggle="tooltip" data-placement="top"></a>
-                            {{$uneChaussure->QTECOMMANDE }}
-                            <a href="{{ url('/diminuerQte')}}/{{$uneChaussure->IDCH}}/{{$idCli}}/{{$uneChaussure->IDTAILLE}}" class=" glyphicon glyphicon-chevron-down" data-toggle="tooltip" data-placement="top" ><a></a></td>
-                        <td> {{ $uneChaussure->PRIXCH * $uneChaussure->QTECOMMANDE}}€</td>
-                        <td><a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="{{ url('/supprimerChPanier')}}/{{  $uneChaussure->IDCH }}/{{$uneChaussure->IDTAILLE}}/{{$idCli}}"
-                               onclick="javascript:if (confirm('Voulez vous vraiment enlever la chaussure du panier ?'))"> 
-                            </a></td>
-
-
-                        @endforeach
-                        <th>{{$total}}€</th>
-                    <input type='hidden' name='total' value="{{$total}}">
-                    </tr>
 
 
 
-                    <BR> <BR>
-                </table>
-                @if($lesChaussures!=null)
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-3">
-                        <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Passer la commande</button>
+                        <BR> <BR>
+                    </table>
+
+                    <div class="form-group">
+
+                        <div class="col-md-12">
+                            <center>
+                                @if($page=="Panier")
+                                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Passer la commande</button>
+                                @else
+                                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Valider la commande</button>
+
+                                @endif
+
+
+                            </center>
+                        </div>
+
                     </div>
-                </div>
-                @endif
-            </div>
-            @endif
-            {{$error}}
 
-        </div>
-        {!! Form::close() !!}
-        @stop
+                </div>
+                {!! Form::close() !!}
+                @else
+                <script>
+
+                    $(function () {
+                        $('#myModal').modal('show');
+                    });
+
+
+                </script>
+                <!-- Modal -->
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content col-md-10">
+                            <div class="modal-header col-md-offset-3 ">
+
+                                <h4 class="modal-title  ">Panier vide :(</h4>
+                            </div>
+                            <div class="modal-body ">
+                                <img class="img_modal col-md-8"src="{{asset('local/assets/img/panier_vide.png')}}">
+                            </div>
+                            <div class="modal-footer">
+
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <meta http-equiv="refresh" content="4;{{url('/')}}" />
+                @endif
+
+            </div>
+
+
+
+            {!! Form::close() !!}
+
 
     </body>
 </html>
+@stop
 
