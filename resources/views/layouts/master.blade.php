@@ -41,7 +41,7 @@
 
                                 <li><a href="{{url('/')}}">Accueil</a></li>
 
-                                <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
+                                <li><a data-toggle="modal" data-target="#myModal">Connexion ! </li>
                            
                              @if (Session::get('nom_visiteur')!=null)
                              <li id="li_menu">
