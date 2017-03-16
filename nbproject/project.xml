@@ -3,11 +3,16 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+
             <name>Projet-Riotware-Mobiltec2_final</name>
 =======
             <name>Projet-GSB-E4</name>
->>>>>>> origin/master
+            <name>Projet-GSB-E4</name>
         </data>
     </configuration>
 </project>

@@ -20,7 +20,7 @@
 
         </script>
 
-        
+        }
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
         <meta charset="utf-8"/>
@@ -30,7 +30,9 @@
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <a class="position_image_mobiltec" href="http://ecran-iphone.fr/">
-                    <img id="img_logo" src="{{asset('local/assets/img/logo.png')}}"></a>
+                    <img id="img_logo" src="{{asset('local/assets/img/logomobiltec.png')}}"></a>
+                <a class="position_image_riotware" href="http://www.riotware-informatique.fr">
+                    <img id="img_logo" src="{{asset('local/assets/img/logoRiotware.png')}}"></a>
 
                 <div class="container"> <!-- Bloc qui affiche la barre en haut -->
 
@@ -41,7 +43,7 @@
 
                                 <li><a href="{{url('/')}}">Accueil</a></li>
 
-                                <li><a data-toggle="modal" data-target="#myModal">Connexion ! </li>
+                                <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
                            
                              @if (Session::get('nom_visiteur')!=null)
                              <li id="li_menu">
