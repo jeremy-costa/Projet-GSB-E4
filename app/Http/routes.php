@@ -20,5 +20,6 @@ Route::get('/', function () { return view('accueil'); });
 
 
 //connexion
-Route::post('/login', 'VisiteurController@signIn');
-Route::get('/getLogout', 'VisiteurController@signOut');
+Route::post('/login', 'ConnexionController@signIn');
+Route::get('/getLogout', 'ConnexionController@signOut');
+Route::get('/Rechercher','VisiteurController@getPageRechercher');
