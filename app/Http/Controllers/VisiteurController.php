@@ -21,39 +21,13 @@ class VisiteurController extends Controller {
 
     
 
-    public function signIn() {
-       
-      
-        $unV = new visiteur();
-      
-       
-        
-        $login = Request::input('login');
-        $pwd = Request::input('pwd');
+     public function getPageRechercher() {
+        $erreur = "";
        
        
-        $connected = $unV->login($login, $pwd);
-        
-        if ($connected) {
-         
-
-        return view('accueil');
-            
-        } else {
-            $erreur = "Login ou mot de passe inconnu !";
-            return view('formLogin', compact('erreur'));
-        }
+        return view('rechercher', compact('erreur'));
     }
 
-    /* Créer l'appel de déconnexion d'un utilisateur 
-     * et renvoie sur la page d'accueil.
-     */
-     
-    public function signOut() {
-        $unV = new visiteur();
-        $unV->logout();
-        return redirect('/');
-    }
 
    
 

@@ -10,17 +10,7 @@
         {!! Html::script('local/assets/js/bootstrap.js')  !!}
 
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.carousel').carousel({
-                    interval: 4000,
-                    cycle: true
-                });
-            });
-
-        </script>
-
-        }
+        
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
         <meta charset="utf-8"/>
@@ -46,6 +36,7 @@
                                 <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
                            
                              @if (Session::get('nom_visiteur')!=null)
+                               <li><a href="{{url('/Rechercher')}}">Recherche</a></li>
                              <li id="li_menu">
                                      
                                   <div class="prestation_on"><a>{{ Session::get('nom_visiteur')}} &nabla; </a></div>
