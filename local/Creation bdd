@@ -1,0 +1,169 @@
+/*==============================================================*/
+/* BDD : 02/01/17		 09:35                                  */
+/*==============================================================*/
+
+/*==============================================================*/
+/* Table : CATEGORIE                                            */
+/*==============================================================*/
+create table CATEGORIE 
+(
+   IDCAT                VARCHAR(5)           not null,
+   LIBELLECAT           VARCHAR(10),
+   constraint PK_CATEGORIE primary key (IDCAT)
+);
+
+/*==============================================================*/
+/* Table : CLIENT                                               */
+/*==============================================================*/
+create table CLIENT 
+(
+   IDCLI                INT(3)NOT NULL AUTO_INCREMENT,
+   NOMCLI               VARCHAR(20),
+   PRENOMCLI            VARCHAR(20),
+   ADRESSECLI           VARCHAR(100),
+   NUMTELCLI            INT(10),
+   MAIL			VARCHAR(30),
+   PSEUDO		VARCHAR(10),
+   MDP			VARCHAR(20),
+   LVLSECURITE		BOOLEAN,
+   constraint PK_CLIENT primary key (IDCLI)
+);
+
+/*==============================================================*/
+/* Table : COMMANDE                                             */
+/*==============================================================*/
+create table COMMANDE 
+(
+   IDCMDE               INT(10)NOT NULL AUTO_INCREMENT,
+   IDCLI                INT(3)            not null,
+   DATECMDE             DATE,
+   EFFECTUE             BOOLEAN,
+   constraint PK_COMMANDE primary key (IDCMDE)
+);
+
+/*==============================================================*/
+/* Table : LIGNCOMM                                             */
+/*==============================================================*/
+create table LIGNCOMM 
+(
+   IDCH                 VARCHAR(10)         not null,
+   IDCMDE               INT(10)           not null,
+   IDTAILLE             INT(5)            not null,
+   QTECOMMANDE          INT(2),
+   constraint PK_LIGNCOMM primary key (IDCH, IDCMDE, IDTAILLE)
+);
+
+
+
+/*==============================================================*/
+/* Table : MARQUE                                               */
+/*==============================================================*/
+create table MARQUE 
+(
+   IDMARQUE             VARCHAR(5)            not null,
+   NOMMARQUE            VARCHAR(20),
+   NUMEROMARQUE         INT(15),
+   constraint PK_MARQUE primary key (IDMARQUE)
+);
+
+/*==============================================================*/
+/* Table : MODELE                                               */
+/*==============================================================*/
+create table MODELE 
+(
+   IDCH                 VARCHAR(10)         not null,
+   IDTYPE               VARCHAR(5)            not null,
+   IDMARQUE             VARCHAR(5)            not null,
+   IDCAT                VARCHAR(5)            not null,
+   IDSAISON             VARCHAR(5)           not null,
+   LIBELLECH            VARCHAR(50),
+   PRIXCH               DECIMAL(6,2),
+   STOCKCH              INT(2),
+   MATIERECH            VARCHAR(20),
+   COULEURCH            VARCHAR(20),
+   IMAGE				VARCHAR(50),
+   constraint PK_MODELE primary key (IDCH)
+);
+
+
+/*==============================================================*/
+/* Table : POINTURES                                            */
+/*==============================================================*/
+create table POINTURE 
+(
+   IDCH                 VARCHAR(10)         not null,
+   IDTAILLE             INT(5)            not null,
+   QTESTOCK             INT(3),
+   constraint PK_POINTURE primary key (IDCH, IDTAILLE)
+);
+
+
+/*==============================================================*/
+/* Table : SAISON                                               */
+/*==============================================================*/
+create table SAISON 
+(
+   IDSAISON             VARCHAR(5)            not null,
+   LIBELLESAISON        VARCHAR(20),
+   constraint PK_SAISON primary key (IDSAISON)
+);
+
+/*==============================================================*/
+/* Table : TAILLE                                               */
+/*==============================================================*/
+create table TAILLE 
+(
+   IDTAILLE             INT(5)            not null,
+   constraint PK_TAILLE primary key (IDTAILLE)
+);
+
+/*==============================================================*/
+/* Table : TYPE                                                 */
+/*==============================================================*/
+create table TYPE 
+(
+   IDTYPE               VARCHAR(5)            not null,
+   LIBELLETYPE          VARCHAR(20),
+   constraint PK_TYPE primary key (IDTYPE)
+);
+
+alter table COMMANDE
+   add constraint FK_COMMANDE_PASSER_CLIENT foreign key (IDCLI)
+      references CLIENT (IDCLI);
+
+alter table LIGNCOMM
+   add constraint FK_LIGNCOMM_LIGNCOMM_MODELE foreign key (IDCH)
+      references MODELE (IDCH);
+
+alter table LIGNCOMM
+   add constraint FK_LIGNCOMM_LIGNCOMM2_COMMANDE foreign key (IDCMDE)
+      references COMMANDE (IDCMDE);
+
+alter table LIGNCOMM
+   add constraint FK_LIGNCOMM_LIGNCOMM3_TAILLE foreign key (IDTAILLE)
+      references TAILLE (IDTAILLE);
+
+alter table MODELE
+   add constraint FK_MODELE_APPARTENI_CATEGORI foreign key (IDCAT)
+      references CATEGORIE (IDCAT);
+
+alter table MODELE
+   add constraint FK_MODELE_ASSOCIER_SAISON foreign key (IDSAISON)
+      references SAISON (IDSAISON);
+
+alter table MODELE
+   add constraint FK_MODELE_CORRESPON_TYPE foreign key (IDTYPE)
+      references TYPE (IDTYPE);
+
+alter table MODELE
+   add constraint FK_MODELE_CREER_MARQUE foreign key (IDMARQUE)
+      references MARQUE (IDMARQUE);
+
+alter table POINTURE
+   add constraint FK_POINTURE_POINTURE_MODELE foreign key (IDCH)
+      references MODELE (IDCH);
+
+alter table POINTURE
+   add constraint FK_POINTURE_POINTURE_TAILLE foreign key (IDTAILLE)
+      references TAILLE (IDTAILLE);
+
