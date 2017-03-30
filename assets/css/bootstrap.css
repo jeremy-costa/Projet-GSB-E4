@@ -60,7 +60,7 @@ ul.topnav {
 }
 
 /* Float the list items side by side */
-ul.topnav li {float: left;
+ul.topnav li {float: right;
 width:12%;}
 
 /* Style the links inside the list items */
@@ -3697,7 +3697,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group {
-    margin-left: -1px;
+    margin-left: 83%;
 }
 .nav {
     padding-left: 0;

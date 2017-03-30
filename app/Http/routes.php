@@ -26,3 +26,9 @@ Route::get('/', function () { return view('accueil'); });
 Route::post('/login', 'ConnexionController@signIn');
 Route::get('/getLogout', 'ConnexionController@signOut');
 Route::get('/Rechercher','VisiteurController@getPageRechercher');
+Route::post('/Rechercher', 'VisiteurController@getLaRecherche');
+
+
+Route::get('/ActivitesComplementaires/{nom_visiteur}','VisiteurController@getLesActivitesComplementaires');
+Route::get('/SupprimerActivite/{idActivite}/{NomVisiteur}', 'VisiteurController@deleteActiviteComplementaire');
+

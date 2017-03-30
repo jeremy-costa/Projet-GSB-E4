@@ -49,4 +49,29 @@ class visiteur extends Model {
         Session::put('id_visiteur', 0);
         Session::put('nom_visiteur', null);
     }
+    
+    
+   public function getLesVisiteursNom($recherche)
+    {
+        $visiteur = DB::table('visiteur')
+        ->select('nom_visiteur','prenom_visiteur', 'adresse_visiteur','nom_laboratoire')
+        ->join('laboratoire','laboratoire.id_laboratoire','=','visiteur.id_laboratoire')
+        ->where('nom_visiteur', '=', $recherche)
+        ->get();
+        
+        return $visiteur;
+  }
+  
+  
+  public function getLesVisiteursLaboratoire($recherche)
+  {
+      $visiteur = DB::table('visiteur')
+        ->select('nom_visiteur','prenom_visiteur', 'adresse_visiteur','nom_laboratoire')
+        ->join('laboratoire','laboratoire.id_laboratoire','=','visiteur.id_laboratoire')
+        ->where('nom_laboratoire', '=', $recherche)
+        ->get();
+        
+        return $visiteur;
+  }
+            
 }
