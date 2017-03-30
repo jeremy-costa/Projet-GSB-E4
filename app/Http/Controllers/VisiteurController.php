@@ -29,13 +29,23 @@ public function getLaRecherche() {
     $recherche = Request::input('recherche');
     
     if ($typeRecherche =="nom")
+    {
         $lesVisiteurs = $unV->getLesVisiteursNom($recherche);
+        
+    }
+       
    
     else 
         if($typeRecherche =="laboratoire")
     {
          $lesVisiteurs = $unV->getLesVisiteursLaboratoire($recherche);
     }
+    if ($lesVisiteurs ==null)
+    {
+        $erreur = "Votre recherche n'a pas pu aboutir.";
+         return view('rechercher', compact('erreur' ));
+    }
+    
   
        
      return view('resultatsRecherche', compact('lesVisiteurs' ));

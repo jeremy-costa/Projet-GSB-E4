@@ -1,14 +1,6 @@
 @extends('layouts.master')
 @section('content')
 <!doctype html>
-<html class="body2">
-    <head>
-
-    </head>
-    <body class="body">
-
-
-
 
         <div class="container">
 
@@ -62,18 +54,17 @@
                 </tr>
                 @endforeach
 
-
-
-
-                <BR> <BR>
+                
             </table>
 
+            
+            
+            <a href="{{ url('/Rechercher')}}" data-original-title="Annuler" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-off">Retour</i></a>
 
         </div>
 
 
 
-    </body>
-</html>
+
 @stop
 
