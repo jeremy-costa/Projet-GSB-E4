@@ -738,7 +738,13 @@ width: auto;
         margin-left: auto;
 
     }
-
+    .positionEcran
+    {
+         padding-left: 50%;
+    }
+    .positionText{
+        margin-left: 50%;
+    }
 }
 
 
