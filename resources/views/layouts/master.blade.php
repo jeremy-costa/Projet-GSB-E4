@@ -3,7 +3,7 @@
     <head>
         {!! Html::style('local/assets/css/bootstrap.css') !!}
 
-        {!! Html::style('local/assets/css/Riotware.css') !!}
+        {!! Html::style('local/assets/css/gsb.css') !!}
         {!! Html::style('local/assets/css/full-slider.css') !!}
         {!! Html::script('local/assets/js/bootstrap.min.js') !!}
         {!! Html::script('local/assets/js/jquery.js')  !!}  
@@ -19,10 +19,8 @@
     <body class="body">
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <a class="position_image_mobiltec" href="http://ecran-iphone.fr/">
-                    <img id="img_logo" src="{{asset('local/assets/img/logomobiltec.png')}}"></a>
-                <a class="position_image_riotware" href="http://www.riotware-informatique.fr">
-                    <img id="img_logo" src="{{asset('local/assets/img/logoRiotware.png')}}"></a>
+                <a class="position_image_mobiltec" href="{{url('/')}}">
+                    <img id="img_logo" src="{{asset('local/assets/img/logo.png')}}"></a>
 
                 <div class="container"> <!-- Bloc qui affiche la barre en haut -->
 
@@ -30,12 +28,8 @@
                     <div class="navbar-default navbar-static-top">
                         <div class="menu">
                             <ul class="topnav" id="myTopnav">
-
                                 <li><a href="{{url('/')}}">Accueil</a></li>
-
-                                <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
-                           
-                             @if (Session::get('nom_visiteur')!=null)
+                    @if (Session::get('nom_visiteur')!=null)
                                <li><a href="{{url('/Rechercher')}}">Recherche</a></li>
                              <li id="li_menu">
                                      
@@ -48,6 +42,12 @@
                                   </ul>
                              </li>
                              @endif
+                             
+                                
+                    @if (Session::get('nom_visiteur')== null)
+                                <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
+                           @endif
+                            
  
                             
                           
