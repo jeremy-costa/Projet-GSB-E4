@@ -8,14 +8,14 @@
     <body class="body">
 
 
-  {!! Form::open(['url' => 'Rechercher']) !!}
+        {!! Form::open(['url' => 'Rechercher']) !!}
 
         <div class="container">
 
 
 
-            <h1>Activites complementaires de {{$nom_visiteur}}</h1>
-
+            <h1>Activites complementaires de {{$prenom_visiteur}} {{$nom_visiteur}}</h1>
+            <a href="{{ url('/addActivite')}}/{{$id_visiteur}}/{{$nom_visiteur}}/{{$prenom_visiteur}}"  data-toggle="tooltip" type="button" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus">Ajouter une activité</i></a>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -64,7 +64,7 @@
                         <a class="glyphicon glyphicon-pencil" href="{{ url('/ModifierActivite')}}"</a>
                     </td>
                     <td>
-                       <a class="glyphicon glyphicon-trash" href="{{ url('/SupprimerActivite')}}/{{$unA->id_activite_compl}}/{{$nom_visiteur}}"</a>
+                        <a class="glyphicon glyphicon-trash" href="{{ url('/SupprimerActivite')}}/{{$unA->id_activite_compl}}/{{$id_visiteur}}/{{$nom_visiteur}}/{{prenom_visiteur}}"</a>
                     </td>
 
 
@@ -77,9 +77,9 @@
                 <BR> <BR>
             </table>
 
-            
-            
-          <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-remove">Retour</span></button>
+
+
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-remove">Retour</span></button>
 
         </div>
 

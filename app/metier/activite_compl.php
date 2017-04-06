@@ -42,6 +42,14 @@ class activite_compl extends Model {
         
     }
     
+    public function addUneActiviteComplementaire($id_visiteur, $theme, $motif, $date, $lieu, $montant)
+    {
+         DB::table('activite_compl')->insert(['date_activite'=>$date,'lieu_activite'=>$lieu, 'theme_activite'=>$date, 'motif_activite'=> $motif, 'realiser.montant_ac'=>$montant,'realiser.id_visiteur'=> $id_visiteur])
+                                    ->join('realiser','activite_compl.id_activite_compl','=','realiser.id_activite_compl');
+        
+        
+    }
+    
     
   
 }

@@ -47,7 +47,7 @@
 
                     <td>  
 
-                        <a class="glyphicon glyphicon-list-alt" href="{{ url('/ActivitesComplementaires')}}/{{$unV->nom_visiteur}}"></a>
+                        <a class="glyphicon glyphicon-list-alt" href="{{ url('/ActivitesComplementaires')}}/{{$unV->id_visiteur}}/{{$unV->nom_visiteur}}/{{$unV->prenom_visiteur}}"></a>
                     </td>
 
 

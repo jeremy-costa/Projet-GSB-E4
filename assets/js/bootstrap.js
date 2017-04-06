@@ -101,6 +101,19 @@ function checkEmpty() {
         document.getElementById('Ajouter').disabled = "disabled";
     }
 }
+function check() {
+
+    if (document.getElementById('choixRecherche').selectedIndex == 2 ) {
+        
+        document.getElementById('choixLaboratoire').hidden = false;
+        document.getElementById('choixNom').hidden = true;
+        
+       
+   } else {
+        document.getElementById('choixNom').hidden =false;
+        document.getElementById('choixLaboratoire').hidden = true;
+    }
+}
  
 
 

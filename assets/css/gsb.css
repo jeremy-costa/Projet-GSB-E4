@@ -518,7 +518,7 @@ glyphicon{
     position:absolute;
     visibility:hidden;
     background-color:white;
-    width:18%;
+    width:auto;
     padding-left:0;
 
 
@@ -540,7 +540,7 @@ glyphicon{
 
 
 .prestation_on  {
-
+    width: auto;
 }
 .prestation_off {
     display:none;
@@ -588,7 +588,6 @@ glyphicon{
 
 
 }
-
 
 
 /*css pour le captcha google*/
@@ -666,9 +665,9 @@ glyphicon{
     width:100%;
 }
 .img_accueil {
-    -webkit-border-radius: 0%;
-    height:70%;
-    width:70%;
+    width:20%;
+    height:50%;
+    opacity: 0.7;
 }
 .img_modal {
     -webkit-border-radius: 0%;
@@ -702,6 +701,13 @@ glyphicon{
     background-color:white;
 }
 
+ .positionEcran
+    {
+        font-size: 120%;
+    }
+    .positionText{
+        font-size: 120%;
+    }
 
 
 
@@ -739,7 +745,15 @@ glyphicon{
         margin-left: auto;
 
     }
-
+    .positionEcran
+    {
+        padding-left: 40%;
+        font-size: 120%;
+    }
+    .positionText{
+        margin-left: 40%;
+        font-size: 120%;
+    }
 }
 
 
@@ -782,7 +796,7 @@ glyphicon{
     #myTopnav{
         padding-left:11%;
     }
-
+   
 
 }
 

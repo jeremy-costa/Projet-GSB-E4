@@ -4,13 +4,12 @@
         {!! Html::style('local/assets/css/bootstrap.css') !!}
 
         {!! Html::style('local/assets/css/gsb.css') !!}
-        {!! Html::style('local/assets/css/full-slider.css') !!}
         {!! Html::script('local/assets/js/bootstrap.min.js') !!}
         {!! Html::script('local/assets/js/jquery.js')  !!}  
         {!! Html::script('local/assets/js/bootstrap.js')  !!}
 
 
-        
+
         <meta name="description" content="CSS only mobile fisrt navigation"> <!-- Mise en page pour mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
         <meta charset="utf-8"/>
@@ -28,36 +27,31 @@
                     <div class="navbar-default navbar-static-top">
                         <div class="menu">
                             <ul class="topnav" id="myTopnav">
-                                <li><a href="{{url('/')}}">Accueil</a></li>
-                    @if (Session::get('nom_visiteur')!=null)
-                               <li><a href="{{url('/Rechercher')}}">Recherche</a></li>
-                             <li id="li_menu">
-                                     
-                                  <div class="prestation_on"><a>{{ Session::get('nom_visiteur')}} &nabla; </a></div>
-                                  <div class="prestation_off"><a>{{ Session::get('nom_visiteur')}} &Delta;</a></div>
-                                  <ul id="menu-vertical">
+                                <!--Début Bouton utilisateur -->
+                                @if (Session::get('nom_visiteur')== null)
+                                <li><a data-toggle="modal" data-target="#myModal">Connexion
+                                        @endif
                                         
-                                          <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
-                                      
-                                  </ul>
-                             </li>
-                             @endif
-                             
-                                
-                    @if (Session::get('nom_visiteur')== null)
-                                <li><a data-toggle="modal" data-target="#myModal">Connexion </li>
-                           @endif
-                            
- 
-                            
-                          
-                            <li class="icon">
-
-                                <a href="javascript:void(0);" onclick="myFunction()">☰</a>
-                            </li>
-
-
-
+                                        <li class="icon">
+                                            <a href="javascript:void(0);" onclick="myFunction()">☰</a>
+                                        </li>
+                                        
+                                        @if (Session::get('nom_visiteur')!=null)
+                                        <li id="li_menu">
+                                            <div class="prestation_on"><a>{{ Session::get('nom_visiteur')}} &nabla; </a></div>
+                                            <div class="prestation_off"><a>{{ Session::get('nom_visiteur')}} &Delta;</a></div>
+                                            <ul id="menu-vertical">
+                                                <li><a href="{{url('/getLogout')}}">Se déconnecter</a></li>
+                                            </ul>
+                                        </li> 
+                                        <li><a href="{{url('/Rechercher')}}">Recherche</a></li>
+                                        @endif
+                                        
+                                        <li><a href="{{url('/')}}">Accueil</a></li>
+                                        
+                                        @if (Session::get('nom_visiteur')!=null)
+                                        <li><a href="{{url('/Ajouter')}}">Ajouter</a></li>
+                                        @endif
                             </ul>
                         </div>
 
@@ -67,7 +61,7 @@
                 </div>
             </nav>
         </div>
-       
+
         <!-- Modal -->
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

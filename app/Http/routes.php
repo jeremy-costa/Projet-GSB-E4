@@ -25,10 +25,13 @@ Route::get('/', function () { return view('accueil'); });
 //connexion
 Route::post('/login', 'ConnexionController@signIn');
 Route::get('/getLogout', 'ConnexionController@signOut');
+
 Route::get('/Rechercher','VisiteurController@getPageRechercher');
+
 Route::post('/Rechercher', 'VisiteurController@getLaRecherche');
+Route::post('/ajoutActivite', 'VisiteurController@addActivite');
+Route::get('/addActivite/{id_visiteur}/{nom_visiteur}/{prenom_visiteur}','VisiteurController@addActiviteComplementaire');
 
-
-Route::get('/ActivitesComplementaires/{nom_visiteur}','VisiteurController@getLesActivitesComplementaires');
-Route::get('/SupprimerActivite/{idActivite}/{NomVisiteur}', 'VisiteurController@deleteActiviteComplementaire');
+Route::get('/ActivitesComplementaires/{id_visiteur}/{nom_visiteur}/{prenom_visiteur}','VisiteurController@getLesActivitesComplementaires');
+Route::get('/SupprimerActivite/{idActivite}/{id_Visiteur}/{NomVisiteur}/{prenom_visiteur}', 'VisiteurController@deleteActiviteComplementaire');
 

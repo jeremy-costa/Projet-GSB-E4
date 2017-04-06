@@ -38,6 +38,7 @@ class visiteur extends Model {
             if ($visiteur->pwd_visiteur == $pwd) {
                 Session::put('id_visiteur', $visiteur->id_visiteur);
                 Session::put('nom_visiteur', $visiteur->nom_visiteur);
+                Session::put('prenom_visiteur', $visiteur->prenom_visiteur);
                 $connected = true;
             }
         }
@@ -48,13 +49,15 @@ class visiteur extends Model {
     public function logout() {
         Session::put('id_visiteur', 0);
         Session::put('nom_visiteur', null);
+        Session::put('prenom_visiteur',null);
     }
+
     
     
    public function getLesVisiteursNom($recherche)
     {
         $visiteur = DB::table('visiteur')
-        ->select('nom_visiteur','prenom_visiteur', 'adresse_visiteur','nom_laboratoire')
+        ->select('id_visiteur','nom_visiteur','prenom_visiteur', 'adresse_visiteur','nom_laboratoire')
         ->join('laboratoire','laboratoire.id_laboratoire','=','visiteur.id_laboratoire')
         ->where('nom_visiteur', '=', $recherche)
         ->get();
